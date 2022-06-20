@@ -1,0 +1,46 @@
+:root {
+  --button-shadow: 1px 1px 3px 1px #dadce0;
+  --box-inset: 1px 1px 3px 1px #dadce0 inset;
+}
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+.container {
+  padding: 1%;
+}
+.row {
+  display: flex;
+  justify-content: space-between;
+}
+header {
+  border: 2px solid black;
+}
+.swiper {
+  width: 600px;
+  height: 300px;
+}
+.category-dropdown button {
+  border: 1px solid pink;
+  background-color: transparent;
+  margin: 3%;
+}
+.dropdown-content {
+  position: absolute;
+  display: none;
+  background-color: pink;
+}
+.dropdown-content a {
+  display: block;
+  padding: 12px 16px;
+  text-decoration: none;
+  text-align: left;
+  color: whitesmoke;
+}
+.dropdown-content a:hover {
+  background-color: rgb(0, 158, 158);
+}
+.category-dropdown:hover .dropdown-content {
+  display: block;
+}
