@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/swiper@8/swiper-bundle.min.css"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <header class="row">
+        <div class="logo">
+            <p>Traffic-Accident</p>
+        </div>
+          <div class="row category-dropdown">
+              <!-- day_17.html 참고-->
+              <div class="reference-dropdown">
+                  <button type="button">통계 자료실</button>
+                  <div class="dropdown-content">
+                    <a href="#">지역별</a>
+                    <a href="#">가해자별</a>
+                    <a href="#">도로별</a>
+                  </div>
+              </div>
+              <button>서비스 소개</button>
+              <button>고객 센터</button>
+              <button>관리자 페이지</button>
+          </div>
+      </header>
+      <div class="main-section">
+        <div class="swiper">
+            <!-- Additional required wrapper -->
+        <div class="swiper-wrapper">
+            <!-- Slides -->
+            <div class="swiper-slide">Slide 1</div>
+            <div class="swiper-slide">Slide 2</div>
+            <div class="swiper-slide">Slide 3</div>
+            <div class="swiper-slide">Slide 4</div>
+            ...
+          </div>
+          <!-- If we need pagination -->
+          <div class="swiper-pagination"></div>
+  
+          <!-- If we need navigation buttons -->
+          <div class="swiper-button-prev"></div>
+          <div class="swiper-button-next"></div>
+        </div>
+        <div class="row main-row-section">
+            <div class="main-graph-section">
+    
+            </div>
+            <div class="main-user-board-list-section">
+    
+            </div>
+        </div>
+      </div><!-- main-section end -->
+      <footer>
+        <button type="button">top</button>
+      </footer>
+    </div> <!-- container end -->
+  </body>
+  <script src="https://unpkg.com/swiper@8/swiper-bundle.min.js"></script>
+    <script>
+      const swiper = new Swiper('.swiper', {
+        // Optional parameters
+        autoplay: {
+          delay: 3000,
+        },
+        loop: true,
+
+        // If we need pagination
+        pagination: {
+          el: '.swiper-pagination',
+        },
+
+        // Navigation arrows
+        navigation: {
+          nextEl: '.swiper-button-next',
+          prevEl: '.swiper-button-prev',
+        },
+      });
+    </script>
+</html>
