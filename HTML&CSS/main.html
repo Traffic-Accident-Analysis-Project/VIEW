@@ -13,17 +13,26 @@
   </head>
   <body>
     <div class="container">
+      <div class="top">
+        <a href="#">home</a>
+        <select name="lang-selbox" id="">
+          <option value="korea">한글</option>
+          <option value="eng">English</option>
+        </select>
+      </div>
       <header class="row">
         <div class="logo">
             <p>Traffic-Accident</p>
         </div>
           <div class="row category">
-              <div class="category-link reference-dropdown">
-                  <button type="button">통계 자료실</button>
-                  <div class="intro dropdown-content">
-                    <a href="#">지역별</a>
-                    <a href="#">가해자별</a>
-                    <a href="#">도로별</a>
+              <div class="category-link dropdown">
+                  <div class="link-button">통계 자료실</div>
+                  <div class="dropdown-content">
+                    <a href="#">법규 위반</a>
+                    <a href="#">음주 정도</a>
+                    <a href="#">도로 종류</a>
+                    <a href="#">사고 유형</a>
+                    <a href="#">시도 별</a>
                   </div>
               </div>
               <div class="category-link service-link">
@@ -42,11 +51,21 @@
             <!-- Additional required wrapper -->
         <div class="swiper-wrapper">
             <!-- Slides -->
-            <div class="swiper-slide">Slide 1</div>
-            <div class="swiper-slide">Slide 2</div>
-            <div class="swiper-slide">Slide 3</div>
-            <div class="swiper-slide">Slide 4</div>
-            ...
+            <div class="swiper-slide">
+              <img src="img/car-accident-g8bdc6172b_1280.jpg" alt="">
+            </div>
+            <div class="swiper-slide">
+              <img src="img/car-accident-g6d1835f54_1280.jpg" alt="">
+            </div>
+            <div class="swiper-slide">
+              <img src="img/automobile-gd8498f51e_1280.jpg" alt="">
+            </div>
+            <div class="swiper-slide">
+              <img src="img/car-accident-g7519b9649_1280.jpg" alt="">
+            </div>
+            <div class="swiper-slide">
+              <img src="img/crash-gdc5bfcae5_1280.jpg" alt="">
+            </div>
           </div>
           <!-- If we need pagination -->
           <div class="swiper-pagination"></div>
