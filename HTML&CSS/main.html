@@ -17,20 +17,25 @@
         <div class="logo">
             <p>Traffic-Accident</p>
         </div>
-          <div class="row category-dropdown">
-              <!-- day_17.html 참고-->
-              <div class="reference-dropdown">
+          <div class="row category">
+              <div class="category-link reference-dropdown">
                   <button type="button">통계 자료실</button>
-                  <div class="dropdown-content">
+                  <div class="intro dropdown-content">
                     <a href="#">지역별</a>
                     <a href="#">가해자별</a>
                     <a href="#">도로별</a>
                   </div>
               </div>
-              <button>서비스 소개</button>
-              <button>고객 센터</button>
-              <button>관리자 페이지</button>
-          </div>
+              <div class="category-link service-link">
+                <a href="#">서비스 소개</a>
+              </div>
+              <div class="category-link client-link">
+                <a href="#">고객 센터</a>
+              </div>
+              <div class="category-link manager-link">
+                <a href="#">관리자 페이지</a>
+              </div>
+          </div> <!-- category end -->
       </header>
       <div class="main-section">
         <div class="swiper">
@@ -49,17 +54,20 @@
           <!-- If we need navigation buttons -->
           <div class="swiper-button-prev"></div>
           <div class="swiper-button-next"></div>
-        </div>
+        </div> <!-- swiper end -->
         <div class="row main-row-section">
             <div class="main-graph-section">
-    
+              <!-- 그래프 들어갈 자리(사이즈만 잡아놓기) -->
+              <p>그래프</p>
             </div>
             <div class="main-user-board-list-section">
-    
+              <!-- 고객센터 리스트 들어갈 자리(사이즈만 잡아놓기) -->
+              <p>고객센터 리스트</p>
             </div>
         </div>
       </div><!-- main-section end -->
-      <footer>
+      <footer class="row">
+        <p>email</p>
         <button type="button">top</button>
       </footer>
     </div> <!-- container end -->
