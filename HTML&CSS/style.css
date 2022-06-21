@@ -16,22 +16,47 @@
   justify-content: space-between;
 }
 .top {
+  display: flex;
+  justify-content: right;
   width: 100%;
   height: 25px;
   background-color: var(--main-blue);
 }
+.top select{
+  margin: 0 1%;
+  border: none;
+  border-radius: 5px;
+  background-color: transparent;
+  color: var(--light-grey);
+}
+.top option {
+  background-color: var(--light-grey);
+  color: var(--main-blue);
+}
+.top a {
+  color: var(--light-grey);
+  text-decoration: none;
+}
 header {
   color: white;
   height: 68px;
-  padding-top: 15.8px;
+  /* padding-top: 15.8px; */
+}
+.logo img {
+  margin-left: 20%;
+  margin-top: -8px;
+  width: 90px;
 }
 .logo {
-  background-color: var(--light-grey)
+  width: 100%;
 }
+
 .category {
-  font-size: 16px;
-  width: 50%;
+  margin-top: 16.8px;
+  font-size: 15px;
+  width: 100%;
   text-align: center;
+  /* background-color: #5a5256; */
 }
 .category a {
   color: var(--main-blue);
@@ -56,7 +81,7 @@ header {
 .link-button {
   color: var(--main-blue);
   font-weight: 800;
-  font-size: 16px;
+  font-size: 15px;
   border: none;
   background-color: transparent;
   margin: 0% 3%;
@@ -83,7 +108,9 @@ header {
 .dropdown:hover .dropdown-content {
   display: block;
 }
-
+.manager-link{
+  margin-right: 20%;
+}
 
 
 .swiper {
@@ -97,6 +124,22 @@ header {
   height: 100%;
   object-fit: cover;
   opacity: 0.7;
+}
+.swiper-button-next {
+  background: url(/HTML&CSS/img/next.png) no-repeat;
+  background-size: 200% auto;
+  background-position: center;
+}
+
+.swiper-button-prev {
+  background: url(/HTML&CSS/img/pre.png) no-repeat;
+  background-size: 200% auto;
+  background-position: center;
+}
+
+.swiper-button-next::after,
+.swiper-button-prev::after {
+  display: none;
 }
 
 .main-row-section {
@@ -114,12 +157,25 @@ header {
 }
 
 footer {
-  background-color: black;
+  display: flex;
+  justify-content: space-around;
+  background-color: var(--main-blue);
+  border: none;
   height: 150px;
-  color: whitesmoke;
+  color: var(--light-grey);
+  padding: 2% 30% 0 30%;
+}
+footer img {
+  width: auto;
+  height: 100px;
+  opacity: 0.8;
 }
 footer button {
+  font-size: 15px;
   cursor: pointer;
   background-color: transparent;
-  color: whitesmoke;
+  border: none;
+  color: var(--light-grey);
+  width: auto;
+  height: 30px;
 }
