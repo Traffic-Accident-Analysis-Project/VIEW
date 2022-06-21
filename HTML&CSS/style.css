@@ -66,7 +66,6 @@ header {
   text-decoration: none;
 }
 .category-link {
-  margin: 0 5%;
   width: 120px;
   padding-top: 10px;
   font-weight: 800;
@@ -75,11 +74,6 @@ header {
   position: relative;
   display: inline-block;
   cursor: pointer;
-}
-.dropdown::after {
-  display: block;
-  content: "";
-  clear: both;
 }
 .link-button {
   color: var(--main-blue);
@@ -95,7 +89,7 @@ header {
   display: none;
   position: absolute;
   background-color: var(--main-blue);
-  margin-top: 20px;
+  margin-top: 22px;
 }
 .dropdown-content a {
   display: block;
@@ -155,11 +149,53 @@ header {
   height: 500px;
 }
 .main-user-board-list-section {
+  padding: 8px;
+  box-shadow: var(--button-shadow);
+  border-radius: 5px;
   width: 50%;
-  border: 1px solid magenta;
-  height: auto;
+  height: 500px;
 }
-
+.main-user-board-header {
+  text-align: center;
+  margin: 3% 0;
+  font-size: 25px;
+  font-weight: 700;
+  color: var(--main-blue);
+}
+.main-user-board-list-section table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 10px;
+  text-align: center;
+}
+.main-user-board-list-section table thead th {
+  font-size: 18px;
+  font-weight: 700;
+}
+.main-user-board-list-section table tr {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+.main-user-board-list-section table tbody td {
+  text-align: center;
+  padding: 10px;
+}
+.main-user-board-list-section table tr:last-child {
+  border-bottom: none;
+}
+.pagination {
+  margin-top: 50px;
+  font-size: 15px;
+  text-align: center;
+}
+.pagination a {
+  box-shadow: var(--button-shadow);
+  width: 10px;
+  text-decoration: none;
+  margin-left: 10px;
+  border-radius: 3px;
+  padding: 3px 5px;
+  color: var(--dark-grey);
+}
 footer {
   display: flex;
   justify-content: space-around;
