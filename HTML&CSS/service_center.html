@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>고객센터</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="service_center.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+      integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <div class="top">
+        <a href="main.html">home</a>
+        <i
+          class="fa-solid fa-house-chimney"
+          style="color: #eaeaea; margin-left: 5px; margin-top: 3px"
+        ></i>
+        <select name="lang-selbox" id="">
+          <option value="korea">한글</option>
+          <option value="eng">English</option>
+        </select>
+      </div>
+      <header class="row">
+        <div class="logo">
+          <a href="main.html">
+            <img src="img/T.A.S-logo.png" alt="" />
+          </a>
+        </div>
+        <div class="row category">
+          <div class="category-link dropdown">
+            <div class="link-button">통계 자료실</div>
+            <div class="dropdown-content">
+              <a href="law.html">법규 위반</a>
+              <a href="#">음주 정도</a>
+              <a href="#">도로 종류</a>
+              <a href="#">사고 유형</a>
+              <a href="#">시도 별</a>
+            </div>
+          </div>
+          <div class="category-link service-link">
+            <a href="#">서비스 소개</a>
+          </div>
+          <div class="category-link client-link">
+            <a href="/HTML&CSS/service_center.html">고객 센터</a>
+          </div>
+          <div class="category-link manager-link">
+            <a href="#">관리자 페이지</a>
+          </div>
+        </div>
+      </header>
+      <!-- header end -->
+      <hr style="border: 5px solid #2e7ec8" />
+      <div class="service-center-section">
+        <div class="recentOrders">
+          <div class="cardHeader">
+            <h2>고객 센터</h2>
+            <a href="#" class="btn">글 작성</a>
+          </div>
+          <table>
+            <thead>
+              <tr>
+                <th>글 번호</th>
+                <th>작성자</th>
+                <th>제목</th>
+                <th>작성 날짜</th>
+                <th>조회 수</th>
+              </tr>
+            </thead>
+            <tbody id="boardData">
+              <tr>
+                <td>1</td>
+                <td>현상원</td>
+                <td>점심시간이 너무 짧아요!</td>
+                <td>2022-05-19</td>
+                <td><span class="high">8320</span></td>
+              </tr>
+              <tr>
+                <td>2</td>
+                <td>현상원</td>
+                <td>학원에 커피기계가 없어요!</td>
+                <td>2022-05-18</td>
+                <td><span class="middle">1200</span></td>
+              </tr>
+              <tr>
+                <td>3</td>
+                <td>현상원</td>
+                <td>너무 졸려요...</td>
+                <td>2022-05-19</td>
+                <td><span class="row">5</span></td>
+              </tr>
+              <tr>
+                <td>4</td>
+                <td>현상원</td>
+                <td>안녕하세요!</td>
+                <td>2022-05-19</td>
+                <td><span class="row">22</span></td>
+              </tr>
+            </tbody>
+          </table>
+          <div class="pagination">
+            <a href="#">Previous</a>
+            <a href="#">1</a>
+            <a href="#">2</a>
+            <a href="#">3</a>
+            <a href="#">4</a>
+            <a href="#">5</a>
+            <a href="#">Next</a>
+          </div>
+        </div>
+      </div>
+      <footer>
+        <img src="img/T.A.S-logo-black.png" alt="" />
+        <div class="footer-info">
+          <p>email : jyg12770@google.com</p>
+          <p>email : jyg12770@google.com</p>
+        </div>
+        <button type="button">top</button>
+      </footer>
+    </div>
+    <!-- container end -->
+  </body>
+</html>
