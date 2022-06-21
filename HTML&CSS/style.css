@@ -1,6 +1,10 @@
 :root {
   --button-shadow: 1px 1px 3px 1px #dadce0;
   --box-inset: 1px 1px 3px 1px #dadce0 inset;
+  --main-blue: 	#2e7ec8;
+  --light-grey: #eaeaea;
+  --middel-grey: #6f6669;
+  --dark-grey: #5a5256;
 }
 * {
   padding: 0;
@@ -12,35 +16,34 @@
   justify-content: space-between;
 }
 header {
-  border: 2px solid black;
+  margin-top: 15px;
+  background-color: var(--main-blue);
+  color: white;
   margin-bottom: 5%;
   height: 68px;
   padding: 10px 8%;
 }
 .logo {
-  background-color: palegreen;
+  background-color: var(--light-grey)
 }
-
-
-
 .category {
-  font-size: 17px;
+  font-size: 15px;
   width: 50%;
   text-align: center;
 }
 .category a {
   text-decoration: none;
+  color: var(--light-grey);
 }
-
 .category-link {
-  border: 1px solid white;
+  /* border: 1px solid white; */
   margin: 0 3%;
   width: 150px;
   padding-top: 10px;
 }
-
 .reference-dropdown button {
-  font-size: 18px;
+  color: var(--light-grey);
+  font-size: 15px;
   border: none;
   background-color: transparent;
   margin: 1% 3%;
@@ -49,7 +52,7 @@ header {
 
 .dropdown-content {
   display: none;
-  background-color: pink;
+  background-color: var(--light-grey);
 }
 .dropdown-content a {
   display: block;
@@ -59,7 +62,7 @@ header {
 }
 .dropdown-content a:hover {
   transition: 0.3s;
-  background-color: rgb(0, 158, 158);
+  background-color: var(--main-blue);
 }
 .reference-dropdown:hover .dropdown-content {
   display: block;
