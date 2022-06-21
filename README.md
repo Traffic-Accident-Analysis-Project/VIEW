@@ -20,23 +20,40 @@
 (보통 OS, Compiler 정도를 쓰고 Multicore 환경에서 돌아가는 프로그램이라면 CPU, RAM 등도 써주는 것이 좋다.)
 또한 언어의 버전도 적어줄 수 있다면 적어주는 것이 좋다.
 -->
+### 개발환경
+1. OS(운영체제)
+    - Windows(Local 개발)
+    - Linux Ubuntu(운영)
+
+2. 사용 언어
+    - Java, HTML, CSS, Javascript(JQuery, D3.JS)
+3. 프레임워크
+    - SpringBoot
+4. 개발 툴
+    - 이클립스(Eclipse)
+    - VS Code
+### 실행방법
+- 위와 같은 개발환경에서 MVC패턴을 활용한 Project 생성 후 내장 Tomcat을 사용해 Test 및 AWS 서버 배포
+ Java Gradle에 다음과 같은 의존성 추가
+```
+// deploy
+providedRuntime 'org.springframework.boot:spring-boot-starter-tomcat'
+```
+- 이유 : 컴파일 단계에서만 tomcat 라이브러리를 이용하고, 배포 이후에는 내장 tomcat이 아닌 이미 존재하는 tomcat 서버를 이용하기 위해서
+- 이미 존재하는 tomcat 서버 : AWS EC2 인스턴스를 사용
+
+
 ## Advanced Feature
 <!-- 주의깊게 볼 기능들 -->
+1. Kakao Map API를 활용한 지도 구현
+2. D3.JS를 활용한 그래프 구현
 
 ## 개선사항
 <!-- 내가 나의 서비스에대해 좀 더 고민한 흔적 보여주기 -->
 ---
 
 
-### 교통사고 분류
-1. 유형별
-2. 시도별
-3. 차종별
-4. 년도별
-5. 월별
-6. 요일별
-7. 시간대별
-8. 음주정도별
+
 
 ### 분석 방법
 1. 그래프(Histogram, Plot, Pie Chart, Radar Chart, Polar Area)
@@ -47,9 +64,6 @@
     - R활용?
     - 시계열 자료분석을 이용한 년도별 사고 증가율
     - 검정을 이용한 방법(음주가 교통사고에 영향을 미치는가? / 시간, 요일 등이 교통사고에 영향을 주는가?)
-
-
-
 
 
 - 참고 : https://kosis.kr/search/search.do
@@ -77,10 +91,3 @@ Usage
 
 이 외에도 라이센스, contributing 같은 것들도 있지만 처음부터 readme를 복잡하게 작성하기 보단 프로젝트의 규모가 커지면서 디테일하게 추가하며 다듬는 것이 좋다.
 -->
-
-
-# 할일
-
-1. KOSIS(국가통계포털)에서 데이터(Excel, txt, csv) 받아와서 핸들링 및 DB 저장
-2. 저장된 DB 데이터 R에 연결
-3. R로 간단한 sample plot 생성
