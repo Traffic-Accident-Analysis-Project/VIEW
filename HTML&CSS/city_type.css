@@ -1,0 +1,86 @@
+:root {
+  --button-shadow: 1px 1px 3px 1px #dadce0;
+  --box-inset: 1px 1px 3px 1px #dadce0 inset;
+  --main-blue: #2e7ec8;
+  --light-grey: #eaeaea;
+  --middel-grey: #6f6669;
+  --dark-grey: #5a5256;
+}
+.city-main-title {
+  width: 100%;
+  padding: 3% 4% 0;
+}
+.city-by-category-main-section {
+  padding: 3%;
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  flex-basis: 1;
+}
+.city-main-left-section-map {
+  width: 50%;
+  padding-left: 5%;
+}
+.city-main-right-section {
+  padding-left: 2%;
+  width: 50%;
+}
+.city-select-wrap {
+  display: flex;
+  width: 100%;
+  justify-content: space-around;
+  margin: 2% 0;
+}
+.city-select-wrap select {
+  border: 1px solid var(--main-blue);
+  border-radius: 5px;
+  width: 180px;
+  height: 30px;
+  background-color: transparent;
+  color: var(--main-blue);
+}
+.city-accidents-dead-injury-card-wrap {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+.city-accidents-card {
+  width: 70%;
+  height: auto;
+  border-radius: 5px;
+  margin: 0 1% 5%;
+  box-shadow: var(--button-shadow);
+  padding: 2.5%;
+}
+.city-accidents-card h2 {
+  font-size: 23px;
+}
+.city-accidents-card p {
+  text-align: center;
+  font-size: 55px;
+  font-weight: 800;
+  margin: 2%;
+}
+.circle-graph {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+.circle-graph img {
+  width: 100%;
+  margin-top: 2%;
+}
+.circle-graph button {
+  margin-top: 8%;
+  margin-left: 45%;
+}
+.city-main-right-section button {
+  border: none;
+  background-color: var(--main-blue);
+  color: white;
+  border-radius: 3px;
+  font-size: 13px;
+  padding: 7px;
+  cursor: pointer;
+  width: 80px;
+}
