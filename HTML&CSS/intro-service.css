@@ -1,0 +1,8 @@
+:root {
+    --button-shadow: 1px 1px 3px 1px #dadce0;
+    --box-inset: 1px 1px 3px 1px #dadce0 inset;
+    --main-blue: #2e7ec8;
+    --light-grey: #eaeaea;
+    --middel-grey: #6f6669;
+    --dark-grey: #5a5256;
+  }
