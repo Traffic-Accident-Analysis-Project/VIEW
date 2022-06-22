@@ -1,0 +1,92 @@
+:root {
+  --button-shadow: 1px 1px 3px 1px #dadce0;
+  --box-inset: 1px 1px 3px 1px #dadce0 inset;
+  --main-blue: #2e7ec8;
+  --light-grey: #eaeaea;
+  --middel-grey: #6f6669;
+  --dark-grey: #5a5256;
+}
+input[type=text] {
+    border: 1px solid var(--light-grey);
+    height: 30px;
+}
+input[type=password] {
+    border: 1px solid var(--light-grey);
+    height: 30px;
+}
+label {
+    font-size: 15px;
+}
+select {
+    font-size: 13px;
+    border: 1px solid var(--light-grey);
+}
+textarea {
+    border: 1px solid var(--light-grey);
+    height: 200px;
+    width: 300px;
+}
+.service-write-section {
+  font-size: 16px;
+  width: 100%;
+  height: auto;
+  margin: 3% auto;
+  padding: 0 5% 3%;
+}
+.service-write-section h1 {
+  font-size: 30px;
+  font-weight: 500;
+  margin-bottom: 5%;
+}
+.service-category-select {
+  width: 90%;
+}
+.same-padding {
+  padding: 0.7% 0.3%;
+}
+.password-wrap {
+  display: flex;
+  flex-direction: column;
+}
+.service-category-select label {
+  margin-right: 61px;
+}
+.writer-wrap label {
+  margin-right: 76.7px;
+}
+.e-mail-wrap label {
+  margin-right: 79px;
+}
+.text-area-wrap label {
+  margin-right: 93px;
+}
+.password-checkbox-wrap label:nth-child(1) {
+  margin-right: 40px;
+}
+.pw-input {
+  margin-top: 5px;
+}
+.pw-input label:nth-child(1) {
+  margin-right: 60px;
+}
+.repw-input {
+  margin-top: 10px;
+}
+.repw-input label:nth-child(1) {
+  margin-right: 23px;
+}
+.write-button-wrap {
+    margin: 25px 43%;
+}
+.write-button-wrap button {
+    cursor: pointer;
+    background-color: transparent;
+    border: 1px solid var(--light-grey);
+    color: var(--dark-grey);
+    width: 50px;
+    height: 30px;
+}
+.write-button-wrap button a {
+    text-decoration: none;
+    color: var(--dark-grey);
+}
