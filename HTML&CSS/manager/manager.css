@@ -1,0 +1,93 @@
+:root {
+  --button-shadow: 1px 1px 3px 1px #dadce0;
+  --box-inset: 1px 1px 3px 1px #dadce0 inset;
+  --main-blue: #2e7ec8;
+  --light-grey: #eaeaea;
+  --middel-grey: #6f6669;
+  --dark-grey: #5a5256;
+}
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+.row {
+  display: flex;
+}
+.side-nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: var(--main-blue);
+  width: 250px;
+  height: 100%;
+  padding: 20px 30px;
+}
+.nav-links {
+  list-style: none;
+}
+.nav-links li {
+  padding: 10px 10px;
+}
+.nav-links li:hover {
+  background-color: #0f2a44;
+  border-radius: 10px;
+  transition: 0.2s;
+}
+.nav-links a {
+  font-size: 20px;
+  font-weight: 500;
+  text-decoration: none;
+  color: white;
+  padding: 10px 4px;
+}
+.nav-links li a i {
+  font-size: 23px;
+  margin-right: 20px;
+}
+.manager-board-main {
+  box-shadow: var(--box-inset);
+  border-radius: 1px;
+  width: 100%;
+  margin-top: 5%;
+  margin-left: 280px;
+  margin-right: 5%;
+  padding: 5%;
+}
+.manager-board-main h1 {
+  margin-left: 15px;
+}
+.manager-board-main table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 50px;
+  text-align: center;
+}
+.manager-board-main table thead th {
+  font-size: 18px;
+  font-weight: 700;
+}
+.manager-board-main table tr {
+  border-bottom: 1px solid var(--dark-grey);
+}
+.manager-board-main table tbody td {
+  text-align: center;
+  padding: 10px;
+}
+.manager-board-main table tr:last-child {
+  border-bottom: none;
+}
+.pagination {
+  margin-top: 50px;
+  font-size: 15px;
+  text-align: center;
+}
+.pagination a {
+  box-shadow: var(--button-shadow);
+  width: 10px;
+  text-decoration: none;
+  margin-left: 10px;
+  border-radius: 3px;
+  padding: 3px 5px;
+  color: var(--dark-grey);
+}
