@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>T.A.S 시도별</title>
     <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="city_type.css" />
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
@@ -57,17 +58,27 @@
       </header>
       <!-- header end -->
       <hr style="border: 5px solid #2e7ec8; background-color: #2e7ec8" />
-      <div class="main-title">
+      <div class="city-main-title">
         <h1>시도별</h1>
-        <hr style="width: 20%; border: 1px solid #2e7ec8; background-color: #2e7ec8; margin-top: 7px;" />
+        <hr
+          style="
+            width: 20%;
+            border: 1px solid #2e7ec8;
+            background-color: #2e7ec8;
+            margin-top: 7px;
+          "
+        />
       </div>
-      <div class="by-category-main-section">
-        <div class="main-left-section-map">
-            <!-- kakao map -->
-          <img src="img/임시지도이미지.jpg" alt="" />
+      <div class="city-by-category-main-section">
+        <div class="city-main-left-section-map">
+          <!-- kakao map -->
+          <div
+            id="map"
+            style="width: 85%; height: 700px; margin-top: 20px"
+          ></div>
         </div>
-        <div class="main-right-section">
-          <div class="select-wrap">
+        <div class="city-main-right-section">
+          <div class="city-select-wrap">
             <div class="city-type-sel city-type-year">
               <select name="city-type-year" id="">
                 <option value="">연도</option>
@@ -129,45 +140,37 @@
                 <option value="제주">제주</option>
               </select>
             </div>
-          </div>
-          <div class="lookup-btn">
             <button type="button">조회하기</button>
           </div>
-          <div class="user-select-card-wrap">
-            <div class="user-select card-year">
-              <input type="text" value="2013년" readonly />
+          <div class="row">
+            <div class="city-accidents-dead-injury-card-wrap">
+              <div class="city-accidents-card card-accidents hight">
+                <div class="row">
+                  <h2>사고 건 수</h2>
+                  <i class="fa-solid fa-car-burst fa-3x"></i>
+                </div>
+                <p>2000</p>
+              </div>
+              <div class="city-accidents-card card-dead middle">
+                <div class="row">
+                  <h2>사망자 수</h2>
+                  <i class="fa-solid fa-skull fa-3x"></i>
+                </div>
+                <p><span>1000</span></p>
+              </div>
+              <div class="city-accidents-card card-injury rower">
+                <div class="row">
+                  <h2>부상자 수</h2>
+                  <i class="fa-solid fa-person-falling-burst fa-3x"></i>
+                </div>
+                <p><span>100</span></p>
+              </div>
             </div>
-            <div class="user-select card-month">
-              <input type="text" value="05월" readonly />
-            </div>
-            <div class="user-select card-alcohol-or-not">
-              <input type="text" value="고속국도" readonly />
+            <div class="circle-graph">
+              <img src="/img/임시이미지원그래프.png" alt="" />
+              <button type="button">Excel Downlod</button>
             </div>
           </div>
-          <div class="accidents-dead-injury-card-wrap">
-            <div class="accidents-card card-accidents hight">
-              <div class="row">
-                <h2>사고 건 수</h2>
-                <i class="fa-solid fa-car-burst fa-3x"></i>
-              </div>
-              <p>2000</p>
-            </div>
-            <div class="accidents-card card-dead middle">
-              <div class="row">
-                <h2>사망자 수</h2>
-                <i class="fa-solid fa-skull fa-3x"></i>
-              </div>
-              <p><span>1000</span></p>
-            </div>
-            <div class="accidents-card card-injury rower">
-              <div class="row">
-                <h2>부상자 수</h2>
-                <i class="fa-solid fa-person-falling-burst fa-3x"></i>
-              </div>
-              <p><span>100</span></p>
-            </div>
-          </div>
-          <button type="button">Excel Downlod</button>
         </div>
       </div>
 
@@ -180,6 +183,38 @@
         <button type="button">top</button>
       </footer>
     </div>
-    <!-- container end -->
   </body>
+  <script
+    type="text/javascript"
+    src="//dapi.kakao.com/v2/maps/sdk.js?appkey=1404a388d08e4a1a512e05afcef16217&libraries=clusterer"
+  ></script>
+  <script>
+    var map = new kakao.maps.Map(document.getElementById("map"), {
+      // 지도를 표시할 div
+      center: new kakao.maps.LatLng(36.2683, 127.6358), // 지도의 중심좌표
+      level: 14, // 지도의 확대 레벨
+    });
+
+    // 마커 클러스터러를 생성합니다
+    var clusterer = new kakao.maps.MarkerClusterer({
+      map: map, // 마커들을 클러스터로 관리하고 표시할 지도 객체
+      averageCenter: true, // 클러스터에 포함된 마커들의 평균 위치를 클러스터 마커 위치로 설정
+      minLevel: 10, // 클러스터 할 최소 지도 레벨
+    });
+
+    // 데이터를 가져오기 위해 jQuery를 사용합니다
+    // 데이터를 가져와 마커를 생성하고 클러스터러 객체에 넘겨줍니다
+    $.get("/download/web/data/chicken.json", function (data) {
+      // 데이터에서 좌표 값을 가지고 마커를 표시합니다
+      // 마커 클러스터러로 관리할 마커 객체는 생성할 때 지도 객체를 설정하지 않습니다
+      var markers = $(data.positions).map(function (i, position) {
+        return new kakao.maps.Marker({
+          position: new kakao.maps.LatLng(position.lat, position.lng),
+        });
+      });
+
+      // 클러스터러에 마커들을 추가합니다
+      clusterer.addMarkers(markers);
+    });
+  </script>
 </html>

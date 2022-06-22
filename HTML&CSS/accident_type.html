@@ -55,11 +55,18 @@
           </div>
         </div>
       </header>
-      <!-- header end -->
       <hr style="border: 5px solid #2e7ec8; background-color: #2e7ec8" />
+      <!-- header end -->
       <div class="main-title">
         <h1>사고 유형</h1>
-        <hr style="width: 20%; border: 1px solid #2e7ec8; background-color: #2e7ec8; margin-top: 7px;" />
+        <hr
+          style="
+            width: 20%;
+            border: 1px solid #2e7ec8;
+            background-color: #2e7ec8;
+            margin-top: 7px;
+          "
+        />
       </div>
       <div class="by-category-main-section">
         <div class="main-left-section-graph">
@@ -122,54 +129,40 @@
                 <div class="person-car">
                   <option value="횡단중">횡단중</option>
                   <option value="차도통행중">차도 통행중</option>
-                  <option value="길가장자리구역통행중">길 가장자리구역 통행중</option>
+                  <option value="길가장자리구역통행중">
+                    길 가장자리구역 통행중
+                  </option>
                   <option value="보도통행중">보도 통행중</option>
                   <option value="기타불명">기타/불명</option>
                 </div>
                 <!-- 차대차 -->
                 <div class="car-car">
-                    <option value="충돌">충돌</option>
-                    <option value="추돌">추돌</option>
-                    <option value="진행중추돌">진행중 추돌</option>
-                    <option value="주정차중추돌">주정차중 추돌</option>
-                    <option value="횡단중">횡단중</option>
-                    <option value="기타불명">기타/불명</option>
+                  <option value="충돌">충돌</option>
+                  <option value="추돌">추돌</option>
+                  <option value="진행중추돌">진행중 추돌</option>
+                  <option value="주정차중추돌">주정차중 추돌</option>
+                  <option value="횡단중">횡단중</option>
+                  <option value="기타불명">기타/불명</option>
                 </div>
                 <!-- 차량단독 -->
                 <div class="only-car">
-                    <option value="전도전복">전도/전복</option>
-                    <option value="충돌">충돌</option>
-                    <option value="추락">추락</option>
-                    <option value="기타이탈">기타 이탈</option>
-                    <option value="기타불명">기타/불명</option>
+                  <option value="전도전복">전도/전복</option>
+                  <option value="충돌">충돌</option>
+                  <option value="추락">추락</option>
+                  <option value="기타이탈">기타 이탈</option>
+                  <option value="기타불명">기타/불명</option>
                 </div>
                 <!-- 철길건널목 -->
                 <div class="rail-crossing">
-                    <option value="경보기무시">경보기 무시</option>
-                    <option value="직전진행">직전 진행</option>
-                    <option value="차단기돌파">차단기 돌파</option>
-                    <option value="철길건널목">철길건 널목</option>
-                    <option value="기타불명">기타/불명</option>
+                  <option value="경보기무시">경보기 무시</option>
+                  <option value="직전진행">직전 진행</option>
+                  <option value="차단기돌파">차단기 돌파</option>
+                  <option value="철길건널목">철길건 널목</option>
+                  <option value="기타불명">기타/불명</option>
                 </div>
               </select>
             </div>
-          </div>
-          <div class="lookup-btn">
             <button type="button">조회하기</button>
-          </div>
-          <div class="user-select-card-wrap">
-            <div class="user-select card-year">
-              <input type="text" value="2013년" readonly />
-            </div>
-            <div class="user-select card-month">
-              <input type="text" value="05월" readonly />
-            </div>
-            <div class="user-select card-accident-type-person-car">
-              <input type="text" value="음주상태" readonly />
-            </div>
-            <div class="user-select card-accident-type">
-                <input type="text" value="0.3% 미만" readonly />
-              </div>
           </div>
           <div class="accidents-dead-injury-card-wrap">
             <div class="accidents-card card-accidents hight">
@@ -194,7 +187,9 @@
               <p><span>100</span></p>
             </div>
           </div>
-          <button type="button">Excel Downlod</button>
+          <div class="excel-down-button">
+            <button type="button">Excel Downlod</button>
+          </div>
         </div>
       </div>
 
