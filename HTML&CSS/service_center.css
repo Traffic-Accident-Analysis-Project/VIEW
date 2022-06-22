@@ -29,7 +29,8 @@
   height: 40px;
   border-radius: 5px;
   width: 80px;
-  color: var(--main-blue);
+  color: var(--dark-grey);
+  font-weight: 800;
 }
 .service-center-section table {
   width: 100%;
