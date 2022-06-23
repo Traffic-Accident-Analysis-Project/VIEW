@@ -66,8 +66,8 @@ input:focus {
 .popup {
   display: none;
   position: absolute;
-  left: 30%;
-  top: 9%;
+  left: 35%;
+  top: 15%;
   border: 1px solid var(--dark-grey);
   border-top: none;
   width: 600px;
@@ -108,7 +108,6 @@ input:focus {
   width: 100%;
 }
 label {
-  /* margin-left: 50px; */
   height: 30px;
   margin-top: 16px;
 }
@@ -149,4 +148,51 @@ input {
 }
 .comment-wrap {
   margin-left: 50px;
+}
+/* 비밀글 비밀번호 확인창 */
+.pw-confirm-popup{
+  display: none;
+  box-shadow: var(--box-inset);
+  top: 35%;
+  left: 40%;
+  position: absolute;
+  width: 300px;
+  height: 150px;
+  background-color: var(--light-grey);
+  border-radius: 5px;
+}
+.pw-confirm-top {
+  height: 27px;
+  width: 100%;
+  background-color: #dadce0;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+}
+.pw-confirm-top button {
+  width: 20px;
+  cursor: pointer;
+  margin-left: 88%;
+  margin-top: 2px;
+  border: none;
+  border-radius: 2px;
+  box-shadow: var(--button-shadow);
+}
+.pw-confirm-popup p {
+  margin: 15px 50px;
+}
+.pw-confirm-wrap {
+  display: flex;
+}
+.pw-confirm-wrap input {
+  margin: 5px 15px;
+  border: none;
+}
+.pw-confirm-wrap button {
+  width: 50px;
+  margin-top: 5px;
+  cursor: pointer;
+  border: none;
+  border-radius: 2px;
+  box-shadow: var(--button-shadow);
+  height: 30px;
 }
