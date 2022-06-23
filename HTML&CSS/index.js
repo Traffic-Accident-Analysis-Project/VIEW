@@ -7,6 +7,13 @@ $(".pw-or-not-n").on("click", function () {
   $(".password-wrap").css("display", "none");
 });
 
+// 상세보기 닫기버튼
+$('.popup-close').on('click',function(){
+  $('.main-popup').css('display','none');
+  $('.popup').css('display','none');
+  $('.pw-confirm-popup').css('display','none');
+  $('.main-pw-confirm-popup').css('display','none');
+})
 // 고객센터문의 글쓰기 등록 눌렀을 때
 $(".service-write-registration").on("click", function () {
   // 빈칸 확인
@@ -56,7 +63,7 @@ $(".service-write-registration").on("click", function () {
   }
   //ajax
   $.ajax({
-    url : 'http://localhost:8080/board',
+    url : 'http://localhost:8080/api/v1/board',
     type : 'POST',
     contentType : 'application/json', // 서버에 json type으로 보낼 예정(요청)
     dataType : 'json', // 서버 결과를 json으로 응답 받겠다.
