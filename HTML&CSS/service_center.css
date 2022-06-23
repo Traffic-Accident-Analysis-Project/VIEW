@@ -52,6 +52,7 @@
 .service-center-section table tr:last-child {
   border-bottom: none;
 }
+/* popup css */
 input:focus {
   outline: none;
 }
@@ -64,6 +65,9 @@ input:focus {
 }
 .popup {
   display: none;
+  position: absolute;
+  left: 30%;
+  top: 9%;
   border: 1px solid var(--dark-grey);
   border-top: none;
   width: 600px;
