@@ -319,8 +319,24 @@ input:focus {
   display: flex;
   flex-direction: column;
 }
-.popup {
+.main-popup {
   display: none;
+  z-index: 1;
+  position: absolute;
+  left: 35%;
+  top: 45%;
+  border: 1px solid var(--dark-grey);
+  border-top: none;
+  width: 600px;
+  height: auto;
+  border-radius: 5px;
+  background-color: #f8f8f8;
+}
+.main-popup input {
+  background-color: transparent;
+  border: none;
+}
+.popup {
   z-index: 1;
   position: absolute;
   left: 35%;
@@ -389,8 +405,15 @@ input {
   margin-left: 400px;
   margin-bottom: 50px;
 }
+.btn-area a:hover{
+  font-weight: 600;
+  background-color: var(--light-grey);
+  color: var(--main-blue);
+  transition: 0.1s;
+}
 .btn-area a {
   text-decoration: none;
+  font-weight: 600;
   background-color: var(--main-blue);
   color: white;
   padding: 8px 15px;
@@ -407,8 +430,18 @@ input {
   margin-left: 50px;
 }
 /* 비밀글 비밀번호 확인창 */
-.pw-confirm-popup{
-  display: none;
+.main-pw-confirm-popup {
+  z-index: 1;
+  box-shadow: var(--box-inset);
+  top: 80%;
+  left: 40%;
+  position: absolute;
+  width: 300px;
+  height: 150px;
+  background-color: var(--light-grey);
+  border-radius: 5px;
+}
+.pw-confirm-popup {
   z-index: 1;
   box-shadow: var(--box-inset);
   top: 35%;
@@ -435,6 +468,9 @@ input {
   border-radius: 2px;
   box-shadow: var(--button-shadow);
 }
+.main-pw-confirm-popup p {
+  margin: 15px 50px;
+}
 .pw-confirm-popup p {
   margin: 15px 50px;
 }
@@ -454,3 +490,17 @@ input {
   box-shadow: var(--button-shadow);
   height: 30px;
 }
+button:hover {
+  background-color: var(--dark-grey);
+  color: var(--light-grey);
+}
+/* 제발 사이즈좀 보고 수정하자 */
+/* .category-link:hover {
+  background-color: var(--main-blue);
+  width: 120px;
+  height: 60px;
+}
+.category-link a:hover {
+  color: var(--light-grey);
+  background-color: var(--main-blue);
+} */
