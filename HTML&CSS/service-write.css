@@ -6,6 +6,9 @@
   --middel-grey: #6f6669;
   --dark-grey: #5a5256;
 }
+textarea:focus{
+  outline: none;
+}
 input[type=text] {
     border: 1px solid var(--light-grey);
     height: 30px;
