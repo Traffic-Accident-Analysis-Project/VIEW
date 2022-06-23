@@ -18,7 +18,7 @@
     <div class="row container">
       <div class="popup">
         <div class="top-btn-area">
-          <button type="button">X</button>
+          <button class="btn-close" type="button">X</button>
         </div>
         <div class="row">
           <div class="row-col label-wrap">
@@ -95,7 +95,7 @@
         </div>
         <div class="btn-area">
           <!-- 관리자 comment등록 게시물 삭제 -->
-          <a href="#" class="btn-cancel">삭제</a>
+          <a href="#" class="btn-delete">삭제</a>
           <a href="#" class="btn-success">등록</a>
         </div>
       </div>
@@ -113,7 +113,7 @@
               >
             </li>
             <li>
-              <a href="../manager-login.html"
+              <a class="logout" href="#"
                 ><i class="fa-solid fa-arrow-right-from-bracket"></i>log-out</a
               >
             </li>
@@ -217,4 +217,18 @@
       </div>
     </div>
   </body>
+  <script
+    type="module"
+    src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"
+  ></script>
+  <script
+    nomodule
+    src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"
+  ></script>
+  <script
+    src="https://code.jquery.com/jquery-3.6.0.min.js"
+    integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+    crossorigin="anonymous"
+  ></script>
+  <script src="index.js"></script>
 </html>

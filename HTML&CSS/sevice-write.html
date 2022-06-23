@@ -90,28 +90,36 @@
           <label for="pw-or-not">비밀글 선택</label>
           <label
             ><input
+              class="pw-or-not-y"
               type="radio"
               name="pw-or-not"
               value="y"
               checked
             />비밀글</label
           >
-          <label><input type="radio" name="pw-or-not" value="n" />공개글</label>
+          <label
+            ><input
+              class="pw-or-not-n"
+              type="radio"
+              name="pw-or-not"
+              value="n"
+            />공개글</label
+          >
           <hr style="border: 1px solid #eaeaea; width: 50%; margin: 5px" />
           <div class="password-wrap">
             <div class="pw-input">
               <label for="pw">비밀번호</label>
-              <input name="re-pw" type="password" />
+              <input class="service-write-pw" type="password" />
             </div>
             <div class="repw-input">
               <label for="re-pw">비밀번호 확인</label>
-              <input type="password" />
+              <input class="service-write-re-pw" type="password" />
             </div>
           </div>
         </div>
         <hr style="border: 1px solid #eaeaea; width: 50%; margin: 5px" />
         <div class="write-button-wrap">
-          <button type="button">등록</button>
+          <button class="service-write-registration" type="button">등록</button>
           <button type="button"><a href="service_center.html">취소</a></button>
         </div>
       </div>
@@ -125,4 +133,18 @@
       </footer>
     </div>
   </body>
+  <script
+    type="module"
+    src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"
+  ></script>
+  <script
+    nomodule
+    src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"
+  ></script>
+  <script
+    src="https://code.jquery.com/jquery-3.6.0.min.js"
+    integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+    crossorigin="anonymous"
+  ></script>
+  <script src="index.js"></script>
 </html>
