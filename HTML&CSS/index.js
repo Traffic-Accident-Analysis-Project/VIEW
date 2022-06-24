@@ -257,5 +257,61 @@ $('.btn-success').click(function(){
   $('.update').css("display", "block");
 })
 $('#btn-passwordForUpdate').click(function(){
-  
+  var boardNo = 0;
+  var boardPassword = "";
+  $.ajax({
+    url : "http://localhost:8080/api/v1/board/boardNo/"+$('#number').val(),
+    type : "GET",
+    dataType : "json",
+    success : function (response){
+      boardPassword = response.boardPassword;
+      boardNo = response.boardNo;
+      console.log(boardPassword)
+      if($('#passwordForUpdate').val() != boardPassword){
+        alert("비밀번호가 틀렸습니다");
+        $('#passwordForUpdate').val("");
+        $('#passwordForUpdate').focus();
+      }
+      else{
+        var answer = confirm("게시글을 수정하시겠습니까?")
+        if(answer){
+          var jsonData = {
+            boardCategory : response.boardCategory,
+            boardWriter : response.boardWriter,
+            boardEmail : response.boardEmail,
+            boardContent : $('#main-text').val(),
+            isBoardSecurity : response.isBoardSecurity,
+            boardPassword : boardPassword
+        }
+          updateBoardByNo(boardNo,jsonData);
+        }
+        else{
+
+        }
+      }
+    },
+    error : function (request, status, error){
+        console.log("Error : "+error);
+    }
+  });
 })
+// 수정 함수
+function updateBoardByNo(boardNo,jsonData){
+  $.ajax({
+    url : 'http://localhost:8080/api/v1/board/boardNo/'+boardNo,
+    type : 'PATCH',
+    contentType : 'application/json',
+    dataType : 'json',
+    data : JSON.stringify(jsonData),
+    success : function (response){
+        // 게시물 상세화면 감추기
+        if(response > 0){
+            alert('수정 완료');
+            $('.popup').css('display','none');
+            $('.delete').css('display','none');
+            location.reload();
+        }
+
+    }
+});
+}
