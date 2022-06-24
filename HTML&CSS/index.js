@@ -72,7 +72,9 @@ $(".service-write-registration").on("click", function () {
     success : function(response){
         // 전송 한 data가 DB에 저장되었으면 alert
         if(response>0){
-          alert("저장이 완료되었습니다.")
+          alert("저장이 완료되었습니다.");
+          // 저장 후 고객센터 페이지로 이동
+          location.href = "/HTML&CSS/service_center.html";
         }
         console.log(response);
     }
