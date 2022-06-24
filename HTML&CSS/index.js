@@ -99,13 +99,13 @@ function getBoardList(pageNum, pageSize){
       if(len > 0){
           for(var i=0;i<len;i++){
             html += 
-              "<tr>"+
-              "<td>"+response.list[i].boardNo+"</td>"+
-              "<td>"+response.list[i].boardWriter+"</td>"+
-              "<td>"+response.list[i].boardCategory+"</td>"+
-              "<td>"+response.list[i].boardDate+"</td>"+
-              "<td>"+response.list[i].boardCnt+"</td>"+
-              "</tr>"
+              '<tr onclick="getBoardByNo('+response.list[i].boardNo+')">'+
+              '<td>'+response.list[i].boardNo+'</td>'+
+              '<td>'+response.list[i].boardWriter+'</td>'+
+              '<td>'+response.list[i].boardCategory+'</td>'+
+              '<td>'+response.list[i].boardDate+'</td>'+
+              '<td>'+response.list[i].boardCnt+'</td>'+
+              '</tr>'
           } // end for
 
           // 페이징 화면 구현
@@ -151,25 +151,28 @@ $('.manager-login-button').on('click',function(){
     // alert('비밀번호를 확인해주세요');
 })
 
+
 // 고객센터 팝업창 띄우기 함수 - JS
-function(boardNo){
-  $('.pw-confirm-popup').css('display', 'block');
-        // ajax 작성
-        $.ajax({
-            url : "http://localhost:8080/api/v1/board/boardNo/"+boardNo,
-            type : "GET",
-            dataType : "json",
-            success : function (response){
-                // input에 data set 해주기
-                $('#number').val(response.boardNo);
-                $('#writer').val(response.boardWriter);
-                $('#categry').val(boardCategory);
-                $('#create-at').val(boardDate);
-                $('#cnt').val(boardCnt);
-                setBoardViews(boardId); // 조회 수 함수
-            },
-            error : function (request, status, error){
-                console.log("Error : "+error);
-            }
-        });
+function getBoardByNo(boardNo){
+  $('.popup').css('display', 'block');
+  // ajax 작성
+  $.ajax({
+      url : "http://localhost:8080/api/v1/board/boardNo/"+boardNo,
+      type : "GET",
+      dataType : "json",
+      success : function (response){
+          // input에 data set 해주기
+          $('#number').val(response.boardNo);
+          $('#writer').val(response.boardWriter);
+          $('#categry').val(response.boardCategory);
+          $('#create-at').val(response.boardDate);
+          $('#cnt').val(response.boardCnt);
+          $('#main-text').val(response.boardContent);
+          // setBoardViews(boardNo); // 조회 수 함수
+          console.log(response)
+      },
+      error : function (request, status, error){
+          console.log("Error : "+error);
+      }
+  });
 }

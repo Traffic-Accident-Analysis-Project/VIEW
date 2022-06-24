@@ -52,3 +52,7 @@
 .service-center-section table tr:last-child {
   border-bottom: none;
 }
+/* JS - popup */
+.popup{
+  display: none;
+}
