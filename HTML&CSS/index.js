@@ -197,10 +197,6 @@ function setBoardViews(boardNo){
   });
 }
 
-// btn-cancel
-// pw-confirm-popup update
-// passwordForDelete
-
 // 삭제
 // 삭제 전 비밀번호 확인
 $('.btn-cancel').click(function(){
@@ -259,4 +255,7 @@ function deleteBoardByNo(boardNo){
 // 수정 전 비밀번호 확인
 $('.btn-success').click(function(){
   $('.update').css("display", "block");
+})
+$('#btn-passwordForUpdate').click(function(){
+  
 })
