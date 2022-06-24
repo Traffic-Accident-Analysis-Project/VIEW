@@ -178,6 +178,7 @@ header {
 }
 .main-user-board-list-section table tr {
   border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  cursor: pointer;
 }
 .main-user-board-list-section table tbody td {
   text-align: center;
@@ -431,7 +432,8 @@ input {
 }
 /* 비밀글 비밀번호 확인창 */
 .main-pw-confirm-popup {
-  z-index: 1;
+  display: none;
+  z-index: 2;
   box-shadow: var(--box-inset);
   top: 80%;
   left: 40%;

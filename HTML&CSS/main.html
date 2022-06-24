@@ -20,14 +20,26 @@
   </head>
   <body>
     <div class="container">
-      <div class="main-pw-confirm-popup">
+      <!-- popup for delete -->
+      <div class="main-pw-confirm-popup delete">
         <div class="pw-confirm-top">
           <button class="popup-close" type="button">X</button>
         </div>
         <p>비밀번호를 입력 해 주세요</p>
         <div class="pw-confirm-wrap">
-          <input type="password" name="" id="" />
-          <button type="button">확인</button>
+          <input type="password" id="passwordForDelete" />
+          <button type="button" id="btn-passwordForDelete">확인</button>
+        </div>
+      </div>
+      <!-- popup for update -->
+      <div class="main-pw-confirm-popup update">
+        <div class="pw-confirm-top">
+          <button class="popup-close" type="button">X</button>
+        </div>
+        <p>비밀번호를 입력 해 주세요</p>
+        <div class="pw-confirm-wrap">
+          <input type="password" id="passwordForUpdate" />
+          <button type="button" id="btn-passwordForUpdate">확인</button>
         </div>
       </div>
       <div class="main-popup">
@@ -92,7 +104,7 @@
         </div>
         <div class="row-col main-text-wrap">
           <label for="main-text">본문</label>
-          <input id="main-text" type="text" value="본문" readonly />
+          <input id="main-text" type="text" value="본문" />
           <hr
             style="
               margin-left: -1px;
@@ -112,7 +124,7 @@
           <!-- 비밀글일 경우 수정버튼 공개글일경우 수정버튼 숨기기 -->
           <a href="#" class="btn-success">수정</a>
         </div>
-      </div>
+      </div> <!-- popup end -->
       <div class="top">
         <a href="main.html">home</a>
         <i

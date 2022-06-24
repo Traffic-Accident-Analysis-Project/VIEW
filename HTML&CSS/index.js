@@ -154,10 +154,13 @@ $('.manager-login-button').on('click',function(){
 })
 
 
+// ********** CRUD 작업 **************
+
 // 고객센터 팝업창 띄우기 함수(상세조회) - JS
 // 생성된 Board List tr 에 onclick 함수로 추가함.
 function getBoardByNo(boardNo){
   $('.popup').css('display', 'block');
+  $('.main-popup').css('display', 'block');
   // ajax 작성
   $.ajax({
       url : "http://localhost:8080/api/v1/board/boardNo/"+boardNo,
