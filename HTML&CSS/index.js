@@ -304,14 +304,13 @@ function updateBoardByNo(boardNo,jsonData){
     dataType : 'json',
     data : JSON.stringify(jsonData),
     success : function (response){
-        // 게시물 상세화면 감추기
-        if(response > 0){
-            alert('수정 완료');
-            $('.popup').css('display','none');
-            $('.delete').css('display','none');
-            location.reload();
-        }
-
+      // 게시물 상세화면 감추기
+      if(response > 0){
+          alert('수정 완료');
+          $('.popup').css('display','none');
+          $('.delete').css('display','none');
+          location.reload();
+      }
     }
 });
 }
