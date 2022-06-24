@@ -130,7 +130,7 @@ function getBoardList(pageNum, pageSize){
 
       }else{
           // 게시글 없을 때
-          html += '<tr><td colspan=6 style="text-align: center;">게시글이 없습니다.</td></tr>';
+          html += '<tr><td colspan=5 style="text-align: center;">게시글이 없습니다.</td></tr>';
       }
       $('#boardData').children().remove();
       $('#boardData').append(html);
@@ -152,7 +152,8 @@ $('.manager-login-button').on('click',function(){
 })
 
 
-// 고객센터 팝업창 띄우기 함수 - JS
+// 고객센터 팝업창 띄우기 함수(상세조회) - JS
+// 생성된 Board List tr 에 onclick 함수로 추가함.
 function getBoardByNo(boardNo){
   $('.popup').css('display', 'block');
   // ajax 작성
@@ -168,11 +169,94 @@ function getBoardByNo(boardNo){
           $('#create-at').val(response.boardDate);
           $('#cnt').val(response.boardCnt);
           $('#main-text').val(response.boardContent);
-          // setBoardViews(boardNo); // 조회 수 함수
-          console.log(response)
+          $('#comment').val(response.boardComment);
+          setBoardViews(response.boardNo); // 조회 수 함수
+          // 2페이지 이상에서 상세조회를 했을 떄 목록을 그대로 하고싶으나
+          // 그러면 상세조회를 PageInfo로 불러와서 getBoardList해야하는 이슈 발생
       },
       error : function (request, status, error){
           console.log("Error : "+error);
       }
   });
 }
+// 조회수 증가 함수
+function setBoardViews(boardNo){
+  $.ajax({
+    url : 'http://localhost:8080/api/v1/board/views/boardNo/'+boardNo,
+    type : 'PATCH',
+    contentType : 'application/json',
+    dataType : 'json',
+    success : function (response){
+        // 게시물 상세화면 감추기
+        if(response > 0){
+            $('#boardData').children().remove();
+            getBoardList(1,10);
+        }
+
+    }
+  });
+}
+
+// btn-cancel
+// pw-confirm-popup update
+// passwordForDelete
+
+// 삭제
+// 삭제 전 비밀번호 확인
+$('.btn-cancel').click(function(){
+  $('.delete').css("display", "block");
+})
+$('#btn-passwordForDelete').click(function(){
+  var boardNo = 0;
+  var boardPassword = "";
+  $.ajax({
+    url : "http://localhost:8080/api/v1/board/boardNo/"+$('#number').val(),
+    type : "GET",
+    dataType : "json",
+    success : function (response){
+      boardPassword = response.boardPassword;
+      boardNo = response.boardNo;
+      console.log(boardPassword)
+      if($('#passwordForDelete').val() != boardPassword){
+        alert("비밀번호가 틀렸습니다");
+        $('#passwordForDelete').val("");
+        $('#passwordForDelete').focus();
+      }
+      else{
+        var answer = confirm("게시글을 삭제하시겠습니까?")
+        if(answer){
+          deleteBoardByNo(boardNo);
+        }
+        else{
+
+        }
+      }
+    },
+    error : function (request, status, error){
+        console.log("Error : "+error);
+    }
+  });
+})
+// 삭제 함수
+function deleteBoardByNo(boardNo){
+  $.ajax({
+    url : 'http://localhost:8080/api/v1/board/boardNo/'+boardNo,
+    type : 'DELETE',
+    contentType : 'application/json',
+    dataType : 'json',
+    success : function (response){
+      // 게시물 상세화면 감추기
+      if(response > 0){
+          alert('삭제 완료');
+          $('.popup').css('display','none');
+          $('.delete').css('display','none');
+          location.reload();
+      }
+    }
+  });
+}
+// 수정
+// 수정 전 비밀번호 확인
+$('.btn-success').click(function(){
+  $('.update').css("display", "block");
+})
