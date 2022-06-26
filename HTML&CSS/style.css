@@ -14,10 +14,10 @@
 input:focus {
   outline: none;
 }
-.row {
+/* .row {
   display: flex;
   justify-content: space-between;
-}
+} */
 .top {
   display: flex;
   justify-content: right;
@@ -43,7 +43,6 @@ input:focus {
 header {
   color: white;
   height: 68px;
-  /* padding-top: 15.8px; */
 }
 .logo img {
   margin-left: 20%;
@@ -59,6 +58,7 @@ header {
   height: auto;
 }
 .category {
+  justify-content: space-between;
   margin-top: 16.8px;
   font-size: 15px;
   width: 100%;
@@ -406,7 +406,7 @@ input {
   margin-left: 400px;
   margin-bottom: 50px;
 }
-.btn-area a:hover{
+.btn-area a:hover {
   font-weight: 600;
   background-color: var(--light-grey);
   color: var(--main-blue);
@@ -496,13 +496,21 @@ button:hover {
   background-color: var(--dark-grey);
   color: var(--light-grey);
 }
-/* 제발 사이즈좀 보고 수정하자 */
-/* .category-link:hover {
-  background-color: var(--main-blue);
-  width: 120px;
-  height: 60px;
+.service-link a:hover {
+  border-bottom: 3px solid var(--main-blue);
+  border-bottom-left-radius: 3px;
+  border-bottom-right-radius: 3px;
+  padding: 8px;
 }
-.category-link a:hover {
-  color: var(--light-grey);
-  background-color: var(--main-blue);
-} */
+.client-link a:hover {
+  border-bottom: 3px solid var(--main-blue);
+  border-bottom-left-radius: 3px;
+  border-bottom-right-radius: 3px;
+  padding: 8px;
+}
+.manager-link a:hover {
+  border-bottom: 3px solid var(--main-blue);
+  border-bottom-left-radius: 3px;
+  border-bottom-right-radius: 3px;
+  padding: 8px;
+}

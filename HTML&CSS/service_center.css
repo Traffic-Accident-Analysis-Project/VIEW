@@ -13,6 +13,7 @@
   height: 800px;
 }
 .service-center-section-header {
+  justify-content: space-between;
   padding: 0 15px;
 }
 .service-center-section-header h2 {
