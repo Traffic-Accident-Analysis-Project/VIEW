@@ -11,6 +11,12 @@
     <div class="container">
       <div class="join-section">
         <h1>회원가입</h1>
+        <label for="autority">권한</label>
+        <select name="" id="autority">
+          <option value="">회원가입 유형을 선택해주세요</option>
+          <option value="user">일반 회원</option>
+          <option value="admin">관리자</option>
+        </select>
         <label for="userId">ID</label>
         <div class="user-id-section">
           <input id="userId" type="text" />
@@ -22,19 +28,35 @@
         <input id="password" type="password" />
         <label for="rePassword">비밀번호 재확인</label>
         <input id="rePassword" type="password" />
+        <label for="email-wrap">e-mail주소</label>
+        <div class="email-wrap">
+          <input id="email-id" type="text" placeholder="  e-mail" />
+          <p>@</p>
+          <select name="" id="email-addr">
+            <option value="">이메일주소</option>
+            <option value="email-user-write">직접입력</option>
+            <option value="google">google.com</option>
+            <option value="naver">naver.com</option>
+          </select>
+        </div>
         <label for="gender">성별</label>
         <select name="" id="gender">
-          <option value="">성별을 선택 해 주세요</option>
+          <option value="">성별을 선택해주세요</option>
           <option value="w">여성</option>
           <option value="m">남성</option>
         </select>
         <label for="userAddr">주소</label>
         <input id="userAddr" type="text" />
         <div class="detail-addr">
-          <input id="user-detailAddr" type="text" placeholder="  상세주소"/>
+          <input id="user-detailAddr" type="text" placeholder="  상세주소" />
           <button type="button" onclick="getPostCode()">도로명 주소</button>
         </div>
-        <button class="joinButton" type="button" onclick="join()">가입하기</button>
+        <div class="btn-wrap">
+          <button class="join-button" type="button" onclick="join()">
+            가입하기
+          </button>
+          <button class="cancel-button" type="button">취소</button>
+        </div>
       </div>
     </div>
     <script
@@ -42,6 +64,7 @@
       integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
       crossorigin="anonymous"
     ></script>
+    <script src="index.js"></script>
     <script>
       // 비밀번호 비밀번호재확인이 맞는지 확인
       function join() {
