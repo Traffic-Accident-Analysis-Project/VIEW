@@ -22,6 +22,12 @@ $('.join-button').on('click',function(){
   }
 })
 
+$('.service-write-cencel').on('click',function(){
+  var result = confirm('글쓰기를 종료하시겠습니까?');
+  if(result){
+    location.href = "service_center.html";
+  }
+})
 // 고객센터문의 글쓰기 등록 눌렀을 때 -JS
 $(".service-write-registration").on("click", function () {
   // 빈칸 확인
