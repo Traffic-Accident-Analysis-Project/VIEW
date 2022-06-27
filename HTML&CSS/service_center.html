@@ -5,7 +5,6 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>T.A.S 고객센터</title>
-    <link rel="stylesheet" href="style.css" />
     <link rel="stylesheet" href="service_center.css" />
     <link
       rel="stylesheet"
@@ -39,9 +38,10 @@
           <button type="button" id="btn-passwordForUpdate">확인</button>
         </div>
       </div>
-      <div class="popup">
+      <!-- main화면 main popup -->
+      <div class="main-popup">
         <div class="top-btn-area">
-          <button class="popup-close" type="button">X</button>
+          <button class="popup-close" type="button"></button>
         </div>
         <div class="row">
           <div class="row-col label-wrap">
@@ -122,64 +122,72 @@
           <a href="#" class="btn-success">수정</a>
         </div>
       </div>
-      <div class="top">
-        <a href="main.html">home</a>
-        <i
-          class="fa-solid fa-house-chimney"
-          style="color: #eaeaea; margin-left: 5px; margin-top: 3px"
-        ></i>
-        <select name="lang-selbox" id="">
-          <option value="korea">한글</option>
-          <option value="eng">English</option>
-        </select>
-      </div>
-      <header class="row">
-        <div class="logo">
-          <a href="main.html">
-            <img src="img/T.A.S-logo.png" alt="" />
-          </a>
-        </div>
-        <div class="row category">
-          <div class="category-link dropdown">
-            <div class="link-button">통계 자료실</div>
-            <div class="dropdown-content">
-              <a href="law.html">법규 위반</a>
-              <a href="alcohol.html">음주 정도</a>
-              <a href="road_type.html">도로 종류</a>
-              <a href="accident_type.html">사고 유형</a>
-              <a href="city_type.html">시도 별</a>
+      <!-- popup end -->
+      <div class="top-background-color">
+        <header>
+          <div class="circle-01"></div>
+          <div class="circle-02"></div>
+          <div class="circle-03"></div>
+          <div class="row top">
+            <a href="main.html">home</a>
+            <i
+              class="fa-solid fa-house-chimney"
+              style="color: #eaeaea; margin-left: 5px; margin-top: 3px"
+            ></i>
+            <select name="lang-selbox" id="">
+              <option value="korea">한글</option>
+              <option value="eng">English</option>
+            </select>
+          </div>
+          <div class="row header-category">
+            <div class="logo">
+              <a href="main.html">
+                <img src="img/T.A.S-logo-black.png" alt="" />
+              </a>
+            </div>
+            <div class="row category">
+              <div class="category-link dropdown">
+                <div class="link-button">통계 자료실</div>
+                <div class="dropdown-content">
+                  <a href="statisticalData/law.html">법규 위반</a>
+                  <a href="statisticalData/alcohol.html">음주 정도</a>
+                  <a href="statisticalData/road_type.html">도로 종류</a>
+                  <a href="statisticalData/accident_type.html">사고 유형</a>
+                  <a href="statisticalData/city_type.html">시도 별</a>
+                </div>
+              </div>
+              <div class="category-link service-link">
+                <a href="intro-service.html">서비스 소개</a>
+              </div>
+              <div class="category-link client-link">
+                <a href="service_center.html">고객 센터</a>
+              </div>
+              <div class="category-link login-link">
+                <a href="login.html">로그인</a>
+              </div>
             </div>
           </div>
-          <div class="category-link service-link">
-            <a href="intro-service.html">서비스 소개</a>
-          </div>
-          <div class="category-link client-link">
-            <a href="service_center.html">고객 센터</a>
-          </div>
-          <div class="category-link manager-link">
-            <a href="manager-login.html">관리자 페이지</a>
-          </div>
-        </div>
-      </header>
+        </header>
+      </div>
       <!-- header end -->
-      <hr style="border: 5px solid #2e7ec8; background-color: #2e7ec8" />
-      <div class="service-center-section">
-        <div class="row service-center-section-header">
-          <h2>고객 센터</h2>
-          <a href="sevice-write.html" class="service-write-btn">글 작성</a>
-        </div>
-        <table>
-          <thead>
-            <tr>
-              <th>글 번호</th>
-              <th>작성자</th>
-              <th>제목</th>
-              <th>작성 날짜</th>
-              <th>조회 수</th>
-            </tr>
-          </thead>
-          <tbody id="boardData">
-            <!-- <tr>
+      <div class="bottom-background-color">
+        <div class="service-center-section">
+          <div class="row service-center-section-header">
+            <h2>고객 센터</h2>
+            <a href="sevice-write.html" class="service-write-btn">글 작성</a>
+          </div>
+          <table>
+            <thead>
+              <tr>
+                <th>글 번호</th>
+                <th>작성자</th>
+                <th>제목</th>
+                <th>작성 날짜</th>
+                <th>조회 수</th>
+              </tr>
+            </thead>
+            <tbody id="boardData">
+              <!-- <tr>
               <td>1</td>
               <td>현상원</td>
               <td>점심시간이 너무 짧아요!</td>
@@ -207,32 +215,33 @@
               <td>2022-05-19</td>
               <td><span>22</span></td>
             </tr> -->
-          </tbody>
-        </table>
-        <div class="pagination">
-          <a href="#">Previous</a>
-          <a href="#">1</a>
-          <a href="#">2</a>
-          <a href="#">3</a>
-          <a href="#">4</a>
-          <a href="#">5</a>
-          <a href="#">Next</a>
+            </tbody>
+          </table>
+          <div class="pagination">
+            <!-- <a href="#">Previous</a>
+            <a href="#">1</a>
+            <a href="#">2</a>
+            <a href="#">3</a>
+            <a href="#">4</a>
+            <a href="#">5</a>
+            <a href="#">Next</a> -->
+          </div>
         </div>
+        <footer>
+          <img src="img/T.A.S-logo.png" alt="" />
+          <div class="footer-info">
+            <p>email : jyg12770@google.com</p>
+            <p>email : skwjdtn3171@naver.com</p>
+          </div>
+          <button
+            type="button"
+            style="cursor: pointer"
+            onclick="window.scrollTo({top:0, left:0, behavior:'smooth'});"
+          >
+            top
+          </button>
+        </footer>
       </div>
-      <footer>
-        <img src="img/T.A.S-logo-black.png" alt="" />
-        <div class="footer-info">
-          <p>email : jyg12770@google.com</p>
-          <p>email : skwjdtn3171@naver.com</p>
-        </div>
-        <button
-          type="button"
-          style="cursor: pointer"
-          onclick="window.scrollTo({top:0, left:0, behavior:'smooth'});"
-        >
-          top
-        </button>
-      </footer>
     </div>
     <script
       type="module"

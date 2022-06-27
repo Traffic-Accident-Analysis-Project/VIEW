@@ -5,7 +5,6 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>T.A.S 고객문의 글쓰기</title>
-    <link rel="stylesheet" href="style.css" />
     <link rel="stylesheet" href="service-write.css" />
     <link
       rel="stylesheet"
@@ -17,126 +16,143 @@
   </head>
   <body>
     <div class="container">
-      <div class="top">
-        <a href="main.html">home</a>
-        <i
-          class="fa-solid fa-house-chimney"
-          style="color: #eaeaea; margin-left: 5px; margin-top: 3px"
-        ></i>
-        <select name="lang-selbox" id="">
-          <option value="korea">한글</option>
-          <option value="eng">English</option>
-        </select>
-      </div>
-      <header class="row">
-        <div class="logo">
-          <a href="main.html">
-            <img src="img/T.A.S-logo.png" alt="" />
-          </a>
-        </div>
-        <div class="row category">
-          <div class="category-link dropdown">
-            <div class="link-button">통계 자료실</div>
-            <div class="dropdown-content">
-              <a href="law.html">법규 위반</a>
-              <a href="alcohol.html">음주 정도</a>
-              <a href="road_type.html">도로 종류</a>
-              <a href="accident_type.html">사고 유형</a>
-              <a href="city_type.html">시도 별</a>
+      <div class="top-background-color">
+        <header>
+          <div class="circle-01"></div>
+          <div class="circle-02"></div>
+          <div class="circle-03"></div>
+          <div class="row top">
+            <a href="main.html">home</a>
+            <i
+              class="fa-solid fa-house-chimney"
+              style="color: #eaeaea; margin-left: 5px; margin-top: 3px"
+            ></i>
+            <select name="lang-selbox" id="">
+              <option value="korea">한글</option>
+              <option value="eng">English</option>
+            </select>
+          </div>
+          <div class="row header-category">
+            <div class="logo">
+              <a href="main.html">
+                <img src="img/T.A.S-logo-black.png" alt="" />
+              </a>
+            </div>
+            <div class="row category">
+              <div class="category-link dropdown">
+                <div class="link-button">통계 자료실</div>
+                <div class="dropdown-content">
+                  <a href="statisticalData/law.html">법규 위반</a>
+                  <a href="statisticalData/alcohol.html">음주 정도</a>
+                  <a href="statisticalData/road_type.html">도로 종류</a>
+                  <a href="statisticalData/accident_type.html">사고 유형</a>
+                  <a href="statisticalData/city_type.html">시도 별</a>
+                </div>
+              </div>
+              <div class="category-link service-link">
+                <a href="intro-service.html">서비스 소개</a>
+              </div>
+              <div class="category-link client-link">
+                <a href="service_center.html">고객 센터</a>
+              </div>
+              <div class="category-link login-link">
+                <a href="login.html">로그인</a>
+              </div>
             </div>
           </div>
-          <div class="category-link service-link">
-            <a href="intro-service.html">서비스 소개</a>
-          </div>
-          <div class="category-link client-link">
-            <a href="service_center.html">고객 센터</a>
-          </div>
-          <div class="category-link manager-link">
-            <a href="manager-login.html">관리자 페이지</a>
-          </div>
-        </div>
-      </header>
+        </header>
+      </div>
       <!-- header end -->
-      <hr style="border: 5px solid #2e7ec8; background-color: #2e7ec8" />
-      <div class="service-write-section">
-        <h1>고객센터 문의</h1>
-        <hr style="border: 1px solid #eaeaea; width: 50%; margin-top: 5px" />
-        <div class="same-padding service-category-select">
-          <label for="service-category">문의유형</label>
-          <select name="service-category" id="service-category">
-            <option value="">문의 유형을 선택해 주세요</option>
-            <option value="">자료 오류</option>
-            <option value="">추가 자료 문의</option>
-            <option value="">기타 문의</option>
-          </select>
-        </div>
-        <hr style="border: 1px solid #eaeaea; width: 50%; margin-top: 5px" />
-        <div class="same-padding writer-wrap">
-          <label for="writer-wrap">작성자</label>
-          <input type="text" id="writerValue"/>
-        </div>
-        <hr style="border: 1px solid #eaeaea; width: 50%; margin: 5px" />
-        <div class="same-padding e-mail-wrap">
-          <label for="e-mail-wrap">e-mail</label>
-          <input type="text" id="emailValue"/>
-        </div>
-        <hr style="border: 1px solid #eaeaea; width: 50%; margin: 5px" />
-        <div class="same-padding text-area-wrap">
-          <label for="text-wrap">본문</label>
-          <textarea name="text-wrap" id="textValue" cols="30" rows="10"></textarea>
-        </div>
-        <hr style="border: 1px solid #eaeaea; width: 50%; margin: 5px" />
-        <div class="same-padding password-checkbox-wrap">
-          <label for="pw-or-not">비밀글 선택</label>
-          <label
-            ><input
-              class="pw-or-not-y"
-              type="radio"
-              name="pw-or-not"
-              value="y"
-              checked
-            />비밀글</label
-          >
-          <label
-            ><input
-              class="pw-or-not-n"
-              type="radio"
-              name="pw-or-not"
-              value="n"
-            />공개글</label
-          >
+      <div class="bottom-background-color">
+        <div class="service-write-section">
+          <h1>고객센터 문의</h1>
+          <hr style="border: 1px solid #eaeaea; width: 50%; margin-top: 5px" />
+          <div class="same-padding service-category-select">
+            <label for="service-category">문의유형</label>
+            <select name="service-category" id="service-category">
+              <option value="">문의 유형을 선택해 주세요</option>
+              <option value="">자료 오류</option>
+              <option value="">추가 자료 문의</option>
+              <option value="">기타 문의</option>
+            </select>
+          </div>
+          <hr style="border: 1px solid #eaeaea; width: 50%; margin-top: 5px" />
+          <div class="same-padding writer-wrap">
+            <label for="writer-wrap">작성자</label>
+            <input type="text" id="writerValue" />
+          </div>
           <hr style="border: 1px solid #eaeaea; width: 50%; margin: 5px" />
-          <div class="password-wrap">
-            <div class="pw-input">
-              <label for="pw">비밀번호</label>
-              <input class="service-write-pw" type="password" />
-            </div>
-            <div class="repw-input">
-              <label for="re-pw">비밀번호 확인</label>
-              <input class="service-write-re-pw" type="password" />
+          <div class="same-padding e-mail-wrap">
+            <label for="e-mail-wrap">e-mail</label>
+            <input type="text" id="emailValue" />
+          </div>
+          <hr style="border: 1px solid #eaeaea; width: 50%; margin: 5px" />
+          <div class="same-padding text-area-wrap">
+            <label for="text-wrap">본문</label>
+            <textarea
+              name="text-wrap"
+              id="textValue"
+              cols="30"
+              rows="10"
+            ></textarea>
+          </div>
+          <hr style="border: 1px solid #eaeaea; width: 50%; margin: 5px" />
+          <div class="same-padding password-checkbox-wrap">
+            <label for="pw-or-not">비밀글 선택</label>
+            <label
+              ><input
+                class="pw-or-not-y"
+                type="radio"
+                name="pw-or-not"
+                value="y"
+                checked
+              />비밀글</label
+            >
+            <label
+              ><input
+                class="pw-or-not-n"
+                type="radio"
+                name="pw-or-not"
+                value="n"
+              />공개글</label
+            >
+            <hr style="border: 1px solid #eaeaea; width: 50%; margin: 5px" />
+            <div class="password-wrap">
+              <div class="pw-input">
+                <label for="pw">비밀번호</label>
+                <input class="service-write-pw" type="password" />
+              </div>
+              <div class="repw-input">
+                <label for="re-pw">비밀번호 확인</label>
+                <input class="service-write-re-pw" type="password" />
+              </div>
             </div>
           </div>
+          <hr style="border: 1px solid #eaeaea; width: 50%; margin: 5px" />
+          <div class="write-button-wrap">
+            <button class="service-write-registration" type="button">
+              등록
+            </button>
+            <button type="button">
+              <a href="service_center.html">취소</a>
+            </button>
+          </div>
         </div>
-        <hr style="border: 1px solid #eaeaea; width: 50%; margin: 5px" />
-        <div class="write-button-wrap">
-          <button class="service-write-registration" type="button">등록</button>
-          <button type="button"><a href="service_center.html">취소</a></button>
-        </div>
+        <footer>
+          <img src="img/T.A.S-logo.png" alt="" />
+          <div class="footer-info">
+            <p>email : jyg12770@google.com</p>
+            <p>email : jyg12770@google.com</p>
+          </div>
+          <button
+            type="button"
+            style="cursor: pointer"
+            onclick="window.scrollTo({top:0, left:0, behavior:'smooth'});"
+          >
+            top
+          </button>
+        </footer>
       </div>
-      <footer>
-        <img src="img/T.A.S-logo-black.png" alt="" />
-        <div class="footer-info">
-          <p>email : jyg12770@google.com</p>
-          <p>email : jyg12770@google.com</p>
-        </div>
-        <button
-          type="button"
-          style="cursor: pointer"
-          onclick="window.scrollTo({top:0, left:0, behavior:'smooth'});"
-        >
-          top
-        </button>
-      </footer>
     </div>
   </body>
   <script

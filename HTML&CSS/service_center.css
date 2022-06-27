@@ -2,19 +2,197 @@
   --button-shadow: 1px 1px 3px 1px #dadce0;
   --box-inset: 1px 1px 3px 1px #dadce0 inset;
   --main-blue: #2e7ec8;
-  --light-grey: #eaeaea;
+  --light-grey: #f6f6f6;
   --middel-grey: #6f6669;
   --dark-grey: #5a5256;
 }
-.service-center-section {
-  margin: 10px auto;
-  padding: 5% 0;
-  width: 80%;
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+.row {
+  display: flex;
+}
+.row-col {
+  display: flex;
+  flex-direction: column;
+}
+input:focus {
+  outline: none;
+}
+.circle-01 {
+  z-index: 0;
+  position: absolute;
+  top: -40%;
+  left: 8%;
+  border: 5px solid #5ea5e8;
+  border-radius: 50%;
+  width: 450px;
+  height: 450px;
+}
+.circle-02 {
+  z-index: 0;
+  position: absolute;
+  top: -40%;
+  left: 1%;
+  border: 5px solid #24415c;
+  border-radius: 50%;
+  width: 450px;
+  height: 450px;
+}
+.circle-03 {
+  z-index: 0;
+  position: absolute;
+  top: -40%;
+  left: 3%;
+  border: 4px solid #cae5ff;
+  border-radius: 50%;
+  width: 450px;
+  height: 450px;
+}
+.top-background-color {
+  position: relative;
+  z-index: 0;
+  width: 100%;
+  height: 750px;
+  background-color: var(--main-blue);
+}
+.bottom-background-color {
+  position: relative;
+  z-index: 0;
+  width: 100%;
   height: 800px;
+  background-color: var(--light-grey);
+}
+header {
+  height: 100px;
+}
+.top {
+  padding: 30px 30px 0;
+  justify-content: right;
+  width: 100%;
+  height: 50px;
+}
+.top select {
+  width: 60px;
+  height: 22px;
+  color: var(--light-grey);
+  margin: 0 50px 0 1%;
+  border: 1px solid var(--light-grey);
+  border-radius: 5px;
+  background-color: var(--main-blue);
+}
+.top option {
+  background-color: transparent;
+  color: var(--light-grey);
+}
+.top a {
+  color: var(--light-grey);
+  text-decoration: none;
+}
+.header-category {
+  width: 100%;
+  height: 50px;
+}
+.logo img {
+  margin-left: 20%;
+  margin-top: -8px;
+  width: 90px;
+}
+.logo {
+  z-index: 1;
+  width: 100%;
+}
+.category {
+  justify-content: space-between;
+  margin-top: 16.8px;
+  width: 100%;
+  text-align: center;
+  font-weight: 800;
+}
+.category a {
+  color: white;
+  font-size: 14.5px;
+  text-decoration: none;
+}
+.category-link {
+  width: 120px;
+  font-weight: 800;
+}
+.dropdown {
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+}
+.link-button {
+  color: white;
+  font-size: 14.5px;
+  font-weight: 800;
+  border: none;
+  background-color: transparent;
+}
+.dropdown-content {
+  z-index: 1;
+  width: 130px;
+  display: none;
+  position: absolute;
+  background-color: transparent;
+  border-left: 1.2px solid var(--light-grey);
+  margin-top: 10px;
+}
+.dropdown-content a {
+  font-weight: 800;
+  display: block;
+  padding: 12px 18px;
+  text-align: center;
+  color: var(--light-grey);
+}
+.dropdown-content a:hover {
+  font-weight: 800;
+  border-radius: 5px;
+  margin-left: 5px;
+  background-color: var(--light-grey);
+  color: var(--main-blue);
+}
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+.login-link {
+  margin-right: 20%;
+}
+.service-link a:hover {
+  border-bottom: 3px solid var(--light-grey);
+  border-bottom-left-radius: 3px;
+  border-bottom-right-radius: 3px;
+  padding: 8px;
+}
+.client-link a:hover {
+  border-bottom: 3px solid var(--light-grey);
+  border-bottom-left-radius: 3px;
+  border-bottom-right-radius: 3px;
+  padding: 8px;
+}
+.login-link a:hover {
+  border-bottom: 3px solid var(--light-grey);
+  border-bottom-left-radius: 3px;
+  border-bottom-right-radius: 3px;
+  padding: 8px;
+}
+/* 고객센터 메인 */
+.service-center-section {
+  position: absolute;
+  top: -50%;
+  width: 90%;
+  height: 800px;
+  margin: 0 5%;
+  border-radius: 18px;
+  box-shadow: var(--button-shadow);
+  background-color: white;
 }
 .service-center-section-header {
   justify-content: space-between;
-  padding: 0 15px;
+  padding: 1% 3%;
 }
 .service-center-section-header h2 {
   text-align: center;
@@ -23,15 +201,17 @@
   color: var(--main-blue);
 }
 .service-write-btn {
-  padding: 10px 0;
+  font-size: 13px;
+  font-weight: 900;
   text-decoration: none;
+  color: var(--dark-grey);
+  padding: 10px 0;
+  border: 1px solid var(--light-grey);
   text-align: center;
   box-shadow: var(--button-shadow);
   height: 40px;
   border-radius: 5px;
   width: 80px;
-  color: var(--dark-grey);
-  font-weight: 800;
 }
 .service-center-section table {
   width: 100%;
@@ -53,10 +233,211 @@
 .service-center-section table tr:last-child {
   border-bottom: none;
 }
-/* JS - 추가사항 */
-.popup{
-  display: none;
+.pagination {
+  margin-top: 50px;
+  font-size: 15px;
+  text-align: center;
 }
+.pagination a {
+  box-shadow: var(--button-shadow);
+  width: 10px;
+  text-decoration: none;
+  margin-left: 10px;
+  border-radius: 3px;
+  padding: 3px 5px;
+  color: var(--dark-grey);
+}
+footer {
+  position: absolute;
+  display: flex;
+  justify-content: space-around;
+  bottom: 0;
+  border: none;
+  width: 100%;
+  height: 150px;
+  color: var(--main-blue);
+}
+footer img {
+  width: auto;
+  height: 100px;
+  opacity: 0.8;
+}
+footer button {
+  font-size: 15px;
+  cursor: pointer;
+  background-color: transparent;
+  border: none;
+  color: var(--main-blue);
+  width: auto;
+  height: 30px;
+}
+/* popup css */
+.main-popup {
+  display: none;
+  z-index: 2;
+  position: absolute;
+  left: 35%;
+  top: 42%;
+  border: 1px solid var(--light-grey);
+  border-top: none;
+  width: 600px;
+  height: auto;
+  border-radius: 5px;
+  background-color: #f8f8f8;
+}
+.main-popup input {
+  background-color: transparent;
+  border: none;
+}
+.top-btn-area {
+  width: 100%;
+  height: 30px;
+  border: none;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  background-color: var(--light-grey);
+}
+.top-btn-area button {
+  cursor: pointer;
+  background-color: red;
+  border: none;
+  width: 16px;
+  height: 16px;
+  margin: 7px 5px;
+  border-radius: 50%;
+  box-shadow: var(--button-shadow);
+}
+.popup input {
+  background-color: transparent;
+  border: none;
+}
+.label-wrap {
+  margin-left: 50px;
+  margin-top: 100px;
+  width: 25%;
+}
+.input-wrap {
+  margin-top: 97px;
+  width: 100%;
+}
+label {
+  height: 30px;
+  margin-top: 16px;
+}
+input {
+  height: 31px;
+  font-size: 17px;
+  margin-top: 13px;
+  margin-left: 15px;
+}
+#main-text {
+  border: 1px solid var(--light-grey);
+  width: 80%;
+  height: auto;
+}
+#comment {
+  border: 1px solid var(--light-grey);
+  width: 80%;
+  height: 50px;
+}
+.btn-area {
+  margin-top: 50px;
+  margin-left: 400px;
+  margin-bottom: 50px;
+}
+.btn-area a:hover {
+  transition: 0.1s;
+  background-color: var(--main-blue);
+  color: var(--light-grey);
+}
+.btn-area a {
+  text-decoration: none;
+  margin: 0 5px;
+  border: none;
+  background-color: transparent;
+  color: var(--dark-grey);
+  font-weight: 900;
+  border-radius: 5px;
+  border: 1px solid var(--light-grey);
+  box-shadow: var(--button-shadow);
+  font-size: 13px;
+  padding: 5px;
+}
+#cnt {
+  margin-top: 20px;
+}
+.main-text-wrap {
+  margin-left: 50px;
+}
+.comment-wrap {
+  margin-left: 50px;
+}
+
+/* 비밀글 비밀번호 확인창 */
+.main-pw-confirm-popup {
+  display: none;
+  z-index: 2;
+  box-shadow: var(--box-inset);
+  top: 80%;
+  left: 40%;
+  position: absolute;
+  width: 300px;
+  height: 150px;
+  background-color: var(--light-grey);
+  border-radius: 5px;
+}
+.pw-confirm-popup {
+  z-index: 1;
+  box-shadow: var(--box-inset);
+  top: 35%;
+  left: 40%;
+  position: absolute;
+  width: 300px;
+  height: 150px;
+  background-color: var(--light-grey);
+  border-radius: 5px;
+}
+.pw-confirm-top {
+  height: 27px;
+  width: 100%;
+  background-color: #dadce0;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+}
+.pw-confirm-top button {
+  width: 20px;
+  cursor: pointer;
+  margin-left: 88%;
+  margin-top: 2px;
+  border: none;
+  border-radius: 2px;
+  box-shadow: var(--button-shadow);
+}
+.main-pw-confirm-popup p {
+  margin: 15px 50px;
+}
+.pw-confirm-popup p {
+  margin: 15px 50px;
+}
+.pw-confirm-wrap {
+  display: flex;
+}
+.pw-confirm-wrap input {
+  margin: 5px 15px;
+  border: none;
+}
+.pw-confirm-wrap button {
+  width: 50px;
+  margin-top: 5px;
+  cursor: pointer;
+  border: none;
+  border-radius: 2px;
+  box-shadow: var(--button-shadow);
+  height: 30px;
+}
+
+/* JS - 추가사항 */
+
 #boardData tr{
   cursor: pointer;
 }

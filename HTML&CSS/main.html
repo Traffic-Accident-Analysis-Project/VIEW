@@ -42,9 +42,10 @@
           <button type="button" id="btn-passwordForUpdate">확인</button>
         </div>
       </div>
+      <!-- main화면 main popup -->
       <div class="main-popup">
         <div class="top-btn-area">
-          <button class="popup-close" type="button">X</button>
+          <button class="popup-close" type="button"></button>
         </div>
         <div class="row">
           <div class="row-col label-wrap">
@@ -124,66 +125,167 @@
           <!-- 비밀글일 경우 수정버튼 공개글일경우 수정버튼 숨기기 -->
           <a href="#" class="btn-success">수정</a>
         </div>
-      </div> <!-- popup end -->
-      <div class="top">
-        <a href="main.html">home</a>
-        <i
-          class="fa-solid fa-house-chimney"
-          style="color: #eaeaea; margin-left: 5px; margin-top: 3px"
-        ></i>
-        <select name="lang-selbox" id="">
-          <option value="korea">한글</option>
-          <option value="eng">English</option>
-        </select>
       </div>
-      <header class="row">
-        <div class="logo">
-          <a href="main.html">
-            <img src="img/T.A.S-logo.png" alt="" />
-          </a>
+      <!-- popup end -->
+      <header>
+        <div class="row top">
+          <a href="main.html">home</a>
+          <i
+            class="fa-solid fa-house-chimney"
+            style="color: #eaeaea; margin-left: 5px; margin-top: 3px"
+          ></i>
+          <select name="lang-selbox" id="">
+            <option value="korea">한글</option>
+            <option value="eng">English</option>
+          </select>
         </div>
-        <div class="row category">
-          <div class="category-link dropdown">
-            <div class="link-button">통계 자료실</div>
-            <div class="dropdown-content">
-              <a href="law.html">법규 위반</a>
-              <a href="alcohol.html">음주 정도</a>
-              <a href="road_type.html">도로 종류</a>
-              <a href="accident_type.html">사고 유형</a>
-              <a href="city_type.html">시도 별</a>
+        <div class="row">
+          <div class="logo">
+            <a href="main.html">
+              <img src="img/T.A.S-logo.png" alt="" />
+            </a>
+          </div>
+          <div class="row category">
+            <div class="category-link dropdown">
+              <div class="link-button">통계 자료실</div>
+              <div class="dropdown-content">
+                <a href="statisticalData/law.html">법규 위반</a>
+                <a href="statisticalData/alcohol.html">음주 정도</a>
+                <a href="statisticalData/road_type.html">도로 종류</a>
+                <a href="statisticalData/accident_type.html">사고 유형</a>
+                <a href="statisticalData/city_type.html">시도 별</a>
+              </div>
+            </div>
+            <div class="category-link service-link">
+              <a href="intro-service.html">서비스 소개</a>
+            </div>
+            <div class="category-link client-link">
+              <a href="service_center.html">고객 센터</a>
+            </div>
+            <div class="category-link login-link">
+              <a href="login.html">로그인</a>
             </div>
           </div>
-          <div class="category-link service-link">
-            <a href="intro-service.html">서비스 소개</a>
-          </div>
-          <div class="category-link client-link">
-            <a href="service_center.html">고객 센터</a>
-          </div>
-          <div class="category-link manager-link">
-            <a href="manager-login.html">관리자 페이지</a>
+        </div>
+        <div class="header-text-wrap">
+          <h1>T <span>Traffic</span></h1>
+          <h1>A <span>Accident</span></h1>
+          <h1>S <span>Statistics</span></h1>
+        </div>
+      </header>
+      <!-- 메인화면 서비스 소개 -->
+      <div class="main-service-intro-wrap">
+        <div class="row">
+          <h1>T.A.S의 서비스 소개</h1>
+          <div class="main-service-intro">
+            <p>간단한 소개말 작성</p>
+            <p>간단한 소개말 작성</p>
+            <p>간단한 소개말 작성</p>
+            <p>간단한 소개말 작성</p>
           </div>
         </div>
-        <!-- category end -->
-      </header>
-      <hr style="border: 5px solid #2e7ec8; background-color: #2e7ec8" />
-      <div class="law-main-section">
         <div class="swiper">
           <!-- Additional required wrapper -->
           <div class="swiper-wrapper">
             <!-- Slides -->
             <div class="swiper-slide">
+              <div class="swiper-text-wrap">
+                <h2>2020년 법규 위반 교통사고</h2>
+                <div class="swiper-card-wrap">
+                  <div class="swiper-card">
+                    <div class="swiper-card-name">사고 건수</div>
+                    <div id="swiper-accidents-cnt">500</div>
+                  </div>
+                  <div class="swiper-card">
+                    <div class="swiper-card-name">사망자 수</div>
+                    <div id="swiper-dead-cnt">200</div>
+                  </div>
+                  <div class="swiper-card">
+                    <div class="swiper-card-name">부상자 수</div>
+                    <div id="swiper-injury-cnt">50</div>
+                  </div>
+                </div>
+              </div>
               <img src="img/car-accident-g8bdc6172b_1280.jpg" alt="" />
             </div>
             <div class="swiper-slide">
+              <div class="swiper-text-wrap">
+                <h2>2020년 음주 정도 교통사고</h2>
+                <div class="swiper-card-wrap">
+                  <div class="swiper-card">
+                    <div class="swiper-card-name">사고 건수</div>
+                    <div id="swiper-accidents-cnt">500</div>
+                  </div>
+                  <div class="swiper-card">
+                    <div class="swiper-card-name">사망자 수</div>
+                    <div id="swiper-dead-cnt">200</div>
+                  </div>
+                  <div class="swiper-card">
+                    <div class="swiper-card-name">부상자 수</div>
+                    <div id="swiper-injury-cnt">50</div>
+                  </div>
+                </div>
+              </div>
               <img src="img/car-accident-g6d1835f54_1280.jpg" alt="" />
             </div>
             <div class="swiper-slide">
+              <div class="swiper-text-wrap">
+                <h2>2020년 도로 종류 교통사고</h2>
+                <div class="swiper-card-wrap">
+                  <div class="swiper-card">
+                    <div class="swiper-card-name">사고 건수</div>
+                    <div id="swiper-accidents-cnt">500</div>
+                  </div>
+                  <div class="swiper-card">
+                    <div class="swiper-card-name">사망자 수</div>
+                    <div id="swiper-dead-cnt">200</div>
+                  </div>
+                  <div class="swiper-card">
+                    <div class="swiper-card-name">부상자 수</div>
+                    <div id="swiper-injury-cnt">50</div>
+                  </div>
+                </div>
+              </div>
               <img src="img/automobile-gd8498f51e_1280.jpg" alt="" />
             </div>
             <div class="swiper-slide">
+              <div class="swiper-text-wrap">
+                <h2>2020년 사고 유형 교통사고</h2>
+                <div class="swiper-card-wrap">
+                  <div class="swiper-card">
+                    <div class="swiper-card-name">사고 건수</div>
+                    <div id="swiper-accidents-cnt">500</div>
+                  </div>
+                  <div class="swiper-card">
+                    <div class="swiper-card-name">사망자 수</div>
+                    <div id="swiper-dead-cnt">200</div>
+                  </div>
+                  <div class="swiper-card">
+                    <div class="swiper-card-name">부상자 수</div>
+                    <div id="swiper-injury-cnt">50</div>
+                  </div>
+                </div>
+              </div>
               <img src="img/car-accident-g7519b9649_1280.jpg" alt="" />
             </div>
             <div class="swiper-slide">
+              <div class="swiper-text-wrap">
+                <h2>2020년 시도 별 교통사고</h2>
+                <div class="swiper-card-wrap">
+                  <div class="swiper-card">
+                    <div class="swiper-card-name">사고 건수</div>
+                    <div id="swiper-accidents-cnt">500</div>
+                  </div>
+                  <div class="swiper-card">
+                    <div class="swiper-card-name">사망자 수</div>
+                    <div id="swiper-dead-cnt">200</div>
+                  </div>
+                  <div class="swiper-card">
+                    <div class="swiper-card-name">부상자 수</div>
+                    <div id="swiper-injury-cnt">50</div>
+                  </div>
+                </div>
+              </div>
               <img src="img/crash-gdc5bfcae5_1280.jpg" alt="" />
             </div>
           </div>
@@ -194,28 +296,35 @@
           <div class="swiper-button-prev"></div>
           <div class="swiper-button-next"></div>
         </div>
-        <!-- swiper end -->
-        <div class="row main-row-section">
-          <div class="main-graph-section">
-            <!-- 그래프 들어갈 자리(사이즈만 잡아놓기) -->
-            <img src="img/임시이미지.png" alt="" />
+      </div>
+      <!-- 메인 서비스화면 end -->
+      <hr
+        style="
+          margin-top: 50px;
+          border: 3px solid #eaeaea;
+          background-color: #eaeaea;
+        "
+      />
+      <div class="row main-section">
+        <div class="main-graph-section">
+          <img src="img/임시이미지.png" alt="" />
+        </div>
+        <div class="main-user-board-list-section">
+          <div class="main-user-board-header">
+            <p>고객문의</p>
           </div>
-          <div class="main-user-board-list-section">
-            <div class="main-user-board-header">
-              <p>고객문의</p>
-            </div>
-            <table>
-              <thead>
-                <tr>
-                  <th>글 번호</th>
-                  <th>작성자</th>
-                  <th>문의 유형</th>
-                  <th>작성 날짜</th>
-                  <th>조회 수</th>
-                </tr>
-              </thead>
-              <tbody id="boardData">
-                <!-- <tr>
+          <table>
+            <thead>
+              <tr>
+                <th>글 번호</th>
+                <th>작성자</th>
+                <th>문의 유형</th>
+                <th>작성 날짜</th>
+                <th>조회 수</th>
+              </tr>
+            </thead>
+            <tbody id="boardData">
+              <!-- <tr>
                   <td>1</td>
                   <td>현상원</td>
                   <td>점심시간이 너무 짧아요!</td>
@@ -243,17 +352,16 @@
                   <td>2022-05-19</td>
                   <td><span class="cnt-row">22</span></td>
                 </tr> -->
-              </tbody>
-            </table>
-            <div class="pagination">
-              <a href="#">Previous</a>
+            </tbody>
+          </table>
+          <div class="pagination">
+            <!-- <a href="#">Previous</a>
               <a href="#">1</a>
               <a href="#">2</a>
               <a href="#">3</a>
               <a href="#">4</a>
               <a href="#">5</a>
-              <a href="#">Next</a>
-            </div>
+              <a href="#">Next</a> -->
           </div>
         </div>
       </div>
@@ -309,6 +417,5 @@
         prevEl: ".swiper-button-prev",
       },
     });
-    
   </script>
 </html>
