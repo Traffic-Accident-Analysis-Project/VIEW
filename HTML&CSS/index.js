@@ -10,9 +10,16 @@ $(".pw-or-not-n").on("click", function () {
 // 상세보기 닫기버튼
 $('.popup-close').on('click',function(){
   $('.main-popup').css('display','none');
-  $('.popup').css('display','none');
   $('.pw-confirm-popup').css('display','none');
   $('.main-pw-confirm-popup').css('display','none');
+})
+
+// 회원가입 버튼 > 회원가입 페이지
+$('.join-button').on('click',function(){
+  var result = confirm('회원가입 하시겠습니까?');
+  if(result){
+    location.href = "/HTML&CSS/join.html";
+  }
 })
 
 // 고객센터문의 글쓰기 등록 눌렀을 때 -JS
@@ -144,8 +151,8 @@ function getBoardList(pageNum, pageSize){
 }
 getBoardList(1,10);
 
-// 관리자 로그인
-$('.manager-login-button').on('click',function(){
+// 로그인
+$('.login-button').on('click',function(){
     // 로그인 ajax넣기
     // 로그인 성공일 경우
     // location.replace('manager/manager-main.html');
