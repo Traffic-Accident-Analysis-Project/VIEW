@@ -260,14 +260,15 @@ textarea {
 .write-button-wrap button {
   cursor: pointer;
   background-color: transparent;
+  border-radius: 3px;
   border: 1px solid var(--light-grey);
   color: var(--dark-grey);
   width: 50px;
   height: 30px;
 }
-.write-button-wrap button a {
-  text-decoration: none;
-  color: var(--dark-grey);
+.write-button-wrap button:hover {
+  background-color: var(--main-blue);
+  color: var(--light-grey);
 }
 footer {
   position: absolute;

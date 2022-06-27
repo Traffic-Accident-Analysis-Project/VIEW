@@ -120,18 +120,17 @@ input:focus {
   border: none;
   border-top-left-radius: 5px;
   border-top-right-radius: 5px;
-  background-color: var(--main-blue);
+  background-color: var(--light-grey);
 }
 .top-btn-area button {
-  background-color: var(--light-grey);
-  border: none;
-  margin-left: 560px;
-  width: 22px;
-  height: 22px;
-  margin-top: 4px;
-  font-weight: 900;
-  border-radius: 5px;
   cursor: pointer;
+  background-color: red;
+  border: none;
+  width: 16px;
+  height: 16px;
+  margin: 7px 5px;
+  border-radius: 50%;
+  box-shadow: var(--button-shadow);
 }
 .popup input {
   background-color: transparent;
@@ -172,13 +171,26 @@ input {
   margin-left: 400px;
   margin-bottom: 50px;
 }
+.btn-area a:hover {
+  transition: 0.1s;
+  background-color: var(--main-blue);
+  color: var(--light-grey);
+}
 .btn-area a {
   text-decoration: none;
-  background-color: var(--main-blue);
-  color: white;
-  padding: 8px 15px;
-  border-radius: 2px;
   margin: 0 5px;
+  border: none;
+  background-color: transparent;
+  color: var(--dark-grey);
+  font-weight: 900;
+  border-radius: 5px;
+  border: 1px solid var(--light-grey);
+  box-shadow: var(--button-shadow);
+  font-size: 13px;
+  padding: 5px;
+}
+.logs-delete-button {
+  margin-left: 80%;
 }
 #categry {
   margin-top: 20px;

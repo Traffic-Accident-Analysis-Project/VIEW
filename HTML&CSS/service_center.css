@@ -201,6 +201,7 @@ header {
   color: var(--main-blue);
 }
 .service-write-btn {
+  margin: 12px 0;
   font-size: 13px;
   font-weight: 900;
   text-decoration: none;
@@ -212,6 +213,10 @@ header {
   height: 40px;
   border-radius: 5px;
   width: 80px;
+}
+.service-write-btn:hover {
+  background-color: var(--main-blue);
+  color: var(--light-grey);
 }
 .service-center-section table {
   width: 100%;
@@ -375,23 +380,12 @@ input {
 
 /* 비밀글 비밀번호 확인창 */
 .main-pw-confirm-popup {
-  display: none;
+  position: absolute;
+  display: block;
   z-index: 2;
   box-shadow: var(--box-inset);
-  top: 80%;
   left: 40%;
-  position: absolute;
-  width: 300px;
-  height: 150px;
-  background-color: var(--light-grey);
-  border-radius: 5px;
-}
-.pw-confirm-popup {
-  z-index: 1;
-  box-shadow: var(--box-inset);
-  top: 35%;
-  left: 40%;
-  position: absolute;
+  top: 50%;
   width: 300px;
   height: 150px;
   background-color: var(--light-grey);
@@ -405,18 +399,16 @@ input {
   border-top-right-radius: 5px;
 }
 .pw-confirm-top button {
-  width: 20px;
   cursor: pointer;
-  margin-left: 88%;
-  margin-top: 2px;
+  background-color: red;
   border: none;
-  border-radius: 2px;
+  width: 16px;
+  height: 16px;
+  margin: 7px 5px;
+  border-radius: 50%;
   box-shadow: var(--button-shadow);
 }
 .main-pw-confirm-popup p {
-  margin: 15px 50px;
-}
-.pw-confirm-popup p {
   margin: 15px 50px;
 }
 .pw-confirm-wrap {
@@ -435,17 +427,21 @@ input {
   box-shadow: var(--button-shadow);
   height: 30px;
 }
+.pw-confirm-wrap button:hover {
+  background-color: var(--main-blue);
+  color: var(--light-grey);
+}
 
 /* JS - 추가사항 */
 
 #boardData tr{
   cursor: pointer;
 }
-.delete{
+/* .delete{
   z-index: 2;
   display: none;
 }
 .update{
   z-index: 2;
   display: none;
-}
+} */
