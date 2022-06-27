@@ -22,6 +22,14 @@ $('.join-button').on('click',function(){
   }
 })
 
+// 회원가입 취소 > 로그인페이지
+$('.cancel-button').on('click',function(){
+  var result = confirm('회원가입을 취소하시겠습니까?');
+  if(result){
+    location.href = "login.html";
+  }
+})
+
 $('.service-write-cencel').on('click',function(){
   var result = confirm('글쓰기를 종료하시겠습니까?');
   if(result){
