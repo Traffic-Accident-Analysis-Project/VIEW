@@ -16,63 +16,63 @@
   </head>
   <body>
     <div class="container">
-      <div class="top">
-        <a href="main.html">home</a>
-        <i
-          class="fa-solid fa-house-chimney"
-          style="color: #eaeaea; margin-left: 5px; margin-top: 3px"
-        ></i>
-        <select name="lang-selbox" id="">
-          <option value="korea">한글</option>
-          <option value="eng">English</option>
-        </select>
-      </div>
-      <header class="row">
-        <div class="logo">
-          <a href="main.html">
-            <img src="img/T.A.S-logo.png" alt="" />
-          </a>
-        </div>
-        <div class="row category">
-          <div class="category-link dropdown">
-            <div class="link-button">통계 자료실</div>
-            <div class="dropdown-content">
-              <a href="law.html">법규 위반</a>
-              <a href="alcohol.html">음주 정도</a>
-              <a href="road_type.html">도로 종류</a>
-              <a href="accident_type.html">사고 유형</a>
-              <a href="city_type.html">시도 별</a>
+      <div class="top-background-color">
+        <header>
+          <div class="circle-01"></div>
+          <div class="circle-02"></div>
+          <div class="circle-03"></div>
+          <div class="row top">
+            <a href="main.html">home</a>
+            <i
+              class="fa-solid fa-house-chimney"
+              style="color: #eaeaea; margin-left: 5px; margin-top: 3px"
+            ></i>
+            <select name="lang-selbox" id="">
+              <option value="korea">한글</option>
+              <option value="eng">English</option>
+            </select>
+          </div>
+          <div class="row header-category">
+            <div class="logo">
+              <a href="../main.html">
+                <img src="../img/T.A.S-logo-black.png" alt="" />
+              </a>
+            </div>
+            <div class="row category">
+              <div class="category-link dropdown">
+                <div class="link-button">통계 자료실</div>
+                <div class="dropdown-content">
+                  <a href="law.html">법규 위반</a>
+                  <a href="alcohol.html">음주 정도</a>
+                  <a href="road_type.html">도로 종류</a>
+                  <a href="accident_type.html">사고 유형</a>
+                  <a href="city_type.html">시도 별</a>
+                </div>
+              </div>
+              <div class="category-link service-link">
+                <a href="../intro-service.html">서비스 소개</a>
+              </div>
+              <div class="category-link client-link">
+                <a href="../service_center.html">고객 센터</a>
+              </div>
+              <div class="category-link login-link">
+                <a href="../login.html">로그인</a>
+              </div>
             </div>
           </div>
-          <div class="category-link service-link">
-            <a href="intro-service.html">서비스 소개</a>
-          </div>
-          <div class="category-link client-link">
-            <a href="service_center.html">고객 센터</a>
-          </div>
-          <div class="category-link manager-link">
-            <a href="manager-login.html">관리자 페이지</a>
-          </div>
-        </div>
-      </header>
-      <hr style="border: 5px solid #2e7ec8; background-color: #2e7ec8" />
+        </header>
+      </div>
       <!-- header end -->
-      <div class="main-title">
+      <div class="bottom-background-color">
+        <div class="statistical-page-main">
+          <div class="statistical-page-main-title">
         <h1>음주 정도</h1>
-        <hr
-          style="
-            width: 20%;
-            border: 1px solid #2e7ec8;
-            background-color: #2e7ec8;
-            margin-top: 7px;
-          "
-        />
       </div>
       <div class="by-category-main-section">
-        <div class="main-left-section-graph">
-          <img src="img/임시이미지.png" alt="" />
+        <div class="statistical-page-left-section-graph">
+          <img src="../img/임시이미지.png" alt="" />
         </div>
-        <div class="main-right-section">
+        <div class="statistical-page-right-section">
           <div class="select-wrap">
             <div class="alcohol-sel alcohol-year">
               <select name="alcohol-year" id="">
@@ -165,7 +165,7 @@
                 <h2>사고 건 수</h2>
                 <i class="fa-solid fa-car-burst fa-3x"></i>
               </div>
-              <p>2000</p>
+              <p><span>2000</span></p>
             </div>
             <div class="accidents-card card-dead middle">
               <div class="row">
@@ -187,21 +187,21 @@
           </div>
         </div>
       </div>
-
-      <footer>
-        <img src="img/T.A.S-logo-black.png" alt="" />
-        <div class="footer-info">
-          <p>email : jyg12770@google.com</p>
-          <p>email : jyg12770@google.com</p>
-        </div>
-        <button
-          type="button"
-          style="cursor: pointer"
-          onclick="window.scrollTo({top:0, left:0, behavior:'smooth'});"
-        >
-          top
-        </button>
-      </footer>
+    </div>
+    <footer>
+      <img src="../img/T.A.S-logo.png" alt="" />
+      <div class="footer-info">
+        <p>email : jyg12770@google.com</p>
+        <p>email : jyg12770@google.com</p>
+      </div>
+      <button
+        type="button"
+        style="cursor: pointer"
+        onclick="window.scrollTo({top:0, left:0, behavior:'smooth'});"
+      >
+        top
+      </button>
+    </footer>
     </div>
   </body>
   <script

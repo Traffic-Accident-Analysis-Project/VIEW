@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>T.A.S 법규위반</title>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+      integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <div class="top-background-color">
+        <header>
+          <div class="circle-01"></div>
+          <div class="circle-02"></div>
+          <div class="circle-03"></div>
+          <div class="row top">
+            <a href="main.html">home</a>
+            <i
+              class="fa-solid fa-house-chimney"
+              style="color: #eaeaea; margin-left: 5px; margin-top: 3px"
+            ></i>
+            <select name="lang-selbox" id="">
+              <option value="korea">한글</option>
+              <option value="eng">English</option>
+            </select>
+          </div>
+          <div class="row header-category">
+            <div class="logo">
+              <a href="../main.html">
+                <img src="../img/T.A.S-logo-black.png" alt="" />
+              </a>
+            </div>
+            <div class="row category">
+              <div class="category-link dropdown">
+                <div class="link-button">통계 자료실</div>
+                <div class="dropdown-content">
+                  <a href="law.html">법규 위반</a>
+                  <a href="alcohol.html">음주 정도</a>
+                  <a href="road_type.html">도로 종류</a>
+                  <a href="accident_type.html">사고 유형</a>
+                  <a href="city_type.html">시도 별</a>
+                </div>
+              </div>
+              <div class="category-link service-link">
+                <a href="../intro-service.html">서비스 소개</a>
+              </div>
+              <div class="category-link client-link">
+                <a href="../service_center.html">고객 센터</a>
+              </div>
+              <div class="category-link login-link">
+                <a href="../login.html">로그인</a>
+              </div>
+            </div>
+          </div>
+        </header>
+      </div>
+      <!-- header end -->
+      <div class="bottom-background-color">
+        <div class="statistical-page-main">
+          <div class="statistical-page-main-title">
+            <h1>가해자 법규 위반별</h1>
+          </div>
+          <div class="by-category-main-section">
+            <div class="statistical-page-left-section-graph">
+              <img src="../img/임시이미지.png" alt="" />
+            </div>
+            <div class="statistical-page-right-section">
+              <div class="select-wrap">
+                <div class="law-sel law-year">
+                  <select name="law-year" id="">
+                    <option value="">연도</option>
+                    <option value="2005">2005년</option>
+                    <option value="2006">2006년</option>
+                    <option value="2007">2007년</option>
+                    <option value="2008">2008년</option>
+                    <option value="2009">2009년</option>
+                    <option value="2010">2010년</option>
+                    <option value="2011">2011년</option>
+                    <option value="2012">2012년</option>
+                    <option value="2013">2013년</option>
+                    <option value="2014">2014년</option>
+                    <option value="2015">2015년</option>
+                    <option value="2016">2016년</option>
+                    <option value="2017">2017년</option>
+                    <option value="2018">2018년</option>
+                    <option value="2019">2019년</option>
+                    <option value="2020">2020년</option>
+                  </select>
+                </div>
+                <div class="law-sel law-month">
+                  <select name="law-month" id="">
+                    <option value="">월</option>
+                    <option value="전체">전체</option>
+                    <option value="1월">1월</option>
+                    <option value="2월">2월</option>
+                    <option value="3월">3월</option>
+                    <option value="4월">4월</option>
+                    <option value="5월">5월</option>
+                    <option value="6월">6월</option>
+                    <option value="7월">7월</option>
+                    <option value="8월">8월</option>
+                    <option value="9월">9월</option>
+                    <option value="10월">10월</option>
+                    <option value="11월">11월</option>
+                    <option value="12월">12월</option>
+                  </select>
+                </div>
+                <div class="law-sel law-violation">
+                  <select name="law-violation" id="">
+                    <option value="">가해자 법규 위반 선택</option>
+                    <option value="과로">과로</option>
+                    <option value="우선권양보불이행">우선권 양보 불이행</option>
+                    <option value="진로양보불이행">진로 양보 불이행</option>
+                    <option value="안전운전불이행">안전운전 불이행</option>
+                    <option value="교차로운행방법위반">
+                      교차로 운행방법 위반
+                    </option>
+                    <option value="보행자보호의무위반">
+                      보행자 보호 의무 위반
+                    </option>
+                    <option value="차로위반진로변경">
+                      차로 위반 진로 변경
+                    </option>
+                    <option value="직진우회전진행방해">
+                      직진 우회 전진행 방해
+                    </option>
+                    <option value="철길건널목통과방법">
+                      철길 건널목 통과 방법
+                    </option>
+                    <option value="긴급차피양의무위반">
+                      긴급차피양 의무 위반
+                    </option>
+                    <option value="과속">과속</option>
+                    <option value="앞지르기방법위반">앞지르기 방법 위반</option>
+                    <option value="앞지르기금지위반">앞지르기 금지 위반</option>
+                    <option value="중앙선침범">중앙선 침범</option>
+                    <option value="신호위반">신호위반</option>
+                    <option value="안전거리미확보">안전거리 미확보</option>
+                    <option value="일시정지위반">일시정지 위반</option>
+                    <option value="부당한회전">부당한 회전</option>
+                    <option value="정비불량">정비 불량</option>
+                    <option value="기타">기타</option>
+                  </select>
+                </div>
+                <button type="button">조회하기</button>
+              </div>
+              <div class="accidents-dead-injury-card-wrap">
+                <div class="accidents-card card-accidents hight">
+                  <div class="row">
+                    <h2>사고 건 수</h2>
+                    <i class="fa-solid fa-car-burst fa-3x"></i>
+                  </div>
+                  <p><span>2000</span></p>
+                </div>
+                <div class="accidents-card card-dead middle">
+                  <div class="row">
+                    <h2>사망자 수</h2>
+                    <i class="fa-solid fa-skull fa-3x"></i>
+                  </div>
+                  <p><span>1000</span></p>
+                </div>
+                <div class="accidents-card card-injury rower">
+                  <div class="row">
+                    <h2>부상자 수</h2>
+                    <i class="fa-solid fa-person-falling-burst fa-3x"></i>
+                  </div>
+                  <p><span>100</span></p>
+                </div>
+              </div>
+              <div class="excel-down-button">
+                <button type="button">Excel Downlod</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <footer>
+          <img src="../img/T.A.S-logo.png" alt="" />
+          <div class="footer-info">
+            <p>email : jyg12770@google.com</p>
+            <p>email : jyg12770@google.com</p>
+          </div>
+          <button
+            type="button"
+            style="cursor: pointer"
+            onclick="window.scrollTo({top:0, left:0, behavior:'smooth'});"
+          >
+            top
+          </button>
+        </footer>
+      </div>
+    </div>
+  </body>
+  <script
+    type="module"
+    src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"
+  ></script>
+  <script
+    nomodule
+    src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"
+  ></script>
+  <script
+    src="https://code.jquery.com/jquery-3.6.0.min.js"
+    integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+    crossorigin="anonymous"
+  ></script>
+  <script src="index.js"></script>
+</html>

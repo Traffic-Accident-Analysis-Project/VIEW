@@ -6,9 +6,15 @@
   --middel-grey: #6f6669;
   --dark-grey: #5a5256;
 }
-.city-main-title {
-  width: 100%;
-  padding: 3% 4% 0;
+.statistical-page-city {
+  position: absolute;
+  top: -50%;
+  width: 90%;
+  height: 1000px;
+  margin: 0 5%;
+  border-radius: 18px;
+  box-shadow: var(--button-shadow);
+  background-color: white;
 }
 .city-by-category-main-section {
   padding: 3%;
@@ -25,19 +31,21 @@
   padding-left: 2%;
   width: 50%;
 }
+/* 시도별 select box */
 .city-select-wrap {
   display: flex;
   width: 100%;
   justify-content: space-around;
-  margin: 2% 0;
+  margin: 10% 0 5%;
 }
 .city-select-wrap select {
-  border: 1px solid var(--main-blue);
-  border-radius: 5px;
+  color: black;
+  border: 2px solid var(--light-grey);
+  border-radius: 3px;
   width: 180px;
   height: 30px;
   background-color: transparent;
-  color: var(--main-blue);
+  margin-right: 5px;
 }
 .city-accidents-dead-injury-card-wrap {
   display: flex;
@@ -54,6 +62,7 @@
 }
 .city-accidents-card h2 {
   font-size: 23px;
+  margin-right: 35px;
 }
 .city-accidents-card p {
   text-align: center;
@@ -70,17 +79,32 @@
   width: 100%;
   margin-top: 2%;
 }
-.circle-graph button {
-  margin-top: 8%;
-  margin-left: 45%;
-}
 .city-main-right-section button {
   border: none;
-  background-color: var(--main-blue);
-  color: white;
-  border-radius: 3px;
+  background-color: transparent;
+  color: var(--dark-grey);
+  font-weight: 900;
+  border-radius: 5px;
+  border: 1px solid var(--light-grey);
+  box-shadow: var(--button-shadow);
   font-size: 13px;
-  padding: 7px;
+  padding: 5px;
   cursor: pointer;
   width: 80px;
+}
+.circle-graph button {
+  width: 180px;
+  margin-top: 8%;
+  margin-left: 30%;
+}
+.city-main-right-section button:hover {
+  transition: 0.1s;
+  background-color: var(--main-blue);
+  color: var(--light-grey);
+}
+.bottom-background-color {
+  height: 870px;
+}
+footer {
+  top: 700px;
 }
