@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="join.css" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="join-section">
+        <h1>회원가입</h1>
+        <label for="userId">ID</label>
+        <div class="user-id-section">
+          <input id="userId" type="text" />
+          <button type="button">ID 중복확인</button>
+        </div>
+        <label for="userName">이름</label>
+        <input id="userName" type="text" />
+        <label for="password">비밀번호</label>
+        <input id="password" type="password" />
+        <label for="rePassword">비밀번호 재확인</label>
+        <input id="rePassword" type="password" />
+        <label for="gender">성별</label>
+        <select name="" id="gender">
+          <option value="">성별을 선택 해 주세요</option>
+          <option value="w">여성</option>
+          <option value="m">남성</option>
+        </select>
+        <label for="userAddr">주소</label>
+        <input id="userAddr" type="text" />
+        <div class="detail-addr">
+          <input id="user-detailAddr" type="text" placeholder="  상세주소"/>
+          <button type="button" onclick="getPostCode()">도로명 주소</button>
+        </div>
+        <button class="joinButton" type="button" onclick="join()">가입하기</button>
+      </div>
+    </div>
+    <script
+      src="https://code.jquery.com/jquery-3.6.0.min.js"
+      integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+      crossorigin="anonymous"
+    ></script>
+    <script>
+      // 비밀번호 비밀번호재확인이 맞는지 확인
+      function join() {
+        var password = $("#password").val(); //비밀번호 데이터를 변수에 담음
+        var rePassword = $("#rePassword").val();
+        var userName = $("#userName").val();
+
+        // 빈칸 체크
+        if (password == "" || rePassword == "" || userName == "") {
+          alert("양식을 모두 작성 해 주세요");
+          return false;
+        }
+
+        // 비밀번호, 비밀번호 재확인이 동일한지 체크
+        if (password !== rePassword) {
+          alert("입력한 비밀번호가 다릅니다");
+          $("#rePassword").focus();
+          return false;
+        }
+        // 정말 중요한 정보일 경우 백엔드에서 한 번더 체크
+
+        // API서버에 전송할 json생성
+        var jsonData = {
+          studentsName: userName,
+          studentsPassword: rePassword,
+        };
+
+        $.ajax({
+          url: "http://localhost:8080",
+          type: "POST",
+          // postman에서 json선택하는게 밑에 contentType
+          contentType: "application/json", // 서버에 json타입으로 보낼 예정(요청)
+          dataType: "json", // 서버에 결과를 json으로 응답 받겠다
+          data: JSON.stringify(jsonData), // 이걸 안쓰면 jsonType이 아닌 문자로 인식
+          success: function (response) {
+            console.log(response);
+            if (response > 0) {
+              alert("회원가입이 완료 되었습니다.");
+            }
+          },
+        });
+      }
+    </script>
+  </body>
+</html>

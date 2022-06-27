@@ -1,0 +1,76 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  background: rgba(232, 232, 232, 0.5);
+}
+.container {
+  width: 90%;
+  height: auto;
+}
+.join-section {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  margin: 10% auto;
+  width: 80%;
+  height: auto;
+  padding: 3% 10%;
+  box-shadow: 1px 1px 3px 1px #dadce0;
+  border-radius: 3px;
+  text-align: center;
+  align-items: center;
+}
+.join-section h1 {
+  margin-bottom: 10px;
+  margin-bottom: 50px;
+}
+.join-section label {
+    color: #848484;
+  font-size: 18px;
+}
+.join-section input {
+  box-shadow: 1px 1px 3px 1px #dadce0 inset;
+  border: none;
+  height: 40px;
+  width: 35%;
+  margin-bottom: 20px;
+}
+.user-id-section {
+  width: 68%;
+}
+.join-section select {
+  width: 35%;
+  height: 30px;
+  margin-bottom: 20px;
+  border: none;
+}
+.detail-addr {
+    width: 68%;
+}
+.user-detailAddr {
+    width: 30%;
+}
+button {
+  color: #848484;
+  border: solid 1px rgba(0, 0, 0, 0.08);
+  box-shadow: 1px 1px 3px 1px #dadce0;
+  border-radius: 5px;
+  padding: 10px 0 ;
+  margin-top: 10px;
+  font-size: 15px;
+  font-weight: 600;
+  text-align: center;
+  cursor: pointer;
+  width: 100px;
+}
+button:hover {
+    color: white;
+  background-color: rgb(205, 205, 205);
+}
+.joinButton {
+    margin-top: 50px;
+    height: 50px;
+}
