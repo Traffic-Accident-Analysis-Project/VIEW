@@ -18,7 +18,7 @@ $('.popup-close').on('click',function(){
 $('.join-button').on('click',function(){
   var result = confirm('회원가입 하시겠습니까?');
   if(result){
-    location.href = "/HTML&CSS/join.html";
+    location.href = "join.html";
   }
 })
 
