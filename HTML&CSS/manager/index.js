@@ -1,3 +1,11 @@
+number
+writer
+categry
+create-at
+cnt
+main-text
+
+
 // popup 닫기
 $(".btn-close").on("click", function () {
   $(".popup").css("display", "none");
@@ -16,6 +24,9 @@ $(".btn-delete").on("click", function () {
     alert("취소 되었습니다");
   }
   // delete ajax 필요
+  else{
+
+  }
 });
 
 $(".logout").on("click", function () {

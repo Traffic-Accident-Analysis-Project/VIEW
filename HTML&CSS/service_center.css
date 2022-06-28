@@ -279,7 +279,7 @@ footer button {
 /* popup css */
 .main-popup {
   display: none;
-  z-index: 2;
+  z-index: 1;
   position: absolute;
   left: 35%;
   top: 42%;
@@ -381,7 +381,7 @@ input {
 /* 비밀글 비밀번호 확인창 */
 .main-pw-confirm-popup {
   position: absolute;
-  display: block;
+  display: none;
   z-index: 2;
   box-shadow: var(--box-inset);
   left: 40%;
@@ -437,10 +437,12 @@ input {
 #boardData tr{
   cursor: pointer;
 }
-/* .delete{
+/*
+.delete{
   z-index: 2;
-  display: none;
+  display: block;
 }
+
 .update{
   z-index: 2;
   display: none;
