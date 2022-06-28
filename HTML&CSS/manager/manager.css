@@ -69,6 +69,7 @@
 }
 .manager-board-main table tr {
   border-bottom: 1px solid var(--dark-grey);
+  cursor: pointer;
 }
 .manager-board-main table tbody td {
   text-align: center;
@@ -103,7 +104,7 @@ input:focus {
   flex-direction: column;
 }
 .popup {
-  /* display: none; */
+  display: none;
   position: absolute;
   left: 30%;
   top: 9%;

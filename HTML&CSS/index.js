@@ -338,5 +338,5 @@ function updateBoardByNo(boardNo,jsonData){
           location.reload();
       }
     }
-});
+  });
 }

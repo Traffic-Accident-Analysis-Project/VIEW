@@ -1,11 +1,3 @@
-number
-writer
-categry
-create-at
-cnt
-main-text
-
-
 // popup 닫기
 $(".btn-close").on("click", function () {
   $(".popup").css("display", "none");
@@ -13,22 +5,89 @@ $(".btn-close").on("click", function () {
 
 // 관리자 댓글 등록버튼
 $(".btn-success").on("click", function () {
-  // ajax post필요
-  // $('.popup').css('display','none');
+  var result = confirm("댓글을 등록하시겠습니까?");
+  if (!result) {
+    alert("취소 되었습니다");
+    $('.popup').css('display','none');
+  }
+  // delete ajax 필요
+  else{
+    var jsonData = {};
+    $.ajax({
+      url : "http://localhost:8080/api/v1/board/boardNo/"+$('#number').val(),
+      type : "GET",
+      dataType : "json",
+      success : function (response){
+        jsonData = {
+          boardCategory : response.boardCategory,
+          boardWriter : response.boardWriter,
+          boardEmail : response.boardEmail,
+          boardContent : response.boardContent,
+          isBoardSecurity : response.isBoardSecurity,
+          boardPassword : response.boardPassword,
+          boardComment : $('#comment').val()
+        }
+        updateBoardByNo($('#number').val(),jsonData);
+      },
+      error : function (request, status, error){
+        console.log("Error : "+error);
+      }
+    });
+  }
 });
+// 수정 함수
+function updateBoardByNo(boardNo,jsonData){
+  $.ajax({
+    url : 'http://localhost:8080/api/v1/board/boardNo/'+boardNo,
+    type : 'PATCH',
+    contentType : 'application/json',
+    dataType : 'json',
+    data : JSON.stringify(jsonData),
+    success : function (response){
+      // 게시물 상세화면 감추기
+      if(response > 0){
+          alert('등록 완료');
+          $('.popup').css('display','none');
+          location.reload();
+      }
+    }
+  });
+}
+
 
 // 고객 게시물, 로그 삭제
 $(".btn-delete").on("click", function () {
   var result = confirm("정말 삭제하시겠습니까?");
   if (!result) {
     alert("취소 되었습니다");
+    $('.popup').css('display','none');
   }
   // delete ajax 필요
   else{
-
+    deleteBoardByNo($('#number').val());
   }
 });
+// 삭제함수
+function deleteBoardByNo(boardNo){
+  $.ajax({
+    url : 'http://localhost:8080/api/v1/board/boardNo/'+boardNo,
+    type : 'DELETE',
+    contentType : 'application/json',
+    dataType : 'json',
+    success : function (response){
+      // 게시물 상세화면 감추기
+      if(response > 0){
+          alert('삭제 완료');
+          $('.popup').css('display','none');
+          location.reload();
+      }
+    }
+  });
+}
 
+
+
+// 로그아웃
 $(".logout").on("click", function () {
   var result = confirm("로그아웃 하시겠습니까?");
   if (result) {
@@ -56,7 +115,7 @@ function getBoardList(pageNum, pageSize){
       if(len > 0){
           for(var i=0;i<len;i++){
             html += 
-              "<tr>"+
+              "<tr onclick='getBoardByNo("+response.list[i].boardNo+")'>"+
               "<td>"+response.list[i].boardNo+"</td>"+
               "<td>"+response.list[i].boardWriter+"</td>"+
               "<td>"+response.list[i].boardCategory+"</td>"+
@@ -98,3 +157,29 @@ function getBoardList(pageNum, pageSize){
   });
 }
 getBoardList(1,10);
+
+// 고객센터 팝업창 띄우기 함수(상세조회) - JS
+// 생성된 Board List tr 에 onclick 함수로 추가함.
+function getBoardByNo(boardNo){
+  $('.popup').css('display', 'block');
+  $('.main-popup').css('display', 'block');
+  // ajax 작성
+  $.ajax({
+      url : "http://localhost:8080/api/v1/board/boardNo/"+boardNo,
+      type : "GET",
+      dataType : "json",
+      success : function (response){
+          // input에 data set 해주기
+          $('#number').val(response.boardNo);
+          $('#writer').val(response.boardWriter);
+          $('#categry').val(response.boardCategory);
+          $('#create-at').val(response.boardDate);
+          $('#cnt').val(response.boardCnt);
+          $('#main-text').val(response.boardContent);
+          $('#comment').val(response.boardComment);
+      },
+      error : function (request, status, error){
+          console.log("Error : "+error);
+      }
+  });
+}
