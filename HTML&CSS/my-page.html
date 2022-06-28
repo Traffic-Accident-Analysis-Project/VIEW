@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>T.A.S 마이 페이지</title>
+    <link rel="stylesheet" href="my-page.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+      integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <div class="top-background-color">
+        <header>
+          <div class="circle-01"></div>
+          <div class="circle-02"></div>
+          <div class="circle-03"></div>
+          <div class="row top">
+            <a href="main.html">home</a>
+            <i
+              class="fa-solid fa-house-chimney"
+              style="color: #eaeaea; margin-left: 5px; margin-top: 3px"
+            ></i>
+            <select name="lang-selbox" id="">
+              <option value="korea">한글</option>
+              <option value="eng">English</option>
+            </select>
+          </div>
+          <div class="row header-category">
+            <div class="logo">
+              <a href="main.html">
+                <img src="img/T.A.S-logo-black.png" alt="" />
+              </a>
+            </div>
+            <div class="row category">
+              <div class="category-link dropdown">
+                <div class="link-button">통계 자료실</div>
+                <div class="dropdown-content">
+                  <a href="statisticalData/law.html">법규 위반</a>
+                  <a href="statisticalData/alcohol.html">음주 정도</a>
+                  <a href="statisticalData/road_type.html">도로 종류</a>
+                  <a href="statisticalData/accident_type.html">사고 유형</a>
+                  <a href="statisticalData/city_type.html">시도 별</a>
+                </div>
+              </div>
+              <div class="category-link service-link">
+                <a href="intro-service.html">서비스 소개</a>
+              </div>
+              <div class="category-link client-link">
+                <a href="service_center.html">고객 센터</a>
+              </div>
+              <div class="category-link login-link">
+                <a href="my-page.html">마이 페이지</a>
+              </div>
+            </div>
+          </div>
+        </header>
+      </div>
+      <!-- header end -->
+      <div class="bottom-background-color">
+        <div class="my-page-wrap">
+          <div class="row-space my-page-user-id-wrap">
+            <label for="user-id">사용자 ID</label>
+            <div class="my-page-item my-page-user-id">jyg12770</div>
+          </div>
+          <hr style="width: 32%; margin-top: 0.5%; margin-left: 8%" />
+          <div class="row-space my-page-user-id-wrap">
+            <label for="user-name">사용자 이름</label>
+            <div class="my-page-item my-page-user-name">정지유</div>
+          </div>
+          <hr style="width: 32%; margin-top: 0.5%; margin-left: 8%" />
+          <div class="row-space my-page-user-id-wrap">
+            <label for="user-gendel">성별</label>
+            <div class="my-page-item my-page-user-gender">여성</div>
+          </div>
+          <hr style="width: 32%; margin-top: 0.5%; margin-left: 8%" />
+          <div class="my-page-btn">
+            <button type="button">내 정보 수정</button>
+          </div>
+          <div class="my-write">
+            <div class="my-write-board-header">
+              <p>내 문의</p>
+            </div>
+            <table>
+              <thead>
+                <tr>
+                  <th>글 번호</th>
+                  <th>작성자</th>
+                  <th>문의 유형</th>
+                  <th>작성 날짜</th>
+                  <th>조회 수</th>
+                </tr>
+              </thead>
+              <tbody id="boardData">
+                <tr>
+                  <td>1</td>
+                  <td>현상원</td>
+                  <td>점심시간이 너무 짧아요!</td>
+                  <td>2022-05-19</td>
+                  <td><span class="cnt-high">8320</span></td>
+                </tr>
+                <tr>
+                  <td>2</td>
+                  <td>현상원</td>
+                  <td>학원에 커피기계가 없어요!</td>
+                  <td>2022-05-18</td>
+                  <td><span class="cnt-middle">1200</span></td>
+                </tr>
+                <tr>
+                  <td>3</td>
+                  <td>현상원</td>
+                  <td>너무 졸려요...</td>
+                  <td>2022-05-19</td>
+                  <td><span class="cnt-row">5</span></td>
+                </tr>
+                <tr>
+                  <td>4</td>
+                  <td>현상원</td>
+                  <td>안녕하세요!</td>
+                  <td>2022-05-19</td>
+                  <td><span class="cnt-row">22</span></td>
+                </tr>
+              </tbody>
+            </table>
+            <div class="pagination">
+              <a href="#">Previous</a>
+              <a href="#">1</a>
+              <a href="#">2</a>
+              <a href="#">3</a>
+              <a href="#">4</a>
+              <a href="#">5</a>
+              <a href="#">Next</a>
+            </div>
+          </div>
+        </div>
+        <footer>
+          <img src="img/T.A.S-logo.png" alt="" />
+          <div class="footer-info">
+            <p>email : jyg12770@google.com</p>
+            <p>email : jyg12770@google.com</p>
+          </div>
+          <button
+            type="button"
+            style="cursor: pointer"
+            onclick="window.scrollTo({top:0, left:0, behavior:'smooth'});"
+          >
+            top
+          </button>
+        </footer>
+      </div>
+    </div>
+    <script
+      type="module"
+      src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"
+    ></script>
+    <script
+      nomodule
+      src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"
+    ></script>
+    <script
+      src="https://code.jquery.com/jquery-3.6.0.min.js"
+      integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+      crossorigin="anonymous"
+    ></script>
+    <script src="index.js"></script>
+  </body>
+</html>
