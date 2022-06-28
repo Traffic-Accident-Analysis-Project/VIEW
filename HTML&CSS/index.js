@@ -340,3 +340,62 @@ function updateBoardByNo(boardNo,jsonData){
     }
   });
 }
+
+
+
+// 여기서부터 그래프 그리기 위한 Json Data 가져와 로직 구현
+// law : 법규위반별 Data
+$.ajax({
+  url : "http://localhost:8080/api/v1/law",
+  type : "GET",
+  dataType : "json",
+  success : function (response){
+    console.log(response[1]);
+    console.log(response[2]);
+    console.log(response[3]);
+  }
+});
+// accident : 사고유형별 Data
+$.ajax({
+  url : "http://localhost:8080/api/v1/accident",
+  type : "GET",
+  dataType : "json",
+  success : function (response){
+    console.log(response[1]);
+    console.log(response[2]);
+    console.log(response[3]);
+  }
+});
+// city : 시도별 Data
+$.ajax({
+  url : "http://localhost:8080/api/v1/city",
+  type : "GET",
+  dataType : "json",
+  success : function (response){
+    console.log(response[1]);
+    console.log(response[2]);
+    console.log(response[3]);
+  }
+});
+// road : 도로별/요일별 Data
+$.ajax({
+  url : "http://localhost:8080/api/v1/road",
+  type : "GET",
+  dataType : "json",
+  success : function (response){
+    console.log(response[1]);
+    console.log(response[2]);
+    console.log(response[3]);
+  }
+});
+// alcohol : 음주측정별 Data
+$.ajax({
+  url : "http://localhost:8080/api/v1/alcohol",
+  type : "GET",
+  dataType : "json",
+  success : function (response){
+    console.log(response[1]);
+    console.log(response[2]);
+    console.log(response[3]);
+  }
+});
