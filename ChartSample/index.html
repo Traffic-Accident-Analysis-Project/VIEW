@@ -195,72 +195,90 @@
         type : "GET",
         dataType : "json",
         success : function (response){
-
+            var seoul=0;var busan=0;var daegu=0;var incheon=0;
+            var gwangju=0;var daejeon=0;var ulsan=0;var kyeongki=0;
+            var kangwon=0;var chungbuk=0;var chungnam=0;var jeonbuk=0;
+            var jeonnam=0;var kyeongbuk=0;var kyeongnam=0;var jeju=0;
+            var sejong=0;
             for(var i=0;i<response.length;i++){
-
+                if(response[i].region == "Seoul") seoul += response[i].사고건수;
+                if(response[i].region == "Busan") busan += response[i].사고건수;
+                if(response[i].region == "Daegu") daegu += response[i].사고건수;
+                if(response[i].region == "Incheon") incheon += response[i].사고건수;
+                if(response[i].region == "Gwangju") gwangju += response[i].사고건수;
+                if(response[i].region == "Daejeon") daejeon += response[i].사고건수;
+                if(response[i].region == "Ulsan") ulsan += response[i].사고건수;
+                if(response[i].region == "Kyeongki") kyeongki += response[i].사고건수;
+                if(response[i].region == "Kangwon") kangwon += response[i].사고건수;
+                if(response[i].region == "Chungbuk") chungbuk += response[i].사고건수;
+                if(response[i].region == "Chungnam") chungnam += response[i].사고건수;
+                if(response[i].region == "Jeonbuk") jeonbuk += response[i].사고건수;
+                if(response[i].region == "Jeonnam") jeonnam += response[i].사고건수;
+                if(response[i].region == "Kyeongbuk") kyeongbuk += response[i].사고건수;
+                if(response[i].region == "Kyeongnam") kyeongnam += response[i].사고건수;
+                if(response[i].region == "Jeju") jeju += response[i].사고건수;
+                if(response[i].region == "Sejong") sejong += response[i].사고건수;
             }
-            var data = 
-            console.log(response[1]);
-            console.log(response[2]);
-            console.log(response[3]);
-        }
-    });
-
-
-    var context = document
-        .getElementById('pieChart')
-        .getContext('2d');
-    var myChart = new Chart(context, {
-        type: 'doughnut', // 차트의 형태
-        data: { // 차트에 들어갈 데이터
-            labels: [
-            '서울','부산','대구','인천','광주','대전','울산','경기','강원','충북','충남','전북','전남','경북','경남','제주','세종'
-            ],
-            datasets: [
-                { //데이터
-                    label: '사고 건수', //차트 제목
-                    data: [ // 여기에 사고건수arr 넣기
-                        1278244,404720,439836,305088,258668,204084,150926,1502090,273776,278760,280986,288780,329796,491168,426064,124518,10956 //x축 label에 대응되는 데이터 값
+            var data = [seoul,busan,daegu,incheon,gwangju,daejeon,ulsan,kyeongki,kangwon,chungbuk,chungnam,jeonbuk,jeonnam,kyeongbuk,kyeongnam,jeju,sejong]
+            console.log(data);
+            // 여기까지 그래프에 넣을 데이터 배열 생성
+            // 그래프(도넛차트)
+            var context = document
+                .getElementById('pieChart')
+                .getContext('2d');
+            var myChart = new Chart(context, {
+                type: 'doughnut', // 차트의 형태
+                data: { // 차트에 들어갈 데이터
+                    labels: [
+                    '서울','부산','대구','인천','광주','대전','울산','경기','강원','충북','충남','전북','전남','경북','경남','제주','세종'
                     ],
-                    backgroundColor: [
-                        'rgb(255,0,0)',
-                        'rgb(255,100,0)',
-                        'rgb(255,200,0)',
-                        'rgb(255,255,0)',
-                        'rgb(200,255,0)',
-                        'rgb(100,255,0)',
-                        'rgb(0,255,0)',
-                        'rgb(0,255,100)',
-                        'rgb(0,255,200)',
-                        'rgb(0,255,255)',
-                        'rgb(0,200,255)',
-                        'rgb(0,100,255)',
-                        'rgb(0,0,255)',
-                        'rgb(0,0,200)',
-                        'rgb(0,0,100)',
-                        'rgb(0,0,0)',
-                        'gray'
-                    ],
-                    borderRadius : 20,
-                    borderColor: 'white',
-                    borderWidth: 3 //경계선 굵기
-                }
-            ]
-        },
-        options: {
-            plugins: {
-                title: {
-                    display: true,
-                    text: 'Line Chart',
+                    datasets: [
+                        { //데이터
+                            label: '사고 건수', //차트 제목
+                            data: data,
+                            backgroundColor: [
+                                'rgb(255,0,0)',
+                                'rgb(255,100,0)',
+                                'rgb(255,200,0)',
+                                'rgb(255,255,0)',
+                                'rgb(200,255,0)',
+                                'rgb(100,255,0)',
+                                'rgb(0,255,0)',
+                                'rgb(0,255,100)',
+                                'rgb(0,255,200)',
+                                'rgb(0,255,255)',
+                                'rgb(0,200,255)',
+                                'rgb(0,100,255)',
+                                'rgb(0,0,255)',
+                                'rgb(0,0,200)',
+                                'rgb(0,0,100)',
+                                'rgb(0,0,0)',
+                                'gray'
+                            ],
+                            borderRadius : 20,
+                            borderColor: 'white',
+                            borderWidth: 5 //경계선 굵기
+                        }
+                    ]
                 },
-                subtitle: {
-                    display: true,
-                    text: '년도별 그래프',
-                    color: 'skyblue'
+                options: {
+                    plugins: {
+                        title: {
+                            display: true,
+                            text: 'Pie Chart',
+                        },
+                        subtitle: {
+                            display: true,
+                            text: '년도별 그래프',
+                            color: 'skyblue'
+                        }
+                    }
                 }
-            }
+            });
         }
     });
+
+
 /*
 backgroundColor: [
     //색상
