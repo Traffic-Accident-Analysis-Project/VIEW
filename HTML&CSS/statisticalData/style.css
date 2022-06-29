@@ -235,20 +235,22 @@ header {
 .accidents-card {
   width: 33.3%;
   height: auto;
-  border-radius: 5px;
+  border-radius: 2px;
   margin: 0 1% 5%;
   box-shadow: var(--button-shadow);
   padding: 2.5%;
 }
 .accidents-card h2 {
-  font-size: 25px;
-  margin-right: 35px;
-}
-.accidents-card p {
+  width: 100%;
+  font-size: 30px;
+  margin: 5px 0 10px;
   text-align: center;
+}
+.accidents-item {
+  text-align: right;
   font-size: 55px;
   font-weight: 800;
-  margin: 2%;
+  margin: -10px 2%;
 }
 .hight {
   color: var(--light-grey);
@@ -280,7 +282,7 @@ header {
   margin-left: 78%;
 }
 .excel-down-button button {
-  width: 180px;
+  width: 100%;
 }
 .statistical-page-right-section button:hover {
   transition: 0.1s;

@@ -75,7 +75,8 @@
         <div class="statistical-page-right-section">
           <div class="select-wrap">
             <div class="alcohol-sel alcohol-year">
-              <select name="alcohol-year" id="">
+              <input type="hidden" id="alcoholYearHidden" />
+              <select name="alcohol-year" id="alcohol-year" onchange="alcoholYear(this.value)">
                 <option value="">연도</option>
                 <option value="2005">2005년</option>
                 <option value="2006">2006년</option>
@@ -96,7 +97,8 @@
               </select>
             </div>
             <div class="alcohol-sel alcohol-month">
-              <select name="alcohol-month" id="">
+              <input type="hidden" id="alcoholMonthHidden" />
+              <select name="alcohol-month" id="alcohol-month" onchange="alcoholMonth(this.value)">
                 <option value="">월</option>
                 <option value="전체">전체</option>
                 <option value="1월">1월</option>
@@ -114,7 +116,8 @@
               </select>
             </div>
             <div class="alcohol-sel alcohol-or-not">
-              <select name="alcohol-or-not" id="">
+              <input type="hidden" id="alcoholOrNotHidden" />
+              <select name="alcohol-or-not" id="alcohol-or-not" onchange="alcoholOrNot(this.value)">
                 <option value="">가해자 음주 상태 선택</option>
                 <option value="음주상태">음주 상태</option>
                 <option value="음주운전">음주 운전</option>
@@ -124,62 +127,47 @@
               </select>
             </div>
             <div class="alcohol-sel alcohol-degree">
-              <select name="alcohol-degree" id="">
+              <input type="hidden" id="alcoholDegreeHidden" />
+              <select name="alcohol-degree" id="alcohol-degree" onchange="alcoholDegree(this.value)">
                 <option value="">가해자 음주 정도 선택</option>
                 <!-- 음주상태 -->
-                <div class="drunken-atate">
-                  <option value="0.03미만">0.03% 미만</option>
-                  <option value="0.05미만">0.05% 미만</option>
-                  <option value="0.030~0.049">0.030 ~ 0.049%</option>
-                </div>
+                  <option class="allOption drunken-atate" value="0.03미만">0.03% 미만</option>
+                  <option class="allOption drunken-atate" value="0.05미만">0.05% 미만</option>
+                  <option class="allOption drunken-atate" value="0.030~0.049">0.030 ~ 0.049%</option>
                 <!-- 음주운전 -->
-                <div class="drunk-driving">
-                  <option value="측정불응">측정 불응</option>
-                  <option value="0.05~0.09">0.05% ~ 0.09%</option>
-                  <option value="0.10~0.14">0.10% ~ 0.14%</option>
-                  <option value="0.15~0.19">0.15% ~ 0.19%</option>
-                  <option value="0.20~0.24">0.20% ~ 0.24%</option>
-                  <option value="0.25~0.29">0.25% ~ 0.29%</option>
-                  <option value="0.30~0.34">0.30% ~ 0.34%</option>
-                  <option value="0.35이상">0.35% 이상</option>
-                </div>
+                  <option class="allOption drunken-driving" value="측정불응">측정 불응</option>
+                  <option class="allOption drunken-driving" value="0.05~0.09">0.05% ~ 0.09%</option>
+                  <option class="allOption drunken-driving" value="0.10~0.14">0.10% ~ 0.14%</option>
+                  <option class="allOption drunken-driving" value="0.15~0.19">0.15% ~ 0.19%</option>
+                  <option class="allOption drunken-driving" value="0.20~0.24">0.20% ~ 0.24%</option>
+                  <option class="allOption drunken-driving" value="0.25~0.29">0.25% ~ 0.29%</option>
+                  <option class="allOption drunken-driving" value="0.30~0.34">0.30% ~ 0.34%</option>
+                  <option class="allOption drunken-driving" value="0.35이상">0.35% 이상</option>
                 <!-- 측정불능 -->
-                <div class="not-measurable">
-                  <option value="측정불능">측정 불능</option>
-                </div>
+                  <option class="allOption drunken-measurable" value="측정불능">측정 불능</option>
                 <!-- 해당없음 -->
-                <div class="not-applicable">
-                  <option value="해당없음">해당 없음</option>
-                </div>
+                  <option class="allOption drunken-applicable" value="해당없음">해당 없음</option>
                 <!-- 기타불명 -->
-                <div class="other-unknown">
-                  <option value="기타불명">기타 불명</option>
-                </div>
+                  <option class="allOption drunken-unknown" value="기타불명">기타 불명</option>
               </select>
             </div>
-            <button type="button">조회하기</button>
+            <button id="lookUpByLaw" type="button">조회하기</button>
           </div>
           <div class="accidents-dead-injury-card-wrap">
             <div class="accidents-card card-accidents hight">
-              <div class="row">
-                <h2>사고 건 수</h2>
-                <i class="fa-solid fa-car-burst fa-3x"></i>
-              </div>
-              <p><span>2000</span></p>
+              <h2>사고 건 수</h2>
+              <i class="fa-solid fa-car-burst fa-3x"></i>
+              <div id="accidentsAccidents" class="accidents-item">0</div>
             </div>
             <div class="accidents-card card-dead middle">
-              <div class="row">
-                <h2>사망자 수</h2>
-                <i class="fa-solid fa-skull fa-3x"></i>
-              </div>
-              <p><span>1000</span></p>
+              <h2>사망자 수</h2>
+              <i class="fa-solid fa-skull fa-3x"></i>
+              <div id="accidentsDead" class="accidents-item">0</div>
             </div>
             <div class="accidents-card card-injury rower">
-              <div class="row">
-                <h2>부상자 수</h2>
-                <i class="fa-solid fa-person-falling-burst fa-3x"></i>
-              </div>
-              <p><span>100</span></p>
+              <h2>부상자 수</h2>
+              <i class="fa-solid fa-person-falling-burst fa-3x"></i>
+              <div id="accidentsInjury" class="accidents-item">0</div>
             </div>
           </div>
           <div class="excel-down-button">
@@ -218,4 +206,124 @@
     crossorigin="anonymous"
   ></script>
   <script src="index.js"></script>
+  <script>
+    // option값을 input[hidden]에 넣기
+    var alcoholYear = function (value) {
+      $("#alcoholYearHidden").val(value);
+    };
+    var alcoholMonth = function (value) {
+      $("#alcoholMonthHidden").val(value);
+    };
+    var alcoholOrNot = function (value) {
+      $("#alcoholOrNotHidden").val(value);
+    };
+    var alcoholDegree = function (value) {
+      $("#alcoholDegreeHidden").val(value);
+    };
+
+    allOptionHide();
+
+    // 가해자 음주 상태 선택 안했을시 가해자 음주정도 옵션 숨기기
+    function allOptionHide(){
+      var alcoholOrNotHidden = $("#alcoholOrNotHidden").val();
+      if (alcoholOrNotHidden == "") {
+        $('.allOption').hide();
+      }
+    }
+
+    // 가해자 음주 상태 선택 안했을시 가해자 음주정도 옵션 보이고 숨기기
+    $("#alcohol-or-not").change(function () {
+      var alcoholOrNotHidden = $("#alcoholOrNotHidden").val();
+      if (alcoholOrNotHidden == "") {
+        $('.allOption').hide();
+      }
+      if (alcoholOrNotHidden == "음주상태") {
+        $(".drunken-atate").show();
+        $(".drunken-driving").hide();
+        $(".drunken-measurable").hide();
+        $(".drunken-applicable").hide();
+        $(".drunken-unknown").hide();
+      }
+      if (alcoholOrNotHidden == "음주운전") {
+        $(".drunken-atate").hide();
+        $(".drunken-driving").show();
+        $(".drunken-measurable").hide();
+        $(".drunken-applicable").hide();
+        $(".drunken-unknown").hide();
+      }
+      if (alcoholOrNotHidden == "측정불능") {
+        $(".drunken-atate").hide();
+        $(".drunken-driving").hide();
+        $(".drunken-measurable").show();
+        $(".drunken-applicable").hide();
+        $(".drunken-unknown").hide();
+      }
+      if (alcoholOrNotHidden == "해당없음") {
+        $(".drunken-atate").hide();
+        $(".drunken-driving").hide();
+        $(".drunken-measurable").hide();
+        $(".drunken-applicable").show();
+        $(".drunken-unknown").hide();
+      }
+      if (alcoholOrNotHidden == "기타불명") {
+        $(".drunken-atate").hide();
+        $(".drunken-driving").hide();
+        $(".drunken-measurable").hide();
+        $(".drunken-applicable").hide();
+        $(".drunken-unknown").show();
+      }
+      
+    });
+
+    // 조회하기 버튼 눌렀을 때 함수
+    $("#lookUpByLaw").on("click", function () {
+      // input[hidden]의 값을 변수에 담기
+      var yearHidden = $("#alcoholYearHidden").val();
+      var monthHidden = $("#alcoholMonthHidden").val();
+      var alcoholOrNotHidden = $("#alcoholOrNotHidden").val();
+      var degreeHidden = $("#alcoholDegreeHidden").val();
+
+      if (
+        yearHidden == "" ||
+        monthHidden == "" ||
+        alcoholOrNotHidden == "" ||
+        degreeHidden == ""
+      ) {
+        alert("선택박스를 확인 해 주세요");
+        return false;
+      }
+      // option으로 선택한 값에대한 data받아오는 ajax
+      $.ajax({
+        url:
+          "http://localhost:8080/api/v1/law/year/" +
+          yearHidden +
+          "/month/" +
+          monthHidden +
+          "/drink/" +
+          alcoholOrNotHidden+
+          "/degree/" +
+          degreeHidden,
+        type: "GET",
+        dataType: "json",
+        success: function (response) {
+          console.log(response);
+          var len = response.length;
+          var accident_cnt = 0;
+          var dead_cnt = 0;
+          var injury_cnt = 0;
+          for(var i=0; i<len; i++){
+            accident_cnt += response[i].사고건수;
+
+            dead_cnt += response[i].사망자수;
+
+            injury_cnt += response[i].부상자수;
+
+            $("#accidentsAccidents").text(accident_cnt);
+            $("#accidentsDead").text(dead_cnt);
+            $("#accidentsInjury").text(injury_cnt);
+          }
+        },
+      });
+    });
+  </script>
 </html>
