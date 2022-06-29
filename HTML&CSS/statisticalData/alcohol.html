@@ -283,6 +283,9 @@
       var alcoholOrNotHidden = $("#alcoholOrNotHidden").val();
       var degreeHidden = $("#alcoholDegreeHidden").val();
 
+      // degreeHidden을 인코딩해줘야함
+      var uri = encodeURI(degreeHidden);
+      console.log(uri);
       if (
         yearHidden == "" ||
         monthHidden == "" ||
@@ -295,14 +298,14 @@
       // option으로 선택한 값에대한 data받아오는 ajax
       $.ajax({
         url:
-          "http://localhost:8080/api/v1/law/year/" +
+          "http://localhost:8080/api/v1/alcohol/year/" +
           yearHidden +
           "/month/" +
           monthHidden +
           "/drink/" +
           alcoholOrNotHidden+
           "/degree/" +
-          degreeHidden,
+          uri,
         type: "GET",
         dataType: "json",
         success: function (response) {
