@@ -2,6 +2,7 @@
   --button-shadow: 1px 1px 3px 1px #dadce0;
   --box-inset: 1px 1px 3px 1px #dadce0 inset;
   --main-blue: #2e7ec8;
+  /* --main-blue: #4D4DFF; */
   --light-grey: #f6f6f6;
   --middel-grey: #6f6669;
   --dark-grey: #5a5256;
@@ -199,15 +200,14 @@ header {
 }
 /* 카테고리별 그래프 */
 .statistical-page-left-section-graph {
-  width: 100%;
-  padding-left: 2%;
+  width: 90%;
 }
 .statistical-page-right-section {
+  width: 110%;
   padding-left: 2%;
-  width: 100%;
 }
 .statistical-page-left-section-graph img {
-  width: 90%;
+  width: 100%;
   height: auto;
 }
 /* 카테고리별 select box */
@@ -222,7 +222,7 @@ header {
   color: black;
   border: 2px solid var(--light-grey);
   border-radius: 3px;
-  width: 168px;
+  width: 162px;
   height: 30px;
   background-color: transparent;
   margin-right: 5px;
