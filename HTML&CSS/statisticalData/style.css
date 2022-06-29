@@ -213,15 +213,16 @@ header {
 /* 카테고리별 select box */
 .select-wrap {
   display: flex;
-  width: 100%;
   justify-content: space-around;
+  flex-wrap: wrap;
+  width: 100%;
   margin: 10% 0 2%;
 }
 .select-wrap select {
   color: black;
   border: 2px solid var(--light-grey);
   border-radius: 3px;
-  width: 180px;
+  width: 168px;
   height: 30px;
   background-color: transparent;
   margin-right: 5px;
@@ -229,11 +230,12 @@ header {
 /* 사고건수, 사망자 수, 부상자 수 카드 */
 .accidents-dead-injury-card-wrap {
   display: flex;
+  flex-wrap: wrap;
   margin-top: 10%;
   width: 100%;
 }
 .accidents-card {
-  width: 33.3%;
+  width: 31.3%;
   height: auto;
   border-radius: 2px;
   margin: 0 1% 5%;

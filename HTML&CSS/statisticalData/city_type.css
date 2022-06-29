@@ -34,8 +34,9 @@
 /* 시도별 select box */
 .city-select-wrap {
   display: flex;
-  width: 100%;
   justify-content: space-around;
+  flex-wrap: wrap;
+  width: 100%;
   margin: 10% 0 5%;
 }
 .city-select-wrap select {
@@ -61,14 +62,10 @@
   padding: 2.5%;
 }
 .city-accidents-card h2 {
-  font-size: 23px;
-  margin-right: 35px;
-}
-.city-accidents-card p {
+  width: 100%;
+  font-size: 30px;
+  margin: 5px 0 10px;
   text-align: center;
-  font-size: 55px;
-  font-weight: 800;
-  margin: 2%;
 }
 .circle-graph {
   width: 100%;
@@ -90,10 +87,10 @@
   font-size: 13px;
   padding: 5px;
   cursor: pointer;
-  width: 80px;
+  width: auto;
 }
 .circle-graph button {
-  width: 180px;
+  width: auto;
   margin-top: 8%;
   margin-left: 30%;
 }
