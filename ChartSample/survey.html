@@ -11,39 +11,120 @@
         padding: 0;
         box-sizing: border-box;
       }
-      .row{
+      .row {
         display: flex;
+        justify-content: space-between;
       }
-      h4{
-        border: 1px solid black;
+      .container {
+        width: 100%;
+      }
+      img {
+        width: 10%;
+        margin-left: 45%;
+      }
+      h1 {
+        text-align: center;
+        margin: 20px;
+      }
+      p {
+        text-align: center;
+      }
+      .gender {
+        width: 30%;
+        margin: 30px;
+      }
+      .age {
+        width: 90%;
+        margin: 30px;
+      }
+      .question {
+        margin: 30px;
+      }
+      .answer {
+        width: 90%;
+        margin: 10px;
+      }
+      #suggestions{
+        width: 90%;
+        height: 40px;
       }
     </style>
   </head>
   <body>
     <div class="container">
-        <h1>설문조사</h1>
-        <div class="personal-information-wraper">
-            <div class="row gender">
-                <h3>성별</h3>
-                <h4>남<input type="checkbox"></h4>
-                <h4>여<input type="checkbox"></h4>
-            </div>
-            <div class="row age">
-                <h3>연령</h3>
-                <h4>만20세 이하<input type="checkbox"></h4>
-                <h4>만20세~만29세<input type="checkbox"></h4>
-                <h4>만30세~만39세<input type="checkbox"></h4>
-                <h4>만40세~만49세<input type="checkbox"></h4>
-                <h4>만50세~만59세<input type="checkbox"></h4>
-                <h4>만60세 이상<input type="checkbox"></h4>
-            </div>
-            <div class="region">
-                <h3>지역</h3>
-            </div>
+      <img src="../HTML&CSS/img/T.A.S-logo.png" alt="" />
+      <h1>교통사고 통계서비스 만족도에 관한 조사</h1>
+      <p>
+        안녕하세요. 교통사고 통계서비스 제공 개발자 나정수, 정지유 입니다.<br />
+        이번에 저희 개발팀에서 서비스 제공에 대한 만족도 조사를 실시하고
+        있습니다.<br />
+        서비스에 대한 여러분의 의견을 수렴하여 더 좋은 서비스에 대한 제안을
+        하려고 합니다.<br />
+        바쁘시더라도 잠시 시간을 내어 설문에 참여해주시면 갑사드리겠습니다.<br />
+        본 설문조사는 연구 목적으로만 사용되며 비밀이 보장됩니다.
+      </p>
+      <div class="personal-information-wraper">
+        <div class="row gender">
+          <h3>성별</h3>
+          <h4>남<input type="checkbox" /></h4>
+          <h4>여<input type="checkbox" /></h4>
         </div>
-        <div class="survey-wraper">
-
+        <div class="row age">
+          <h3>연령</h3>
+          <h4>만20세 이하<input type="checkbox" /></h4>
+          <h4>만20세~만29세<input type="checkbox" /></h4>
+          <h4>만30세~만39세<input type="checkbox" /></h4>
+          <h4>만40세~만49세<input type="checkbox" /></h4>
+          <h4>만50세~만59세<input type="checkbox" /></h4>
+          <h4>만60세 이상<input type="checkbox" /></h4>
         </div>
+      </div>
+      <div class="survey-wraper">
+        <div class="question">
+          <h3>1) 통계자료실의 자료는 만족스러우셨습니까?</h3>
+          <div class="row stat answer">
+            <h4>매우 불만족<input type="checkbox" /></h4>
+            <h4>불만족<input type="checkbox" /></h4>
+            <h4>보통<input type="checkbox" /></h4>
+            <h4>만족<input type="checkbox" /></h4>
+            <h4>매우 만족<input type="checkbox" /></h4>
+          </div>
+        </div>
+        <div class="question">
+          <h3>
+            1-1) 만족스러우셨다면 어떤 자료가 도움이 되셨습니까? (중복선택가능)
+          </h3>
+          <div class="row stat-1 answer">
+            <h4>막대그래프<input type="checkbox" /></h4>
+            <h4>선형그래프<input type="checkbox" /></h4>
+            <h4>파이차트<input type="checkbox" /></h4>
+            <h4>사고건수확인<input type="checkbox" /></h4>
+            <h4>유형선택기능<input type="checkbox" /></h4>
+            <h4>년도별자료확인<input type="checkbox" /></h4>
+            <h4>
+              기타<input type="checkbox" /><input
+                type="text"
+                placeholder="기타 도움이 된 사항을 입력"
+              />
+            </h4>
+          </div>
+        </div>
+        <div class="question">
+          <h3>2) 고객센터의 문의기능 및 답변은 만족스러우셨습니까?</h3>
+          <div class="row QnA answer">
+            <h4>매우 불만족<input type="checkbox" /></h4>
+            <h4>불만족<input type="checkbox" /></h4>
+            <h4>보통<input type="checkbox" /></h4>
+            <h4>만족<input type="checkbox" /></h4>
+            <h4>매우 만족<input type="checkbox" /></h4>
+          </div>
+        </div>
+        <div class="question">
+          <h3>3) 추가 문의사항이나 건의사항이 있다면 작성해주십시오.</h3>
+          <input id="suggestions" type="text" placeholder="" />
+        </div>
+      </div>
+      <p>감사합니다.</p>
     </div>
   </body>
 </html>
