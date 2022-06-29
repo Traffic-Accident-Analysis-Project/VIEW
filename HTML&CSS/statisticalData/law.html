@@ -75,7 +75,7 @@
             <div class="statistical-page-right-section">
               <div class="select-wrap">
                 <div class="law-sel law-year">
-                  <select name="law-year" id="">
+                  <select name="law-year" id="law-year" onchange="lawYear(this.value)">
                     <option value="">연도</option>
                     <option value="2005">2005년</option>
                     <option value="2006">2006년</option>
@@ -96,7 +96,7 @@
                   </select>
                 </div>
                 <div class="law-sel law-month">
-                  <select name="law-month" id="">
+                  <select name="law-month" id="law-month" onchange="lawMonth(this.value)">
                     <option value="">월</option>
                     <option value="전체">전체</option>
                     <option value="1월">1월</option>
@@ -114,7 +114,7 @@
                   </select>
                 </div>
                 <div class="law-sel law-violation">
-                  <select name="law-violation" id="">
+                  <select name="law-violation" id="law-violation" onchange="lawViolation(this.value)">
                     <option value="">가해자 법규 위반 선택</option>
                     <option value="과로">과로</option>
                     <option value="우선권양보불이행">우선권 양보 불이행</option>
@@ -212,4 +212,17 @@
     crossorigin="anonymous"
   ></script>
   <script src="index.js"></script>
+  <script>
+    var lawYear = function(value){
+      console.log(value)
+    }
+
+    var lawMonth = function(value){
+      console.log(value)
+    }
+
+    var lawViolation = function(value){
+      console.log(value)
+    }
+  </script>
 </html>
