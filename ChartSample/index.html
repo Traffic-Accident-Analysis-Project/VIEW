@@ -124,15 +124,6 @@
                     text: '월별 히스토그램',
                     color: 'skyblue'
                 }
-            },
-            scales: {
-                yAxes: [
-                    {
-                        ticks: {
-                            beginAtZero: true
-                        }
-                    }
-                ]
             }
         }
     });
@@ -192,23 +183,30 @@
                     text: '년도별 그래프',
                     color: 'skyblue'
                 }
-            },
-            
-            scales: {
-                yAxes: [
-                    {
-                        ticks: {
-                            beginAtZero: true
-                        }
-                    }
-                ]
             }
         }
     });
 
 
     // 지역별 지도와 함께 보여줄 파이차트 구현
-    
+    // ajax 안에
+    $.ajax({
+        url : "http://localhost:8080/api/v1/city",
+        type : "GET",
+        dataType : "json",
+        success : function (response){
+
+            for(var i=0;i<response.length;i++){
+
+            }
+            var data = 
+            console.log(response[1]);
+            console.log(response[2]);
+            console.log(response[3]);
+        }
+    });
+
+
     var context = document
         .getElementById('pieChart')
         .getContext('2d');
@@ -221,7 +219,6 @@
             datasets: [
                 { //데이터
                     label: '사고 건수', //차트 제목
-                    fill: false, // line 형태일 때, 선 안쪽을 채우는지 안채우는지
                     data: [ // 여기에 사고건수arr 넣기
                         1278244,404720,439836,305088,258668,204084,150926,1502090,273776,278760,280986,288780,329796,491168,426064,124518,10956 //x축 label에 대응되는 데이터 값
                     ],
@@ -261,16 +258,6 @@
                     text: '년도별 그래프',
                     color: 'skyblue'
                 }
-            },
-            
-            scales: {
-                yAxes: [
-                    {
-                        ticks: {
-                            beginAtZero: true
-                        }
-                    }
-                ]
             }
         }
     });
