@@ -1,285 +1,515 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-</head>
-<style>
-    *{
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
+  </head>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
     }
-    .chartWraper{
-        display: flex;
+    .chartWraper {
+      display: flex;
     }
-</style>
-<!-- body -->
-<body>
+  </style>
+  <!-- body -->
+  <body>
     <div class="container">
-        <div class="chartWraper">
-            <div style="width: 50%; height: 300px;">
-                <!--차트가 그려질 부분-->
-                <canvas id="histogram"></canvas>
-            </div>
-            <div style="width: 50%; height: 300px;">
-                <!--차트가 그려질 부분-->
-                <canvas id="lineChart"></canvas>
-            </div>
+      <div class="chartWraper">
+        <div style="width: 50%; height: 300px">
+          <!--차트가 그려질 부분-->
+          <canvas id="histogram"></canvas>
         </div>
-        <div class="pie">
-            <div style="width: 800; height: 800px;">
-                <!--차트가 그려질 부분-->
-                <canvas id="pieChart"></canvas>
-            </div>
+        <div style="width: 50%; height: 300px">
+          <!--차트가 그려질 부분-->
+          <canvas id="lineChart"></canvas>
         </div>
+      </div>
+      <div class="pie">
+        <div style="width: 800; height: 800px">
+          <!--차트가 그려질 부분-->
+          <canvas id="pieChart"></canvas>
+        </div>
+      </div>
     </div>
-</body>
-<!-- D3.JS -->
-<script src="http://d3js.org/d3.v4.min.js"></script>
-<!-- Chart.js -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.8.0/chart.min.js"></script>
-<!-- JQuery -->
-<script
+  </body>
+  <!-- D3.JS -->
+  <script src="http://d3js.org/d3.v4.min.js"></script>
+  <!-- Chart.js -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.8.0/chart.min.js"></script>
+  <!-- JQuery -->
+  <script
     src="https://code.jquery.com/jquery-3.6.0.min.js"
     integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
     crossorigin="anonymous"
-></script>
-<script>
-    // Histogram D3.JS 구현
-    //data
-    // 다음과 같은 배열을 ajax를 통해 불러오기.
-    var data = [5,10,15,20,25,30,35,40,45,50];
-    // SVG tag를 선택
-    var svg = d3.select('svg');
-    data.forEach((d,i) => {
-        // rect : 막대 하나하나
-        svg.append('rect')
-        .attr('height',data[i])
-        .attr('width',40)
-        .attr('x',50*i)
-        .attr('y',100-data[i])
-    })
+  ></script>
+  <script>
     // histogram
     // 월별 사고건수, 사망자, 부상자 구현
-    // 조건 : 년도 선택, 유형 선택 
+    // 조건 : 년도 선택, 유형 선택
     // ajax로 가져온 data를 length : 12 의 3개의 배열로 생성
-    var arrAccidents = [];
-    var arrDeath = [];
-    var arrInjured = [];
-    // chart 생성
-    var context = document
-        .getElementById('histogram')
-        .getContext('2d');
-    var myChart = new Chart(context, {
-        type: 'bar', // 차트의 형태
-        data: { // 차트에 들어갈 데이터
+    $.ajax({
+      url: "http://localhost:8080/api/v1/accident",
+      type: "GET",
+      dataType: "json",
+      success: function (response) {
+        // 월별로 배열에 data +.
+        // 사고유형1,2
+        var dataAccidents = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
+        var dataDeath = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
+        var dataInjured = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
+        for (var i = 0; i < response.length; i++) {
+          // 여기에 if문으로 년도,월,유형 등 조정사항 입력
+          // 월별 data 입력
+          if (response[i].month == "jan") {
+            dataAccidents[0] += response[i].사고건수;
+            dataDeath[0] += response[i].사망자수;
+            dataInjured[0] += response[i].부상자수;
+          }
+          if (response[i].month == "feb") {
+            dataAccidents[1] += response[i].사고건수;
+            dataDeath[1] += response[i].사망자수;
+            dataInjured[1] += response[i].부상자수;
+          }
+          if (response[i].month == "mar") {
+            dataAccidents[2] += response[i].사고건수;
+            dataDeath[2] += response[i].사망자수;
+            dataInjured[2] += response[i].부상자수;
+          }
+          if (response[i].month == "apr") {
+            dataAccidents[3] += response[i].사고건수;
+            dataDeath[3] += response[i].사망자수;
+            dataInjured[3] += response[i].부상자수;
+          }
+          if (response[i].month == "may") {
+            dataAccidents[4] += response[i].사고건수;
+            dataDeath[4] += response[i].사망자수;
+            dataInjured[4] += response[i].부상자수;
+          }
+          if (response[i].month == "jun") {
+            dataAccidents[5] += response[i].사고건수;
+            dataDeath[5] += response[i].사망자수;
+            dataInjured[5] += response[i].부상자수;
+          }
+          if (response[i].month == "jul") {
+            dataAccidents[6] += response[i].사고건수;
+            dataDeath[6] += response[i].사망자수;
+            dataInjured[6] += response[i].부상자수;
+          }
+          if (response[i].month == "aug") {
+            dataAccidents[7] += response[i].사고건수;
+            dataDeath[7] += response[i].사망자수;
+            dataInjured[7] += response[i].부상자수;
+          }
+          if (response[i].month == "sep") {
+            dataAccidents[8] += response[i].사고건수;
+            dataDeath[8] += response[i].사망자수;
+            dataInjured[8] += response[i].부상자수;
+          }
+          if (response[i].month == "oct") {
+            dataAccidents[9] += response[i].사고건수;
+            dataDeath[9] += response[i].사망자수;
+            dataInjured[9] += response[i].부상자수;
+          }
+          if (response[i].month == "nov") {
+            dataAccidents[10] += response[i].사고건수;
+            dataDeath[10] += response[i].사망자수;
+            dataInjured[10] += response[i].부상자수;
+          }
+          if (response[i].month == "dec") {
+            dataAccidents[11] += response[i].사고건수;
+            dataDeath[11] += response[i].사망자수;
+            dataInjured[11] += response[i].부상자수;
+          }
+        }
+        // chart 생성
+        var context = document.getElementById("histogram").getContext("2d");
+        var myChart = new Chart(context, {
+          type: "bar", // 차트의 형태
+          data: {
+            // 차트에 들어갈 데이터
             labels: [
-                //x 축
-                '1','2','3','4','5','6','7','8','9','10','11','12'
+              //x 축
+              "1",
+              "2",
+              "3",
+              "4",
+              "5",
+              "6",
+              "7",
+              "8",
+              "9",
+              "10",
+              "11",
+              "12",
             ],
             datasets: [
-                { //데이터
-                    label: '사고 건수', //차트 제목
-                    fill: false, // line 형태일 때, 선 안쪽을 채우는지 안채우는지
-                    data: [ // 여기에 사고건수arr 넣기
-                        21,19,25,20,23,26,25,15,5,45,31,22 //x축 label에 대응되는 데이터 값
-                    ],
-                    backgroundColor: 'rgba(255, 99, 132, 0.2)',
-                    borderColor: 'rgba(255, 99, 132, 1)',
-                    borderWidth: 1 //경계선 굵기
-                },
-                {
-                    label: '사망자 수',
-                    fill: false, 
-                    data: [ // 여기에 사망자arr 넣기
-                        8,34,12,24,30,25,24,18,26,32,11,13
-                    ],
-                    backgroundColor: 'rgba(54, 162, 235, 0.2)',
-                    borderColor: 'rgba(54, 162, 235, 1)',
-                    borderWidth: 1
-                },
-                {
-                    label: '부상자 수',
-                    fill: false,
-                    data: [ // 여기에 부상자arr 넣기
-                        15,16,18,22,31,15,16,9,2,31,21,16
-                    ],
-                    backgroundColor: 'rgba(255, 206, 86, 0.2)',
-                    borderColor: 'rgba(255, 206, 86, 1)',
-                    borderWidth: 1
-                }
-            ]
-        },
-        options: {
-            plugins: {
-                title: {
-                    display: true,
-                    text: 'Bar Chart',
-                },
-                subtitle: {
-                    display: true,
-                    text: '월별 히스토그램',
-                    color: 'skyblue'
-                }
-            }
-        }
-    });
-    // Line Chart
-    // 조건 : 유형 선택 (월별 합산으로 년도별 분류)
-    var context = document
-        .getElementById('lineChart')
-        .getContext('2d');
-    var myChart = new Chart(context, {
-        type: 'line', // 차트의 형태
-        data: { // 차트에 들어갈 데이터
-            labels: [
-                //x 축
-                '2005','2006','2007','2008','2009','2010','2011','2012','2013','2014','2015','2016','2017','2018','2019','2020'
+              {
+                //데이터
+                label: "사고 건수", //차트 제목
+                fill: false, // line 형태일 때, 선 안쪽을 채우는지 안채우는지
+                data: dataAccidents,
+                backgroundColor: "rgba(255, 99, 132, 0.2)",
+                borderColor: "rgba(255, 99, 132, 1)",
+                borderWidth: 1, //경계선 굵기
+              },
+              {
+                label: "사망자 수",
+                fill: false,
+                data: dataDeath,
+                backgroundColor: "rgba(54, 162, 235, 0.2)",
+                borderColor: "rgba(54, 162, 235, 1)",
+                borderWidth: 1,
+              },
+              {
+                label: "부상자 수",
+                fill: false,
+                data: dataInjured,
+                backgroundColor: "rgba(255, 206, 86, 0.2)",
+                borderColor: "rgba(255, 206, 86, 1)",
+                borderWidth: 1,
+              },
             ],
-            datasets: [
-                { //데이터
-                    label: '사고 건수', //차트 제목
-                    fill: false, // line 형태일 때, 선 안쪽을 채우는지 안채우는지
-                    data: [ // 여기에 사고건수arr 넣기
-                        1000,1100,1050,1300,1320,1270,1310,1310,1320,1350,1400,1310,1370,1410,1430,1500 //x축 label에 대응되는 데이터 값
-                    ],
-                    backgroundColor: 'rgba(255, 99, 132, 0.2)',
-                    borderColor: 'rgba(255, 99, 132, 1)',
-                    borderWidth: 1 //경계선 굵기
-                },
-                {
-                    label: '사망자 수',
-                    fill: false, 
-                    data: [ // 여기에 사망자arr 넣기
-                        70,60,80,88,73,90,100,101,95,94,106,110,130,100,134,126
-                    ],
-                    backgroundColor: 'rgba(54, 162, 235, 0.2)',
-                    borderColor: 'rgba(54, 162, 235, 1)',
-                    borderWidth: 1
-                },
-                {
-                    label: '부상자 수',
-                    fill: false,
-                    data: [ // 여기에 부상자arr 넣기
-                        210,180,240,300,220,270,300,330,290,286,326,330,390,300,336,370
-                    ],
-                    backgroundColor: 'rgba(255, 206, 86, 0.2)',
-                    borderColor: 'rgba(255, 206, 86, 1)',
-                    borderWidth: 1
-                }
-            ]
-        },
-        options: {
+          },
+          options: {
             plugins: {
-                title: {
-                    display: true,
-                    text: 'Line Chart',
-                },
-                subtitle: {
-                    display: true,
-                    text: '년도별 그래프',
-                    color: 'skyblue'
-                }
-            }
-        }
+              title: {
+                display: true,
+                text: "Bar Chart",
+              },
+              subtitle: {
+                display: true,
+                text: "월별 히스토그램",
+                color: "skyblue",
+              },
+            },
+          },
+        });
+      },
     });
 
+    // Line Chart
+    // 조건 : 유형 선택 (월별 합산으로 년도별 분류)
+    $.ajax({
+      url: "http://localhost:8080/api/v1/accident",
+      type: "GET",
+      dataType: "json",
+      success: function (response) {
+        // 월별로 배열에 data +.
+        // 사고유형1,2
+        var dataAccidents = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
+        var dataDeath = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
+        var dataInjured = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
+        console.log(response[0]);
+        for (var i = 0; i < response.length; i++) {
+          if (response[i].month != "all") continue;
+          if (response[i].시점 == 2005) {
+            dataAccidents[0] += response[i].사고건수;
+            dataDeath[0] += response[i].사망자수;
+            dataInjured[0] += response[i].부상자수;
+          }
+          if (response[i].시점 == 2006) {
+            dataAccidents[1] += response[i].사고건수;
+            dataDeath[1] += response[i].사망자수;
+            dataInjured[1] += response[i].부상자수;
+          }
+          if (response[i].시점 == 2007) {
+            dataAccidents[2] += response[i].사고건수;
+            dataDeath[2] += response[i].사망자수;
+            dataInjured[2] += response[i].부상자수;
+          }
+          if (response[i].시점 == 2008) {
+            dataAccidents[3] += response[i].사고건수;
+            dataDeath[3] += response[i].사망자수;
+            dataInjured[3] += response[i].부상자수;
+          }
+          if (response[i].시점 == 2009) {
+            dataAccidents[4] += response[i].사고건수;
+            dataDeath[4] += response[i].사망자수;
+            dataInjured[4] += response[i].부상자수;
+          }
+          if (response[i].시점 == 2010) {
+            dataAccidents[5] += response[i].사고건수;
+            dataDeath[5] += response[i].사망자수;
+            dataInjured[5] += response[i].부상자수;
+          }
+          if (response[i].시점 == 2011) {
+            dataAccidents[6] += response[i].사고건수;
+            dataDeath[6] += response[i].사망자수;
+            dataInjured[6] += response[i].부상자수;
+          }
+          if (response[i].시점 == 2012) {
+            dataAccidents[7] += response[i].사고건수;
+            dataDeath[7] += response[i].사망자수;
+            dataInjured[7] += response[i].부상자수;
+          }
+          if (response[i].시점 == 2013) {
+            dataAccidents[8] += response[i].사고건수;
+            dataDeath[8] += response[i].사망자수;
+            dataInjured[8] += response[i].부상자수;
+          }
+          if (response[i].시점 == 2014) {
+            dataAccidents[9] += response[i].사고건수;
+            dataDeath[9] += response[i].사망자수;
+            dataInjured[9] += response[i].부상자수;
+          }
+          if (response[i].시점 == 2015) {
+            dataAccidents[10] += response[i].사고건수;
+            dataDeath[10] += response[i].사망자수;
+            dataInjured[10] += response[i].부상자수;
+          }
+          if (response[i].시점 == 2016) {
+            dataAccidents[11] += response[i].사고건수;
+            dataDeath[11] += response[i].사망자수;
+            dataInjured[11] += response[i].부상자수;
+          }
+          if (response[i].시점 == 2017) {
+            dataAccidents[12] += response[i].사고건수;
+            dataDeath[12] += response[i].사망자수;
+            dataInjured[12] += response[i].부상자수;
+          }
+          if (response[i].시점 == 2018) {
+            dataAccidents[13] += response[i].사고건수;
+            dataDeath[13] += response[i].사망자수;
+            dataInjured[13] += response[i].부상자수;
+          }
+          if (response[i].시점 == 2019) {
+            dataAccidents[14] += response[i].사고건수;
+            dataDeath[14] += response[i].사망자수;
+            dataInjured[14] += response[i].부상자수;
+          }
+          if (response[i].시점 == 2020) {
+            dataAccidents[15] += response[i].사고건수;
+            dataDeath[15] += response[i].사망자수;
+            dataInjured[15] += response[i].부상자수;
+          }
+        }
+        console.log(dataDeath);
+        var context = document.getElementById("lineChart").getContext("2d");
+        var myChart = new Chart(context, {
+          type: "line", // 차트의 형태
+          data: {
+            // 차트에 들어갈 데이터
+            labels: [
+              //x 축
+              "2005",
+              "2006",
+              "2007",
+              "2008",
+              "2009",
+              "2010",
+              "2011",
+              "2012",
+              "2013",
+              "2014",
+              "2015",
+              "2016",
+              "2017",
+              "2018",
+              "2019",
+              "2020",
+            ],
+            datasets: [
+              {
+                //데이터
+                label: "사고 건수", //차트 제목
+                fill: false, // line 형태일 때, 선 안쪽을 채우는지 안채우는지
+                data: dataAccidents,
+                backgroundColor: "rgba(255, 99, 132, 0.2)",
+                borderColor: "rgba(255, 99, 132, 1)",
+                borderWidth: 1, //경계선 굵기
+              },
+              {
+                label: "사망자 수",
+                fill: false,
+                data: dataDeath,
+                backgroundColor: "rgba(54, 162, 235, 0.2)",
+                borderColor: "rgba(54, 162, 235, 1)",
+                borderWidth: 1,
+              },
+              {
+                label: "부상자 수",
+                fill: false,
+                data: dataInjured,
+                backgroundColor: "rgba(255, 206, 86, 0.2)",
+                borderColor: "rgba(255, 206, 86, 1)",
+                borderWidth: 1,
+              },
+            ],
+          },
+          options: {
+            responsive: true,
+            scales: {
+              yAxes: [
+                {
+                  ticks: {
+                    beginAtZero: true,
+                    fontSize: 14,
+                  },
+                },
+              ],
+            },
+            plugins: {
+              title: {
+                display: true,
+                text: "Line Chart",
+              },
+              subtitle: {
+                display: true,
+                text: "년도별 그래프",
+                color: "skyblue",
+              },
+            },
+          },
+        });
+      },
+    });
 
     // 지역별 지도와 함께 보여줄 파이차트 구현
     // ajax 안에
     $.ajax({
-        url : "http://localhost:8080/api/v1/city",
-        type : "GET",
-        dataType : "json",
-        success : function (response){
-            var seoul=0;var busan=0;var daegu=0;var incheon=0;
-            var gwangju=0;var daejeon=0;var ulsan=0;var kyeongki=0;
-            var kangwon=0;var chungbuk=0;var chungnam=0;var jeonbuk=0;
-            var jeonnam=0;var kyeongbuk=0;var kyeongnam=0;var jeju=0;
-            var sejong=0;
-            for(var i=0;i<response.length;i++){
-                if(response[i].region == "Seoul") seoul += response[i].사고건수;
-                if(response[i].region == "Busan") busan += response[i].사고건수;
-                if(response[i].region == "Daegu") daegu += response[i].사고건수;
-                if(response[i].region == "Incheon") incheon += response[i].사고건수;
-                if(response[i].region == "Gwangju") gwangju += response[i].사고건수;
-                if(response[i].region == "Daejeon") daejeon += response[i].사고건수;
-                if(response[i].region == "Ulsan") ulsan += response[i].사고건수;
-                if(response[i].region == "Kyeongki") kyeongki += response[i].사고건수;
-                if(response[i].region == "Kangwon") kangwon += response[i].사고건수;
-                if(response[i].region == "Chungbuk") chungbuk += response[i].사고건수;
-                if(response[i].region == "Chungnam") chungnam += response[i].사고건수;
-                if(response[i].region == "Jeonbuk") jeonbuk += response[i].사고건수;
-                if(response[i].region == "Jeonnam") jeonnam += response[i].사고건수;
-                if(response[i].region == "Kyeongbuk") kyeongbuk += response[i].사고건수;
-                if(response[i].region == "Kyeongnam") kyeongnam += response[i].사고건수;
-                if(response[i].region == "Jeju") jeju += response[i].사고건수;
-                if(response[i].region == "Sejong") sejong += response[i].사고건수;
-            }
-            var data = [seoul,busan,daegu,incheon,gwangju,daejeon,ulsan,kyeongki,kangwon,chungbuk,chungnam,jeonbuk,jeonnam,kyeongbuk,kyeongnam,jeju,sejong]
-            console.log(data);
-            // 여기까지 그래프에 넣을 데이터 배열 생성
-            // 그래프(도넛차트)
-            var context = document
-                .getElementById('pieChart')
-                .getContext('2d');
-            var myChart = new Chart(context, {
-                type: 'doughnut', // 차트의 형태
-                data: { // 차트에 들어갈 데이터
-                    labels: [
-                    '서울','부산','대구','인천','광주','대전','울산','경기','강원','충북','충남','전북','전남','경북','경남','제주','세종'
-                    ],
-                    datasets: [
-                        { //데이터
-                            label: '사고 건수', //차트 제목
-                            data: data,
-                            backgroundColor: [
-                                'rgb(255,0,0)',
-                                'rgb(255,100,0)',
-                                'rgb(255,200,0)',
-                                'rgb(255,255,0)',
-                                'rgb(200,255,0)',
-                                'rgb(100,255,0)',
-                                'rgb(0,255,0)',
-                                'rgb(0,255,100)',
-                                'rgb(0,255,200)',
-                                'rgb(0,255,255)',
-                                'rgb(0,200,255)',
-                                'rgb(0,100,255)',
-                                'rgb(0,0,255)',
-                                'rgb(0,0,200)',
-                                'rgb(0,0,100)',
-                                'rgb(0,0,0)',
-                                'gray'
-                            ],
-                            borderRadius : 20,
-                            borderColor: 'white',
-                            borderWidth: 5 //경계선 굵기
-                        }
-                    ]
-                },
-                options: {
-                    plugins: {
-                        title: {
-                            display: true,
-                            text: 'Pie Chart',
-                        },
-                        subtitle: {
-                            display: true,
-                            text: '년도별 그래프',
-                            color: 'skyblue'
-                        }
-                    }
-                }
-            });
+      url: "http://localhost:8080/api/v1/city",
+      type: "GET",
+      dataType: "json",
+      success: function (response) {
+        var seoul = 0;
+        var busan = 0;
+        var daegu = 0;
+        var incheon = 0;
+        var gwangju = 0;
+        var daejeon = 0;
+        var ulsan = 0;
+        var kyeongki = 0;
+        var kangwon = 0;
+        var chungbuk = 0;
+        var chungnam = 0;
+        var jeonbuk = 0;
+        var jeonnam = 0;
+        var kyeongbuk = 0;
+        var kyeongnam = 0;
+        var jeju = 0;
+        var sejong = 0;
+        for (var i = 0; i < response.length; i++) {
+          if (response[i].region == "Seoul") seoul += response[i].사고건수;
+          if (response[i].region == "Busan") busan += response[i].사고건수;
+          if (response[i].region == "Daegu") daegu += response[i].사고건수;
+          if (response[i].region == "Incheon") incheon += response[i].사고건수;
+          if (response[i].region == "Gwangju") gwangju += response[i].사고건수;
+          if (response[i].region == "Daejeon") daejeon += response[i].사고건수;
+          if (response[i].region == "Ulsan") ulsan += response[i].사고건수;
+          if (response[i].region == "Kyeongki")
+            kyeongki += response[i].사고건수;
+          if (response[i].region == "Kangwon") kangwon += response[i].사고건수;
+          if (response[i].region == "Chungbuk")
+            chungbuk += response[i].사고건수;
+          if (response[i].region == "Chungnam")
+            chungnam += response[i].사고건수;
+          if (response[i].region == "Jeonbuk") jeonbuk += response[i].사고건수;
+          if (response[i].region == "Jeonnam") jeonnam += response[i].사고건수;
+          if (response[i].region == "Kyeongbuk")
+            kyeongbuk += response[i].사고건수;
+          if (response[i].region == "Kyeongnam")
+            kyeongnam += response[i].사고건수;
+          if (response[i].region == "Jeju") jeju += response[i].사고건수;
+          if (response[i].region == "Sejong") sejong += response[i].사고건수;
         }
+        var data = [
+          seoul,
+          busan,
+          daegu,
+          incheon,
+          gwangju,
+          daejeon,
+          ulsan,
+          kyeongki,
+          kangwon,
+          chungbuk,
+          chungnam,
+          jeonbuk,
+          jeonnam,
+          kyeongbuk,
+          kyeongnam,
+          jeju,
+          sejong,
+        ];
+        // 여기까지 그래프에 넣을 데이터 배열 생성
+        // 그래프(도넛차트)
+        var context = document.getElementById("pieChart").getContext("2d");
+        var myChart = new Chart(context, {
+          type: "doughnut", // 차트의 형태
+          data: {
+            // 차트에 들어갈 데이터
+            labels: [
+              "서울",
+              "부산",
+              "대구",
+              "인천",
+              "광주",
+              "대전",
+              "울산",
+              "경기",
+              "강원",
+              "충북",
+              "충남",
+              "전북",
+              "전남",
+              "경북",
+              "경남",
+              "제주",
+              "세종",
+            ],
+            datasets: [
+              {
+                //데이터
+                label: "사고 건수", //차트 제목
+                data: data,
+                backgroundColor: [
+                  "rgb(255,0,0)",
+                  "rgb(255,100,0)",
+                  "rgb(255,200,0)",
+                  "rgb(255,255,0)",
+                  "rgb(200,255,0)",
+                  "rgb(100,255,0)",
+                  "rgb(0,255,0)",
+                  "rgb(0,255,100)",
+                  "rgb(0,255,200)",
+                  "rgb(0,255,255)",
+                  "rgb(0,200,255)",
+                  "rgb(0,100,255)",
+                  "rgb(0,0,255)",
+                  "rgb(0,0,200)",
+                  "rgb(0,0,100)",
+                  "rgb(0,0,0)",
+                  "gray",
+                ],
+                borderRadius: 10,
+                borderColor: "white",
+                borderWidth: 5, //경계선 굵기
+              },
+            ],
+          },
+          options: {
+            plugins: {
+              title: {
+                display: true,
+                text: "Pie Chart",
+              },
+              subtitle: {
+                display: true,
+                text: "년도별 그래프",
+                color: "skyblue",
+              },
+            },
+          },
+        });
+      },
     });
 
-
-/*
+    /*
 backgroundColor: [
     //색상
     'rgba(255, 99, 132, 0.2)',
@@ -299,6 +529,5 @@ borderColor: [
     'rgba(255, 159, 64, 1)'
 ]
 */
-</script>
+  </script>
 </html>
-
