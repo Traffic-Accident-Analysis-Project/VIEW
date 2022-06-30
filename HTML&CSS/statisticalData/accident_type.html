@@ -73,7 +73,9 @@
               <!-- <img src="../img/임시이미지.png" alt="" /> -->
               <div class="canvas-wrapper">
                 <canvas id="histogram-accident"></canvas>
+                <canvas id="histogram-new-accident" style="display: none;"></canvas>
                 <canvas id="lineChart-accident"></canvas>
+                <canvas id="lineChart-new-accident" style="display: none;"></canvas>
               </div>
             </div>
             <div class="statistical-page-right-section">
@@ -295,6 +297,13 @@
 
     // 조회하기 버튼 눌렀을 때 함수
     $("#lookUpByLaw").on("click", function () {
+      // 조회하기 버튼 초기화로 바꾸기
+      if ($("#lookUpByLaw").text() == "초기화") {
+        location.reload();
+        return false;
+      }
+      $("#lookUpByLaw").text("초기화");
+      // input[hidden]의 값을 변수에 담기
       var yearHidden = $("#accidentYearHidden").val();
       var monthHidden = $("#accidentMonthHidden").val();
       var PersonCarHidden = $("#accidentPersonCarHidden").val();
@@ -310,6 +319,17 @@
         return false;
       }
 
+      // Chart.js 구현하기
+      $("#histogram-accident").css("display", "none");
+      $("#histogram-new-accident").css("display", "block");
+      $("#lineChart-accident").css("display", "none");
+      $("#lineChart-new-accident").css("display", "block");
+      $.ajax({
+        url:
+        "http://localhost:8080/api/v1/accident/year/" +
+        yearHidden +
+        "{year}/month/{month}/type/{type}/motion/{motion}"
+      })
       // option으로 선택한 값에대한 data받아오는 ajax
       $.ajax({
         url:
