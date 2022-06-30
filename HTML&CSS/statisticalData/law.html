@@ -251,7 +251,7 @@
         alert("선택박스를 확인 해 주세요");
         return false;
       }
-      // /law/year/{year}/month/{month}/violation/{violation}
+      // Chart.js 구현하기
       $.ajax({
         url:
           "http://localhost:8080/api/v1/law/year/" +
@@ -261,7 +261,6 @@
         type: "GET",
         dataType: "json",
         success: function (response) {
-          console.log(response);
           var dataAccidents = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
           var dataDeath = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
           var dataInjured = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
@@ -328,9 +327,9 @@
               dataDeath[11] += response[i].사망자수;
               dataInjured[11] += response[i].부상자수;
             }
-            console.log(response[i].month)
           }
-          console.log(dataAccidents) // 왜 dev로 받아지는가..
+          // chart 생성 ....하자
+          getHistogram(dataAccidents, dataDeath, dataInjured);
         },
       });
 
@@ -373,6 +372,69 @@
       .getElementById("histogram-law")
       .getContext("2d");
     // histogram for law
+    function getHistogram(dataAccidents, dataDeath, dataInjured) {
+      var myChart = new Chart(contextLawHitogram, {
+        type: "bar", // 차트의 형태
+        data: {
+          // 차트에 들어갈 데이터
+          labels: [
+            //x 축
+            "1",
+            "2",
+            "3",
+            "4",
+            "5",
+            "6",
+            "7",
+            "8",
+            "9",
+            "10",
+            "11",
+            "12",
+          ],
+          datasets: [
+            {
+              //데이터
+              label: "사고 건수", //차트 제목
+              fill: false, // line 형태일 때, 선 안쪽을 채우는지 안채우는지
+              data: dataAccidents,
+              backgroundColor: "rgba(255, 99, 132, 0.2)",
+              borderColor: "rgba(255, 99, 132, 1)",
+              borderWidth: 1, //경계선 굵기
+            },
+            {
+              label: "사망자 수",
+              fill: false,
+              data: dataDeath,
+              backgroundColor: "rgba(54, 162, 235, 0.2)",
+              borderColor: "rgba(54, 162, 235, 1)",
+              borderWidth: 1,
+            },
+            {
+              label: "부상자 수",
+              fill: false,
+              data: dataInjured,
+              backgroundColor: "rgba(255, 206, 86, 0.2)",
+              borderColor: "rgba(255, 206, 86, 1)",
+              borderWidth: 1,
+            },
+          ],
+        },
+        options: {
+          plugins: {
+            title: {
+              display: true,
+              text: "Bar Chart",
+            },
+            subtitle: {
+              display: true,
+              text: "월별 히스토그램",
+              color: "skyblue",
+            },
+          },
+        },
+      });
+    }
     $.ajax({
       url: "http://localhost:8080/api/v1/accident",
       type: "GET",
@@ -448,68 +510,7 @@
           }
         }
         // chart 생성
-
-        var myChart = new Chart(contextLawHitogram, {
-          type: "bar", // 차트의 형태
-          data: {
-            // 차트에 들어갈 데이터
-            labels: [
-              //x 축
-              "1",
-              "2",
-              "3",
-              "4",
-              "5",
-              "6",
-              "7",
-              "8",
-              "9",
-              "10",
-              "11",
-              "12",
-            ],
-            datasets: [
-              {
-                //데이터
-                label: "사고 건수", //차트 제목
-                fill: false, // line 형태일 때, 선 안쪽을 채우는지 안채우는지
-                data: dataAccidents,
-                backgroundColor: "rgba(255, 99, 132, 0.2)",
-                borderColor: "rgba(255, 99, 132, 1)",
-                borderWidth: 1, //경계선 굵기
-              },
-              {
-                label: "사망자 수",
-                fill: false,
-                data: dataDeath,
-                backgroundColor: "rgba(54, 162, 235, 0.2)",
-                borderColor: "rgba(54, 162, 235, 1)",
-                borderWidth: 1,
-              },
-              {
-                label: "부상자 수",
-                fill: false,
-                data: dataInjured,
-                backgroundColor: "rgba(255, 206, 86, 0.2)",
-                borderColor: "rgba(255, 206, 86, 1)",
-                borderWidth: 1,
-              },
-            ],
-          },
-          options: {
-            plugins: {
-              title: {
-                display: true,
-                text: "Bar Chart",
-              },
-              subtitle: {
-                display: true,
-                text: "월별 히스토그램",
-                color: "skyblue",
-              },
-            },
-          },
-        });
+        getHistogram(dataAccidents, dataDeath, dataInjured);
       },
     });
     // Line Chart
