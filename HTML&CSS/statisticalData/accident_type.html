@@ -70,7 +70,11 @@
           </div>
           <div class="by-category-main-section">
             <div class="statistical-page-left-section-graph">
-              <img src="../img/임시이미지.png" alt="" />
+              <!-- <img src="../img/임시이미지.png" alt="" /> -->
+              <div class="canvas-wrapper">
+                <canvas id="histogram-accident"></canvas>
+                <canvas id="lineChart-accident"></canvas>
+              </div>
             </div>
             <div class="statistical-page-right-section">
               <div class="select-wrap">
@@ -204,7 +208,7 @@
           <img src="../img/T.A.S-logo.png" alt="" />
           <div class="footer-info">
             <p>email : jyg12770@google.com</p>
-            <p>email : jyg12770@google.com</p>
+            <p>email : skwjdtn3171@naver.com</p>
           </div>
           <button
             type="button"
@@ -230,6 +234,9 @@
     integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
     crossorigin="anonymous"
   ></script>
+  <!-- Chart.js -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="chart.js"></script>
   <script src="index.js"></script>
   <script>
     var accidentYear = function (value) {
