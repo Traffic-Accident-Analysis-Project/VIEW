@@ -20,17 +20,17 @@
   <body>
     <div class="container">
       <div class="chartWraper">
-        <div style="width: 50%; height: 300px">
+        <div style="width: 500px; height: 300px; border: 1px solid black">
           <!--차트가 그려질 부분-->
           <canvas id="histogram"></canvas>
         </div>
-        <div style="width: 50%; height: 300px">
+        <div style="width: 500px; height: 300px; border: 1px solid black">
           <!--차트가 그려질 부분-->
           <canvas id="lineChart"></canvas>
         </div>
       </div>
       <div class="pie">
-        <div style="width: 800; height: 800px">
+        <div style="width: 800px; height: 800px; border: 1px solid black">
           <!--차트가 그려질 부분-->
           <canvas id="pieChart"></canvas>
         </div>
@@ -48,6 +48,15 @@
     crossorigin="anonymous"
   ></script>
   <script>
+    // Histogram
+    var contextHitogram = document.getElementById("histogram").getContext("2d");
+    // Line Chart
+    var contextLineChart = document
+      .getElementById("lineChart")
+      .getContext("2d");
+    // Pie Chart
+    var contextPieChart = document.getElementById("pieChart").getContext("2d");
+
     // histogram
     // 월별 사고건수, 사망자, 부상자 구현
     // 조건 : 년도 선택, 유형 선택
@@ -127,8 +136,8 @@
           }
         }
         // chart 생성
-        var context = document.getElementById("histogram").getContext("2d");
-        var myChart = new Chart(context, {
+
+        var myChart = new Chart(contextHitogram, {
           type: "bar", // 차트의 형태
           data: {
             // 차트에 들어갈 데이터
@@ -289,8 +298,8 @@
           }
         }
         console.log(dataDeath);
-        var context = document.getElementById("lineChart").getContext("2d");
-        var myChart = new Chart(context, {
+
+        var myChart = new Chart(contextLineChart, {
           type: "line", // 차트의 형태
           data: {
             // 차트에 들어갈 데이터
@@ -438,8 +447,8 @@
         ];
         // 여기까지 그래프에 넣을 데이터 배열 생성
         // 그래프(도넛차트)
-        var context = document.getElementById("pieChart").getContext("2d");
-        var myChart = new Chart(context, {
+
+        var myChart = new Chart(contextPieChart, {
           type: "doughnut", // 차트의 형태
           data: {
             // 차트에 들어갈 데이터
@@ -488,7 +497,7 @@
                 ],
                 borderRadius: 10,
                 borderColor: "white",
-                borderWidth: 5, //경계선 굵기
+                borderWidth: 3, //경계선 굵기
               },
             ],
           },
@@ -500,7 +509,7 @@
               },
               subtitle: {
                 display: true,
-                text: "년도별 그래프",
+                text: "시도별 그래프",
                 color: "skyblue",
               },
             },
