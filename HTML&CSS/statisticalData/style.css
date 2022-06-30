@@ -1,8 +1,7 @@
 :root {
   --button-shadow: 1px 1px 3px 1px #dadce0;
   --box-inset: 1px 1px 3px 1px #dadce0 inset;
-  --main-blue: #2e7ec8;
-  /* --main-blue: #4D4DFF; */
+  --main-blue: #0b1b2f;
   --light-grey: #f6f6f6;
   --middel-grey: #6f6669;
   --dark-grey: #5a5256;
@@ -180,10 +179,10 @@ header {
 .statistical-page-main {
   position: absolute;
   top: -50%;
-  width: 90%;
+  width: 95%;
   height: 800px;
-  margin: 0 5%;
-  border-radius: 18px;
+  margin: 0 2.5%;
+  border-radius: 1px;
   box-shadow: var(--button-shadow);
   background-color: white;
 }
@@ -245,9 +244,11 @@ header {
   width: 100%;
 }
 .accidents-card {
+  background-color: var(--light-grey);
+  color: var(--middel-grey);
   width: 31.3%;
   height: auto;
-  border-radius: 2px;
+  border-radius: 1px;
   margin: 0 1% 5%;
   box-shadow: var(--button-shadow);
   padding: 2.5%;
@@ -264,19 +265,6 @@ header {
   font-weight: 800;
   margin: -10px 2%;
 }
-.hight {
-  color: var(--light-grey);
-  background-color: #ff2221;
-}
-.middle {
-  color: var(--middel-grey);
-  background-color: #ffd700;
-}
-.rower {
-  color: var(--light-grey);
-  background-color: #81c147;
-}
-
 .statistical-page-right-section button {
   border: none;
   background-color: transparent;

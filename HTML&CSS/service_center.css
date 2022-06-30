@@ -1,7 +1,8 @@
 :root {
   --button-shadow: 1px 1px 3px 1px #dadce0;
   --box-inset: 1px 1px 3px 1px #dadce0 inset;
-  --main-blue: #2e7ec8;
+  /* --main-blue: #2e7ec8; */
+  --main-blue: #0b1b2f;
   --light-grey: #f6f6f6;
   --middel-grey: #6f6669;
   --dark-grey: #5a5256;
@@ -183,10 +184,10 @@ header {
 .service-center-section {
   position: absolute;
   top: -50%;
-  width: 90%;
+  width: 95%;
   height: 800px;
-  margin: 0 5%;
-  border-radius: 18px;
+  margin: 0 2.5%;
+  border-radius: 1px;
   box-shadow: var(--button-shadow);
   background-color: white;
 }
@@ -199,9 +200,10 @@ header {
   font-size: 50px;
   font-weight: 700;
   color: var(--main-blue);
+  margin-top: 50px;
 }
 .service-write-btn {
-  margin: 12px 0;
+  margin: 50px 0 12px;
   font-size: 13px;
   font-weight: 900;
   text-decoration: none;
@@ -211,7 +213,7 @@ header {
   text-align: center;
   box-shadow: var(--button-shadow);
   height: 40px;
-  border-radius: 5px;
+  border-radius: 2px;
   width: 80px;
 }
 .service-write-btn:hover {

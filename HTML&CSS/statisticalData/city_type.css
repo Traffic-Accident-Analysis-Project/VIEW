@@ -1,7 +1,8 @@
 :root {
   --button-shadow: 1px 1px 3px 1px #dadce0;
   --box-inset: 1px 1px 3px 1px #dadce0 inset;
-  --main-blue: #2e7ec8;
+  /* --main-blue: #2e7ec8; */
+  --main-blue: #0b1b2f;
   --light-grey: #eaeaea;
   --middel-grey: #6f6669;
   --dark-grey: #5a5256;
@@ -9,10 +10,10 @@
 .statistical-page-city {
   position: absolute;
   top: -50%;
-  width: 90%;
+  width: 95%;
   height: 1000px;
-  margin: 0 5%;
-  border-radius: 18px;
+  margin: 0 2.5%;
+  border-radius: 1px;
   box-shadow: var(--button-shadow);
   background-color: white;
 }
@@ -54,12 +55,18 @@
   width: 100%;
 }
 .city-accidents-card {
+  background-color: var(--light-grey);
+  color: var(--middel-grey);
   width: 70%;
   height: auto;
-  border-radius: 5px;
+  border-radius: 1px;
   margin: 0 1% 5%;
   box-shadow: var(--button-shadow);
   padding: 2.5%;
+}
+.city-accidents-card:hover {
+  transition: 0.1s;
+  color: var(--main-blue);
 }
 .city-accidents-card h2 {
   width: 100%;
@@ -87,12 +94,11 @@
   font-size: 13px;
   padding: 5px;
   cursor: pointer;
-  width: auto;
 }
 .circle-graph button {
-  width: auto;
+  width: 50%;
   margin-top: 8%;
-  margin-left: 30%;
+  margin-left: 20%;
 }
 .city-main-right-section button:hover {
   transition: 0.1s;
