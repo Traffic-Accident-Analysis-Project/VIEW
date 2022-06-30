@@ -105,3 +105,64 @@
 footer {
   top: 700px;
 }
+.label {
+  margin-bottom: 96px;
+}
+.label * {
+  display: inline-block;
+  vertical-align: top;
+}
+.label .left {
+  text-align: center;
+  background-color: #4fcd6a;
+  color: white;
+  font-weight: 800;
+  padding-top: 5%;
+  font-size: 15px;
+  display: inline-block;
+  border-radius: 50%;
+  width: 33px;
+  height: 33px;
+  overflow: hidden;
+  vertical-align: top;
+}
+.label .center {
+  text-align: center;
+  font-weight: 800;
+  background-color: #458acb;
+  color: white;
+  display: inline-block;
+  height: 70px;
+  width: 70px;
+  border-radius: 50%;
+  font-size: 18px;
+  padding-top: 22%;
+  line-height: 24px;
+}
+.map-btn-wrap {
+  display: flex;
+  justify-content: right;
+  flex-wrap: wrap;
+  width: 100%;
+  height: 50px;
+  padding-top: 2%;
+}
+.map-btn {
+  margin-right: 3%;
+  border: none;
+  background-color: transparent;
+  color: var(--dark-grey);
+  font-weight: 900;
+  border-radius: 5px;
+  border: 1px solid var(--light-grey);
+  box-shadow: var(--button-shadow);
+  font-size: 13px;
+  padding: 3px;
+  cursor: pointer;
+  height: 30px;
+}
+.map-btn:hover {
+  transition: 0.1s;
+  background-color: var(--main-blue);
+  color: var(--light-grey);
+}
