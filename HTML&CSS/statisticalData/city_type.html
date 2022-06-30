@@ -5,6 +5,42 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>T.A.S 시도별</title>
+    <style>
+      .label {
+        margin-bottom: 96px;
+      }
+      .label * {
+        display: inline-block;
+        vertical-align: top;
+      }
+      .label .left {
+        text-align: center;
+        background-color: #2ec84fce;
+        color: white;
+        font-weight: 800;
+        padding-top: 5%;
+        font-size: 15px;
+        display: inline-block;
+        border-radius: 50%;
+        width: 33px;
+        height: 33px;
+        overflow: hidden;
+        vertical-align: top;
+      }
+      .label .center {
+        text-align: center;
+        font-weight: 800;
+        background-color: #2e7ec8df;
+        color: white;
+        display: inline-block;
+        height: 70px;
+        width: 70px;
+        border-radius: 50%;
+        font-size: 18px;
+        padding-top: 22%;
+        line-height: 24px;
+      }
+    </style>
     <link rel="stylesheet" href="style.css" />
     <link rel="stylesheet" href="city_type.css" />
     <link
@@ -72,10 +108,7 @@
           <div class="city-by-category-main-section">
             <div class="city-main-left-section-map">
               <!-- kakao map -->
-              <div
-                id="map"
-                style="width: 85%; height: 700px; margin-top: 20px"
-              ></div>
+              <div id="map" style="width: 100%; height: 790px"></div>
             </div>
             <div class="city-main-right-section">
               <div class="city-select-wrap">
@@ -202,43 +235,7 @@
       </div>
     </div>
   </body>
-  <script
-    type="text/javascript"
-    src="//dapi.kakao.com/v2/maps/sdk.js?appkey=1404a388d08e4a1a512e05afcef16217&libraries=clusterer"
-  ></script>
-  <script>
-    // 지도를 초기화시키는 함수
-    function initMap() {}
-    var latitude = "위도";
-    var longitude = "경도";
-    var map = new kakao.maps.Map(document.getElementById("map"), {
-      // 지도를 표시할 div
-      center: new kakao.maps.LatLng(36.2683, 127.6358), // 지도의 중심좌표
-      level: 14, // 지도의 확대 레벨
-    });
-
-    // 마커 클러스터러를 생성합니다
-    var clusterer = new kakao.maps.MarkerClusterer({
-      map: map, // 마커들을 클러스터로 관리하고 표시할 지도 객체
-      averageCenter: true, // 클러스터에 포함된 마커들의 평균 위치를 클러스터 마커 위치로 설정
-      minLevel: 10, // 클러스터 할 최소 지도 레벨
-    });
-
-    // 데이터를 가져오기 위해 jQuery를 사용합니다
-    // 데이터를 가져와 마커를 생성하고 클러스터러 객체에 넘겨줍니다
-    $.get("/download/web/data/chicken.json", function (data) {
-      // 데이터에서 좌표 값을 가지고 마커를 표시합니다
-      // 마커 클러스터러로 관리할 마커 객체는 생성할 때 지도 객체를 설정하지 않습니다
-      var markers = $(data.positions).map(function (i, position) {
-        return new kakao.maps.Marker({
-          position: new kakao.maps.LatLng(position.lat, position.lng),
-        });
-      });
-
-      // 클러스터러에 마커들을 추가합니다
-      clusterer.addMarkers(markers);
-    });
-  </script>
+  <script src="index.js"></script>
   <script
     type="module"
     src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"
@@ -252,7 +249,36 @@
     integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
     crossorigin="anonymous"
   ></script>
-  <script src="index.js"></script>
+  <script
+    type="text/javascript"
+    src="//dapi.kakao.com/v2/maps/sdk.js?appkey=1404a388d08e4a1a512e05afcef16217"
+  ></script>
+  <script>
+    var mapContainer = document.getElementById("map"), // 지도를 표시할 div
+      mapOption = {
+        center: new kakao.maps.LatLng(37.5662952, 126.9779451), // 지도의 중심좌표
+        level: 13, // 지도의 확대 레벨
+      };
+
+    var map = new kakao.maps.Map(mapContainer, mapOption); // 지도를 생성합니다
+    // 커스텀 오버레이에 표시할 내용입니다
+    // HTML 문자열 또는 Dom Element 입니다
+    // var content =
+    //   '<div class ="label"><span class="left"></span><span class="center">123456</span><span class="right"></span></div>';
+
+    // 커스텀 오버레이가 표시될 위치입니다
+    var position = new kakao.maps.LatLng(37.5662952, 126.9779451);
+
+    // 커스텀 오버레이를 생성합니다
+    var customOverlay = new kakao.maps.CustomOverlay({
+      position: position,
+      // content: content,
+    });
+
+    // 커스텀 오버레이를 지도에 표시합니다
+    customOverlay.setMap(map);
+  </script>
+
   <script>
     var cityYear = function (value) {
       $("#cityYearHidden").val(value);
@@ -303,6 +329,58 @@
             $("#accidentsDead").text(dead_cnt);
             $("#accidentsInjury").text(injury_cnt);
           }
+          var mapContainer = document.getElementById("map"), // 지도를 표시할 div
+            mapOption = {
+              center: new kakao.maps.LatLng(37.5662952, 126.9779451), // 지도의 중심좌표
+              level: 13, // 지도의 확대 레벨
+            };
+
+          var map = new kakao.maps.Map(mapContainer, mapOption); // 지도를 생성합니다
+          // 사용자가 선택한 시도가 전체일 경우
+          if (cityTypeHidden == "전체") {
+            for (var i = 0; i < len; i++) {
+              var content =
+                '<div class ="label"><span class="left">' +
+                response[i].시도별 +
+                '</span><span class="center">' +
+                response[i].사고건수 +
+                '</span><span class="right"></span></div>';
+              // 커스텀 오버레이가 표시될 위치입니다
+              var latitude = response[i].latitude;
+              var longitude = response[i].longitude;
+              var position = new kakao.maps.LatLng(latitude, longitude);
+
+              // 커스텀 오버레이를 생성합니다
+              var customOverlay = new kakao.maps.CustomOverlay({
+                position: position,
+                content: content,
+              });
+
+              // 커스텀 오버레이를 지도에 표시합니다
+              customOverlay.setMap(map);
+            }
+          }
+          // 커스텀 오버레이에 표시할 내용입니다
+          // HTML 문자열 또는 Dom Element 입니다
+          var content =
+            '<div class ="label"><span class="left">' +
+            response[0].시도별 +
+            '</span><span class="center">' +
+            response[0].사고건수 +
+            '</span><span class="right"></span></div>';
+          // 커스텀 오버레이가 표시될 위치입니다
+          var latitude = response[0].latitude;
+          var longitude = response[0].longitude;
+          var position = new kakao.maps.LatLng(latitude, longitude);
+
+          // 커스텀 오버레이를 생성합니다
+          var customOverlay = new kakao.maps.CustomOverlay({
+            position: position,
+            content: content,
+          });
+
+          // 커스텀 오버레이를 지도에 표시합니다
+          customOverlay.setMap(map);
         },
       });
     });
