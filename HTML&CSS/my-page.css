@@ -1,7 +1,6 @@
 :root {
   --button-shadow: 1px 1px 3px 1px #dadce0;
   --box-inset: 1px 1px 3px 1px #dadce0 inset;
-  /* --main-blue: #2e7ec8; */
   --main-blue: #0b1b2f;
   --light-grey: #f6f6f6;
   --middel-grey: #6f6669;
@@ -52,15 +51,28 @@ input:focus {
   position: relative;
   z-index: 0;
   width: 100%;
-  height: 750px;
+  height: 800px;
+  background-image: url(img/header_earth.jpg);
+  background-size: cover;
+}
+.top-background-color::before {
+  z-index: -1;
+  content: "";
+  opacity: 0.8;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  right: 0px;
+  bottom: 0px;
   background-color: var(--main-blue);
+  background: linear-gradient(rgba(255, 255, 255, 0), var(--main-blue), black);
 }
 .bottom-background-color {
   position: relative;
+  background: linear-gradient(#01070f, var(--main-blue));
   z-index: 0;
   width: 100%;
   height: 800px;
-  background-color: var(--light-grey);
 }
 header {
   height: 100px;
@@ -184,7 +196,7 @@ footer {
   border: none;
   width: 100%;
   height: 150px;
-  color: var(--main-blue);
+  color: var(--light-grey);
 }
 footer img {
   width: auto;
@@ -196,22 +208,22 @@ footer button {
   cursor: pointer;
   background-color: transparent;
   border: none;
-  color: var(--main-blue);
+  color: var(--light-grey);
   width: auto;
   height: 30px;
 }
 .my-page-wrap {
+  position: absolute;
   display: flex;
   flex-direction: column;
-  width: 100%;
-  position: absolute;
-  top: -50%;
+  top: -60%;
   width: 90%;
   height: auto;
+  padding-top: 5%;
   margin: 0 5%;
-  border-radius: 18px;
-  box-shadow: var(--button-shadow);
-  background-color: white;
+  border-radius: 1px;
+  background-color: rgba(255, 255, 255, 0.1);
+  color: white;
 }
 .row-space {
   display: flex;
@@ -230,24 +242,14 @@ footer button {
   font-size: 18px;
   margin-right: 60%;
 }
-.my-write {
-  margin: 5% 10%;
-  width: 80%;
-  height: 500px;
-  padding: 8px;
-  box-shadow: var(--button-shadow);
-  border-radius: 5px;
-}
+
 .my-page-btn button {
-  margin-top: 2%;
-  margin-left: 33.5%;
-  border: none;
+  margin: 2% 0px 0 33.5%;
   background-color: transparent;
-  color: var(--dark-grey);
-  font-weight: 900;
+  color: var(--light-grey);
+  font-weight: 800;
   border-radius: 5px;
   border: 1px solid var(--light-grey);
-  box-shadow: var(--button-shadow);
   font-size: 13px;
   padding: 5px;
   cursor: pointer;
@@ -255,21 +257,22 @@ footer button {
 }
 .my-page-btn button:hover {
   transition: 0.1s;
-  background-color: var(--main-blue);
-  color: var(--light-grey);
+  background-color: var(--light-grey);
+  color: var(--main-blue);
 }
 .my-write {
+  margin: 5% 10%;
   padding: 2%;
-  box-shadow: var(--button-shadow);
-  border-radius: 5px;
+  border-radius: 1px;
   width: 80%;
-  height: auto;
+  height: 500px;
+  border: 1px solid white;
 }
 .my-write-board-header {
   margin: 3%;
   font-size: 25px;
   font-weight: 700;
-  color: var(--main-blue);
+  color: var(--light-grey);
 }
 .my-write table {
   width: 100%;
@@ -298,7 +301,6 @@ footer button {
   text-align: center;
 }
 .pagination a {
-  box-shadow: var(--button-shadow);
   width: 10px;
   text-decoration: none;
   margin-left: 10px;
