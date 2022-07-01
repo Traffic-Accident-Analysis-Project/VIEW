@@ -20,7 +20,7 @@
         <label for="userId">ID</label>
         <div class="user-id-section">
           <input id="userId" type="text" />
-          <button type="button">ID 중복확인</button>
+          <button id="check-id-btn" type="button">ID 중복확인</button>
         </div>
         <label for="userName">이름</label>
         <input id="userName" type="text" />
@@ -72,13 +72,26 @@
     <script src="index.js"></script>
     <script>
       // 비밀번호 비밀번호재확인이 맞는지 확인
+      function idCheck() {
+        var userId = $("#userId").val();
+        if (uwerId == "기존가입된 id") {
+          alert("이미 가입된 아이디입니다.");
+        }
+      }
+
       function join() {
-        var password = $("#password").val(); //비밀번호 데이터를 변수에 담음
+        var autority = $('#autority').val(); //권한
+        var userId = $("#userId").val();
+        var password = $("#password").val();
         var rePassword = $("#rePassword").val();
         var userName = $("#userName").val();
-
+        var emailId = $("#email-id").val();
+        var emailAddr = $("#email-addr").val(); //이건 selectbox값인까 다르게 받아야함
+        var gender = $("#gender").val();
+        var userAddr = $("#userAddr").val(); // 상세주소는 따로 받는다
         // 빈칸 체크
-        if (password == "" || rePassword == "" || userName == "") {
+
+        if (password == "" || rePassword == "" || userId == "") {
           alert("양식을 모두 작성 해 주세요");
           return false;
         }
@@ -89,7 +102,6 @@
           $("#rePassword").focus();
           return false;
         }
-        // 정말 중요한 정보일 경우 백엔드에서 한 번더 체크
 
         // API서버에 전송할 json생성
         var jsonData = {
