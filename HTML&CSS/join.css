@@ -1,25 +1,67 @@
+:root {
+  --button-shadow: 1px 1px 3px 1px #dadce0;
+  --box-inset: 1px 1px 3px 1px #dadce0 inset;
+  --main-blue: #0b1b2f;
+  --light-grey: #f6f6f6;
+  --middel-grey: #6f6669;
+  --dark-grey: #5a5256;
+}
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
+input:focus{
+  outline: none;
+}
+select:focus {
+  outline: none;
+}
+select option {
+  background: var(--main-blue);
+  color: var(--light-grey);
+  border: none;
+}
+input::placeholder {
+  color: #dadce0ad;
+}
 body {
-  background: rgba(232, 232, 232, 0.5);
+  position: relative;
+  z-index: 0;
+  background-image: url(img/header_earth.jpg);
+  background-position: center;
+  background-size: cover;
+  color: white;
+}
+body::before{
+  background-color: black;
+  background: linear-gradient(rgba(255, 255, 255, 0), var(--main-blue), black);
+  top: 0px;
+  left: 0px;
+  right: 0px;
+  bottom: 0px;
+  z-index: -1;
+  content: "";
+  opacity: 0.9;
+  position: absolute;
+  height: 140vh;
 }
 .container {
   width: 90%;
   height: auto;
+  margin: 0 auto;
 }
 .join-section {
   display: flex;
+  border: 2px solid var(--light-grey);
+  background-color: rgba(255, 255, 255, 0.1);
   flex-direction: column;
   justify-content: space-around;
   margin: 10% auto;
   width: 80%;
   height: auto;
   padding: 3% 10%;
-  box-shadow: 1px 1px 3px 1px #dadce0;
-  border-radius: 3px;
+  border-radius: 1px;
   text-align: center;
   align-items: center;
 }
@@ -27,16 +69,18 @@ body {
   margin-bottom: 50px;
 }
 .join-section label {
-  color: #848484;
+  color: var(--light-grey);
   font-size: 18px;
   margin-bottom: 15px;
 }
 .join-section input {
-  box-shadow: 1px 1px 3px 1px #dadce0 inset;
-  border: none;
+  background-color: transparent;
+  border: 1px solid var(--light-grey);
   height: 40px;
   width: 35%;
   margin-bottom: 20px;
+  color: white;
+  padding-left: 5px;
 }
 .user-id-section {
   width: 68%;
@@ -45,7 +89,9 @@ body {
   width: 35%;
   height: 30px;
   margin-bottom: 20px;
-  border: none;
+  border: 1px solid white;
+  background-color: transparent;
+  color: var(--light-grey);
 }
 .detail-addr {
   width: 67%;
@@ -55,10 +101,9 @@ body {
   width: 30%;
 }
 button {
-  color: #848484;
+  color: var(--main-blue);
   border: solid 1px rgba(0, 0, 0, 0.08);
-  box-shadow: 1px 1px 3px 1px #dadce0;
-  border-radius: 5px;
+  border-radius: 3px;
   padding: 10px 0;
   margin-top: 10px;
   font-size: 15px;
@@ -70,8 +115,9 @@ button {
   margin-right: 15px;
 }
 button:hover {
+  transition: 0.1s;
   color: white;
-  background-color: rgb(205, 205, 205);
+  background-color: var(--main-blue);
 }
 .join-button {
   margin-top: 50px;

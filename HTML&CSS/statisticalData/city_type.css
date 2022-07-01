@@ -9,9 +9,9 @@
 .statistical-page-city {
   position: absolute;
   top: -50%;
-  width: 95%;
+  width: 90%;
   height: 1000px;
-  margin: 0 2.5%;
+  margin: 0 5%;
   border-radius: 1px;
   box-shadow: var(--button-shadow);
   background-color: white;
