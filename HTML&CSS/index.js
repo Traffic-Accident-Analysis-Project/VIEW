@@ -14,22 +14,6 @@ $(".popup-close").on("click", function () {
   $(".main-pw-confirm-popup").css("display", "none");
 });
 
-// 회원가입 버튼 > 회원가입 페이지
-$(".join-button").on("click", function () {
-  var result = confirm("회원가입 하시겠습니까?");
-  if (result) {
-    location.href = "join.html";
-  }
-});
-
-// 회원가입 취소 > 로그인페이지
-$(".cancel-button").on("click", function () {
-  var result = confirm("회원가입을 취소하시겠습니까?");
-  if (result) {
-    location.href = "login.html";
-  }
-});
-
 $(".service-write-cencel").on("click", function () {
   var result = confirm("글쓰기를 종료하시겠습니까?");
   if (result) {
