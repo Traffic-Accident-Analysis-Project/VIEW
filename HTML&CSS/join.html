@@ -12,7 +12,12 @@
       <div class="join-section">
         <h1>회원가입</h1>
         <label for="autority">권한</label>
-        <select name="" id="autority">
+        <input type="hidden" id="autorityHidden" />
+        <select
+          name="autority"
+          id="autority"
+          onchange="autorityVal(this.value)"
+        >
           <option value="">회원가입 유형을 선택해주세요</option>
           <option value="user">일반 회원</option>
           <option value="admin">관리자</option>
@@ -32,7 +37,12 @@
         <div class="email-wrap">
           <input id="email-id" type="text" placeholder="  e-mail" />
           <p>@</p>
-          <select name="" id="email-addr">
+          <input type="hidden" id="emailAddrHidden" />
+          <select
+            name="email-addr"
+            id="email-addr"
+            onchange="emailAddrVal(this.value)"
+          >
             <option value="">이메일주소</option>
             <option value="email-user-write">직접입력</option>
             <option value="google">google.com</option>
@@ -45,7 +55,8 @@
           </select>
         </div>
         <label for="gender">성별</label>
-        <select name="" id="gender">
+        <input type="hidden" id="genderHidden" />
+        <select name="gender" id="gender" onchange="genderVal(this.value)">
           <option value="">성별을 선택해주세요</option>
           <option value="w">여성</option>
           <option value="m">남성</option>
@@ -69,10 +80,27 @@
       integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
       crossorigin="anonymous"
     ></script>
-    <script src="index.js"></script>
     <script>
+      // 권한 select값 hidden
+      var autorityVal = function (value) {
+        $("#autorityHidden").val(value);
+      };
+      var emailAddrVal = function (value) {
+        $("#emailAddrHidden").val(value);
+      };
+      var genderVal = function (value) {
+        $("#genderHidden").val(value);
+      };
+      // 회원가입 취소 > 로그인페이지
+      $(".cancel-button").on("click", function () {
+        var result = confirm("회원가입을 취소하시겠습니까?");
+        if (result) {
+          location.href = "login.html";
+        }
+      });
       // 비밀번호 비밀번호재확인이 맞는지 확인
       function idCheck() {
+        // ajax get으로 정보를 먼저 조회??? 약간 검색이랑 비슷한 느낌일듯?? userid는 uniquekey니까
         var userId = $("#userId").val();
         if (uwerId == "기존가입된 id") {
           alert("이미 가입된 아이디입니다.");
@@ -80,14 +108,14 @@
       }
 
       function join() {
-        var autority = $('#autority').val(); //권한
+        var autority = autorityVal; //권한
         var userId = $("#userId").val();
         var password = $("#password").val();
         var rePassword = $("#rePassword").val();
         var userName = $("#userName").val();
         var emailId = $("#email-id").val();
-        var emailAddr = $("#email-addr").val(); //이건 selectbox값인까 다르게 받아야함
-        var gender = $("#gender").val();
+        var emailAddr = emailAddrVal;
+        var gender = genderVal;
         var userAddr = $("#userAddr").val(); // 상세주소는 따로 받는다
         // 빈칸 체크
 
@@ -102,12 +130,12 @@
           $("#rePassword").focus();
           return false;
         }
+        if (autority == "admin") {
+          alert("관리자번호를 입력하세요");
+        }
 
         // API서버에 전송할 json생성
-        var jsonData = {
-          studentsName: userName,
-          studentsPassword: rePassword,
-        };
+        var jsonData = {};
 
         $.ajax({
           url: "http://localhost:8080",
@@ -117,7 +145,7 @@
           dataType: "json", // 서버에 결과를 json으로 응답 받겠다
           data: JSON.stringify(jsonData), // 이걸 안쓰면 jsonType이 아닌 문자로 인식
           success: function (response) {
-            console.log(response);
+            // console.log(response);
             if (response > 0) {
               alert("회원가입이 완료 되었습니다.");
             }
