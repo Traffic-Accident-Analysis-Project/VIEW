@@ -334,22 +334,21 @@
       </div>
 
       <!-- 메인 서비스화면 end -->
-      <div class="row main-section">
+      <div class="main-section">
         <div class="main-graph-section">
           <!-- <img src="img/임시이미지.png" alt="" /> -->
-          <!-- <div class="canvas-wrapper">
-            <div class="canvas-wrapper1">
-              <div class="canvas-wrapper1-1">
-                <canvas id="histogram" width="500" height="500"></canvas>
-              </div>
-              <div class="canvas-wrapper1-2">
-                <canvas id="lineChart" width="500" height="500"></canvas>
-              </div>
+          <h1>교통사고 통계자료 그래프</h1>
+          <div class="canvas-wrapper">
+            <div class="canvas-item no1">
+              <canvas id="histogram" width="500" height="500"></canvas>
             </div>
-            <div class="canvas-wrapper2"></div>
-              <canvas id="pieChart" width="500" height="500"></canvas>
+            <div class="canvas-item no1">
+              <canvas id="lineChart" width="500" height="500"></canvas>
             </div>
-          </div>   -->
+            <div class="canvas-item no1">
+              <canvas id="pieChart" width="200" height="200"></canvas>
+            </div>
+          </div>
         </div>
         <div class="main-user-board-list-section">
           <div class="main-user-board-header">
@@ -908,7 +907,7 @@
                 ],
                 borderRadius: 10,
                 borderColor: "white",
-                borderWidth: 3, //경계선 굵기
+                borderWidth: 2, //경계선 굵기
               },
             ],
           },

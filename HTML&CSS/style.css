@@ -187,7 +187,7 @@ header::before {
   height: auto;
   background-color: #01070f;
   color: white;
-  padding: 15% 0;
+  padding: 5% 0 9%;
   text-align: center;
 }
 .main-service-intro-wrap h1 {
@@ -294,53 +294,44 @@ header::before {
 
 .main-section {
   background: linear-gradient(#01070f, var(--main-blue));
-  padding: 10% 2%;
   width: 100%;
   height: auto;
 }
 .main-graph-section {
   width: 100%;
-  margin-right: 1%;
 }
-.main-graph-section img {
+.main-graph-section h1 {
+  text-align: center;
+  color: white;
+  padding-bottom: 2.3%;
+  font-size: 40px;
+}
+/* .main-graph-section img {
   width: 100%;
   height: auto;
-}
-/* js - canvas setting */
-/* .canvas-wrapper{
-  width: 50%;
-  display: flex;
-  flex-direction: column;
-}
-.canvas-wrapper1{
-  display: flex;
-  flex-direction: row;
-}
-.canvas-wrapper1-1{
-  width: 50%;
-  position: relative;
-}
-.canvas-wrapper1-1 canvas{
-  position: absolute;
-  width: 100%;
-  height: 100%;
-}
-.canvas-wrapper1-2{
-  width: 50%;
-  position: relative;
-}
-.canvas-wrapper1-2 canvas{
-  position: absolute;
-  width: 100%;
-  height: 100%;
 } */
+/* js - canvas setting */
+.canvas-wrapper{
+  display: flex;
+  justify-content: space-around;
+  border: 1px solid #eaeaea8d;
+  border-radius: 3px;
+  width: 95%;
+  height: auto;
+  margin: 0 auto;
+  padding: 5% 0;
+}
+.canvas-item {
+  width: 400px;
+}
 
 .main-user-board-list-section {
   padding: 8px;
   color: white;
-  border: 1px solid var(--light-grey);
-  border-radius: 1px;
-  width: 100%;
+  border: 1px solid #eaeaea8d;
+  border-radius: 3px;
+  width: 95%;
+  margin: 5% auto 0;
   height: 600px;
 }
 .main-user-board-header {
@@ -377,7 +368,6 @@ header::before {
   text-align: center;
 }
 .pagination a {
-  /* box-shadow: var(--button-shadow); */
   width: 10px;
   text-decoration: none;
   margin-left: 10px;
@@ -390,9 +380,9 @@ footer {
   justify-content: space-around;
   background-color: var(--main-blue);
   border: none;
-  height: 150px;
+  height: 250px;
   color: var(--light-grey);
-  padding: 2% 30% 0 30%;
+  padding: 7% 30% 0 30%;
 }
 footer img {
   width: auto;
