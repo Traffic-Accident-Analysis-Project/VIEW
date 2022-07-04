@@ -93,9 +93,9 @@ body::before{
   background-color: transparent;
   color: var(--light-grey);
 }
-.detail-addr {
-  width: 67%;
-  margin-left: 2%;
+.user-addr {
+  width: 70%;
+  margin-left: 1%;
 }
 .user-detailAddr {
   width: 30%;
