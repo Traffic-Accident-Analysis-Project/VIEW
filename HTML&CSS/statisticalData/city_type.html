@@ -186,7 +186,11 @@
                   </div>
                 </div>
                 <div class="circle-graph">
-                  <img src="../img/임시이미지원그래프.png" alt="" />
+                  <!-- <img src="../img/임시이미지원그래프.png" alt="" /> -->
+                  <div class="pieChart-wrapper">
+                    <canvas id="pieChart"></canvas>
+                    <canvas id="new-pieChart" style="display: none"></canvas>
+                  </div>
                   <button type="button">Excel Downlod</button>
                 </div>
               </div>
@@ -219,11 +223,15 @@
     nomodule
     src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"
   ></script>
+  <!-- JQuery -->
   <script
     src="https://code.jquery.com/jquery-3.6.0.min.js"
     integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
     crossorigin="anonymous"
   ></script>
+  <!-- Chart.js -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <!-- Kakao Map -->
   <script
     type="text/javascript"
     src="//dapi.kakao.com/v2/maps/sdk.js?appkey=1404a388d08e4a1a512e05afcef16217"
@@ -267,6 +275,13 @@
 
     // 조회하기 버튼 눌렀을 때 함수
     $("#lookUpByLaw").on("click", function () {
+      // 조회하기 버튼 초기화로 바꾸기
+      if ($("#lookUpByLaw").text() == "초기화") {
+        location.reload();
+        return false;
+      }
+      $("#lookUpByLaw").text("초기화");
+
       var yearHidden = $("#cityYearHidden").val();
       var monthHidden = $("#cityMonthHidden").val();
       var cityTypeHidden = $("#cityTypeHidden").val();
@@ -275,6 +290,157 @@
         alert("선택박스를 확인 해 주세요");
         return false;
       }
+
+      // Chart.js
+      $("#pieChart").css("display", "none");
+      $("#new-pieChart").css("display", "block");
+      $.ajax({
+        url:
+          "http://localhost:8080/api/v1/city/year/" +
+          yearHidden +
+          "/month/" +
+          monthHidden,
+        type: "GET",
+        dataType: "json",
+        success: function (response) {
+          var seoul = 0;
+          var busan = 0;
+          var daegu = 0;
+          var incheon = 0;
+          var gwangju = 0;
+          var daejeon = 0;
+          var ulsan = 0;
+          var kyeongki = 0;
+          var kangwon = 0;
+          var chungbuk = 0;
+          var chungnam = 0;
+          var jeonbuk = 0;
+          var jeonnam = 0;
+          var kyeongbuk = 0;
+          var kyeongnam = 0;
+          var jeju = 0;
+          var sejong = 0;
+          for (var i = 0; i < response.length; i++) {
+            if (response[i].region == "Seoul") seoul += response[i].사고건수;
+            if (response[i].region == "Busan") busan += response[i].사고건수;
+            if (response[i].region == "Daegu") daegu += response[i].사고건수;
+            if (response[i].region == "Incheon")
+              incheon += response[i].사고건수;
+            if (response[i].region == "Gwangju")
+              gwangju += response[i].사고건수;
+            if (response[i].region == "Daejeon")
+              daejeon += response[i].사고건수;
+            if (response[i].region == "Ulsan") ulsan += response[i].사고건수;
+            if (response[i].region == "Kyeongki")
+              kyeongki += response[i].사고건수;
+            if (response[i].region == "Kangwon")
+              kangwon += response[i].사고건수;
+            if (response[i].region == "Chungbuk")
+              chungbuk += response[i].사고건수;
+            if (response[i].region == "Chungnam")
+              chungnam += response[i].사고건수;
+            if (response[i].region == "Jeonbuk")
+              jeonbuk += response[i].사고건수;
+            if (response[i].region == "Jeonnam")
+              jeonnam += response[i].사고건수;
+            if (response[i].region == "Kyeongbuk")
+              kyeongbuk += response[i].사고건수;
+            if (response[i].region == "Kyeongnam")
+              kyeongnam += response[i].사고건수;
+            if (response[i].region == "Jeju") jeju += response[i].사고건수;
+            if (response[i].region == "Sejong") sejong += response[i].사고건수;
+          }
+          var data = [
+            seoul,
+            busan,
+            daegu,
+            incheon,
+            gwangju,
+            daejeon,
+            ulsan,
+            kyeongki,
+            kangwon,
+            chungbuk,
+            chungnam,
+            jeonbuk,
+            jeonnam,
+            kyeongbuk,
+            kyeongnam,
+            jeju,
+            sejong,
+          ];
+          // 여기까지 그래프에 넣을 데이터 배열 생성
+          // 그래프(도넛차트)
+
+          var myChart = new Chart(contextNewPieChart, {
+            type: "doughnut", // 차트의 형태
+            data: {
+              // 차트에 들어갈 데이터
+              labels: [
+                "서울",
+                "부산",
+                "대구",
+                "인천",
+                "광주",
+                "대전",
+                "울산",
+                "경기",
+                "강원",
+                "충북",
+                "충남",
+                "전북",
+                "전남",
+                "경북",
+                "경남",
+                "제주",
+                "세종",
+              ],
+              datasets: [
+                {
+                  //데이터
+                  label: "사고 건수", //차트 제목
+                  data: data,
+                  backgroundColor: [
+                    "rgb(0,0,0)",
+                    "rgb(15,15,15)",
+                    "rgb(30,30,30)",
+                    "rgb(45,45,45)",
+                    "rgb(60,60,60)",
+                    "rgb(75,75,75)",
+                    "rgb(90,90,90)",
+                    "rgb(105,105,105)",
+                    "rgb(120,120,120)",
+                    "rgb(135,135,135)",
+                    "rgb(150,150,150)",
+                    "rgb(165,165,165)",
+                    "rgb(180,180,180)",
+                    "rgb(195,195,195)",
+                    "rgb(210,210,210)",
+                    "rgb(225,225,225)",
+                    "rgb(240,240,240)",
+                  ],
+                  borderRadius: 10,
+                  borderColor: "white",
+                  borderWidth: 3, //경계선 굵기
+                },
+              ],
+            },
+            options: {
+              plugins: {
+                title: {
+                  display: true,
+                  text: "Pie Chart",
+                },
+                subtitle: {
+                  display: true,
+                  text: "시도별 그래프",
+                  color: "skyblue",
+                },
+              },
+            },
+          });
+        },
+      });
 
       // option으로 선택한 값에대한 data받아오는 ajax
       $.ajax({
@@ -475,6 +641,167 @@
           });
         },
       });
+    });
+  </script>
+  <!-- script for first Pie Chart -->
+  <script>
+    var contextPieChart = document.getElementById("pieChart").getContext("2d");
+    var contextNewPieChart = document
+      .getElementById("new-pieChart")
+      .getContext("2d");
+    $.ajax({
+      url: "http://localhost:8080/api/v1/city",
+      type: "GET",
+      dataType: "json",
+      success: function (response) {
+        var seoul = 0;
+        var busan = 0;
+        var daegu = 0;
+        var incheon = 0;
+        var gwangju = 0;
+        var daejeon = 0;
+        var ulsan = 0;
+        var kyeongki = 0;
+        var kangwon = 0;
+        var chungbuk = 0;
+        var chungnam = 0;
+        var jeonbuk = 0;
+        var jeonnam = 0;
+        var kyeongbuk = 0;
+        var kyeongnam = 0;
+        var jeju = 0;
+        var sejong = 0;
+        for (var i = 0; i < response.length; i++) {
+          if (response[i].region == "Seoul") seoul += response[i].사고건수;
+          if (response[i].region == "Busan") busan += response[i].사고건수;
+          if (response[i].region == "Daegu") daegu += response[i].사고건수;
+          if (response[i].region == "Incheon") incheon += response[i].사고건수;
+          if (response[i].region == "Gwangju") gwangju += response[i].사고건수;
+          if (response[i].region == "Daejeon") daejeon += response[i].사고건수;
+          if (response[i].region == "Ulsan") ulsan += response[i].사고건수;
+          if (response[i].region == "Kyeongki")
+            kyeongki += response[i].사고건수;
+          if (response[i].region == "Kangwon") kangwon += response[i].사고건수;
+          if (response[i].region == "Chungbuk")
+            chungbuk += response[i].사고건수;
+          if (response[i].region == "Chungnam")
+            chungnam += response[i].사고건수;
+          if (response[i].region == "Jeonbuk") jeonbuk += response[i].사고건수;
+          if (response[i].region == "Jeonnam") jeonnam += response[i].사고건수;
+          if (response[i].region == "Kyeongbuk")
+            kyeongbuk += response[i].사고건수;
+          if (response[i].region == "Kyeongnam")
+            kyeongnam += response[i].사고건수;
+          if (response[i].region == "Jeju") jeju += response[i].사고건수;
+          if (response[i].region == "Sejong") sejong += response[i].사고건수;
+        }
+        var data = [
+          seoul,
+          busan,
+          daegu,
+          incheon,
+          gwangju,
+          daejeon,
+          ulsan,
+          kyeongki,
+          kangwon,
+          chungbuk,
+          chungnam,
+          jeonbuk,
+          jeonnam,
+          kyeongbuk,
+          kyeongnam,
+          jeju,
+          sejong,
+        ];
+        // 여기까지 그래프에 넣을 데이터 배열 생성
+        // 그래프(도넛차트)
+
+        var myChart = new Chart(contextPieChart, {
+          type: "doughnut", // 차트의 형태
+          data: {
+            // 차트에 들어갈 데이터
+            labels: [
+              "서울",
+              "부산",
+              "대구",
+              "인천",
+              "광주",
+              "대전",
+              "울산",
+              "경기",
+              "강원",
+              "충북",
+              "충남",
+              "전북",
+              "전남",
+              "경북",
+              "경남",
+              "제주",
+              "세종",
+            ],
+            datasets: [
+              {
+                //데이터
+                label: "사고 건수", //차트 제목
+                data: data,
+                backgroundColor: [
+                  // "rgb(255,0,0)",
+                  // "rgb(255,100,0)",
+                  // "rgb(255,200,0)",
+                  // "rgb(255,255,0)",
+                  // "rgb(200,255,0)",
+                  // "rgb(100,255,0)",
+                  // "rgb(0,255,0)",
+                  // "rgb(0,255,100)",
+                  // "rgb(0,255,200)",
+                  // "rgb(0,255,255)",
+                  // "rgb(0,200,255)",
+                  // "rgb(0,100,255)",
+                  // "rgb(0,0,255)",
+                  // "rgb(0,0,200)",
+                  // "rgb(0,0,100)",
+                  // "rgb(0,0,0)",
+                  // "gray",
+                  "rgb(0,0,0)",
+                  "rgb(15,15,15)",
+                  "rgb(30,30,30)",
+                  "rgb(45,45,45)",
+                  "rgb(60,60,60)",
+                  "rgb(75,75,75)",
+                  "rgb(90,90,90)",
+                  "rgb(105,105,105)",
+                  "rgb(120,120,120)",
+                  "rgb(135,135,135)",
+                  "rgb(150,150,150)",
+                  "rgb(165,165,165)",
+                  "rgb(180,180,180)",
+                  "rgb(195,195,195)",
+                  "rgb(210,210,210)",
+                  "rgb(225,225,225)",
+                  "rgb(240,240,240)",
+                ],
+                borderRadius: 10,
+                borderColor: "white",
+                borderWidth: 3, //경계선 굵기
+              },
+            ],
+          },
+          options: {
+            plugins: {
+              title: {
+                display: true,
+                text: "Pie Chart",
+              },
+              subtitle: {
+                display: true,
+                text: "시도별 그래프",
+                color: "skyblue",
+              },
+            },
+          },
+        });
+      },
     });
   </script>
 </html>
