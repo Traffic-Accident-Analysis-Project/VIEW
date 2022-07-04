@@ -73,8 +73,8 @@
               <p>PW</p>
             </div>
             <div class="row-column id-pw-input-wrap">
-              <input type="text" />
-              <input type="password" />
+              <input id="userId" type="text" />
+              <input id="userPassword" type="password" />
             </div>
           </div>
           <div class="row login-btn-wrap">
@@ -113,4 +113,45 @@
     crossorigin="anonymous"
   ></script>
   <script src="index.js"></script>
+  <script>
+    // login - > join
+    $(".join-button").on("click", function () {
+      var result = confirm("회원가입하시겠습니까?");
+      if (result) {
+        location.href = "check-admin-user.html";
+      }
+    });
+
+    // 로그인
+    $(".login-button").on("click", function () {
+      var userIdVal = $("#userId").val();
+      var userPasswordVal = $("#userPassword").val();
+
+      if (userIdVal == "" || userPasswordVal == "") {
+        alert("빈칸을 입력 해 주세요");
+        $("#userId").focus();
+        return false;
+      }
+      var jsonData = {
+        userId: userIdVal,
+        userPassword: userPasswordVal,
+      };
+
+      $.ajax({
+        url: "http://localhost:8080/api/v1/login",
+        type: "POST",
+        contentType: "application/json", // 서버에 json타입으로 보낼 예정(요청)
+        dataType: "json", // 서버에 결과를 json으로 응답 받겠다
+        data: JSON.stringify(jsonData), // 이걸 안쓰면 jsonType이 아닌 문자로 인식
+        success: function (response) {
+          if (response) {
+            location.href = "main.html"; //페이지 이동
+          } else {
+            alert("회원정보를 확인 해 주세요");
+            return false;
+          }
+        },
+      });
+    });
+  </script>
 </html>

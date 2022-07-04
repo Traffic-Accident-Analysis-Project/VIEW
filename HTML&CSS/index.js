@@ -14,14 +14,6 @@ $(".popup-close").on("click", function () {
   $(".main-pw-confirm-popup").css("display", "none");
 });
 
-// login - > join
-$(".join-button").on('click',function(){
-  var result = confirm("회원가입하시겠습니까?");
-  if (result) {
-    location.href = "check-admin-user.html";
-  }
-})
-
 $(".service-write-cencel").on("click", function () {
   var result = confirm("글쓰기를 종료하시겠습니까?");
   if (result) {
@@ -192,15 +184,6 @@ function getBoardList(pageNum, pageSize) {
   });
 }
 getBoardList(1, 10);
-
-// 로그인
-$(".login-button").on("click", function () {
-  // 로그인 ajax넣기
-  // 로그인 성공일 경우
-  // location.replace('manager/manager-main.html');
-  // 비밀번호가 달라서 실패일경우
-  // alert('비밀번호를 확인해주세요');
-});
 
 // ********** CRUD 작업 **************
 
