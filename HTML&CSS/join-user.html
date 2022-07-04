@@ -21,13 +21,16 @@
         <label for="userName">이름</label>
         <input id="userName" type="text" />
         <label for="password">비밀번호</label>
-        <input id="password" type="password" />
+        <input
+          id="password"
+          type="password"
+          placeholder="8 ~ 16자 영문, 숫자 조합"
+        />
         <label for="rePassword">비밀번호 재확인</label>
         <input id="rePassword" type="password" />
         <label for="email-wrap">e-mail주소</label>
         <div class="email-wrap">
           <input id="email-id" type="text" placeholder="  e-mail" />
-          <p>@</p>
           <input type="hidden" id="emailAddrHidden" />
           <select
             name="email-addr"
@@ -36,15 +39,20 @@
           >
             <option value="">이메일주소</option>
             <option value="email-user-write">직접입력</option>
-            <option value="google">google.com</option>
-            <option value="gmail">gmail.com</option>
-            <option value="naver">naver.com</option>
-            <option value="hanmail">hanmail.net</option>
-            <option value="daum">daum.net</option>
-            <option value="nate">hanmail.com</option>
-            <option value="hotmail">hotmail.com</option>
+            <option value="@gmail">@gmail.com</option>
+            <option value="@google">@google.com</option>
+            <option value="@naver">@naver.com</option>
+            <option value="@hanmail">@hanmail.net</option>
+            <option value="@daum">@daum.net</option>
+            <option value="@hotmail">@hotmail.com</option>
           </select>
         </div>
+        <input
+          id="email-user-write-box"
+          type="text"
+          style="display: none"
+          placeholder="ex) @email.com"
+        />
         <label for="gender">성별</label>
         <input type="hidden" id="genderHidden" />
         <select name="gender" id="gender" onchange="genderVal(this.value)">
@@ -76,6 +84,12 @@
     <script>
       var emailAddrVal = function (value) {
         $("#emailAddrHidden").val(value);
+        if ($("#emailAddrHidden").val() == "email-user-write") {
+          $("#email-user-write-box").css("display", "block");
+        }
+        if ($("#emailAddrHidden").val() != "email-user-write") {
+          $("#email-user-write-box").css("display", "none");
+        }
       };
       var genderVal = function (value) {
         $("#genderHidden").val(value);
@@ -93,6 +107,18 @@
       // id중복체크
       function idCheck() {
         var id = $("#userId").val();
+
+        if (id == "") {
+          alert("id를 입력해주세요");
+          return false;
+        }
+
+        var regExp = /^(?=.*[a-zA-Z])[-a-zA-Z0-9_.]{6,20}$/;
+        if (!regExp.test(id)) {
+          alert("영문, 숫자, 특수문자의 조합으로 6~20자리입니다");
+          return false;
+        }
+
         $.ajax({
           url: "http://localhost:8080/api/v1/check/id/" + id,
           type: "GET",
@@ -159,6 +185,8 @@
         var emailAddr = $("#emailAddrHidden").val();
         var detailAddr = $("#user-detailAddr").val();
         var gender = $("#genderHidden").val();
+        // 사용자가 직접메일주소를 입력했을 경우
+        var directlyEmailAddr = $("#email-user-write-box").val();
 
         // 빈칸 체크
         if (
@@ -182,42 +210,113 @@
           return false;
         }
 
-        // API서버에 전송할 json생성
-        var jsonData = {
-          userId: id,
-          userName: name,
-          userPassword: password,
-          userGender: gender,
-          userEmailId: emailId,
-          userEmailAddr: emailAddr,
-          userAddr: addr,
-          userDetailAddr: detailAddr,
-          autority: "user",
-        };
+        // API서버에 전송할 json생성 (email 선택시)
+        if (emailAddr != "" && directlyEmailAddr == "") {
+          var jsonData = {
+            userId: id,
+            userName: name,
+            userPassword: password,
+            userGender: gender,
+            userEmailId: emailId,
+            userEmailAddr: emailAddr,
+            userAddr: addr,
+            userDetailAddr: detailAddr,
+            autority: "user",
+          };
+          var regExpName = /^[가-힣]{2,4}$/;
+          if (!regExpName.test(name)) {
+            alert("이름은 한글로 2~4글자 이내입니다");
+            return false;
+          }
 
-        var result = confirm("회원가입 하시겠습니까?");
-        if (result && checkOrNot) {
-          $.ajax({
-            url: "http://localhost:8080/api/v1/user",
-            type: "POST",
-            contentType: "application/json", // 서버에 json타입으로 보낼 예정(요청)
-            dataType: "json", // 서버에 결과를 json으로 응답 받겠다
-            data: JSON.stringify(jsonData), // 이걸 안쓰면 jsonType이 아닌 문자로 인식
-            success: function (response) {
-              if (response > 0) {
-                alert("회원가입이 완료 되었습니다.");
-                location.replace("login.html");
-              }
-            },
-          });
+          var regExpPw = /^(?=.*\d)(?=.*[a-zA-Z])[0-9a-zA-Z]{8,16}$/;
+          if (!regExpPw.test(password)) {
+            alert("비밀번호는 8 ~ 16자 영문, 숫자 조합입니다");
+            return false;
+          }
+          var result = confirm("회원가입 하시겠습니까?");
+          if (result && checkOrNot) {
+            $.ajax({
+              url: "http://localhost:8080/api/v1/user",
+              type: "POST",
+              contentType: "application/json", // 서버에 json타입으로 보낼 예정(요청)
+              dataType: "json", // 서버에 결과를 json으로 응답 받겠다
+              data: JSON.stringify(jsonData), // 이걸 안쓰면 jsonType이 아닌 문자로 인식
+              success: function (response) {
+                if (response > 0) {
+                  alert("회원가입이 완료 되었습니다.");
+                  location.replace("login.html");
+                }
+              },
+            });
+          }
+          if (!result) {
+            alert("회원가입이 취소 되었습니다");
+            emailAddr = "";
+            return false;
+          }
+          if (!checkOrNot) {
+            alert("ID중복확인을 해주세요");
+            return false;
+          }
         }
-        if (!result) {
-          alert("회원가입이 취소 되었습니다");
-          return false;
-        }
-        if (!checkOrNot) {
-          alert("ID중복확인을 해주세요");
-          return false;
+        // API서버에 전송할 json생성 (email직접입력시)
+        if (emailAddr == "email-user-write" && directlyEmailAddr != "") {
+          var jsonData = {
+            userId: id,
+            userName: name,
+            userPassword: password,
+            userGender: gender,
+            userEmailId: emailId,
+            userEmailAddr: directlyEmailAddr,
+            userAddr: addr,
+            userDetailAddr: detailAddr,
+            autority: "user",
+          };
+
+          var regExpName = /^[가-힣]{2,4}$/;
+          if (!regExpName.test(name)) {
+            alert("이름은 한글로 2~4글자 이내입니다");
+            return false;
+          }
+
+          var regExpPw = /^(?=.*\d)(?=.*[a-zA-Z])[0-9a-zA-Z]{8,16}$/;
+          if (!regExpPw.test(password)) {
+            alert("비밀번호는 8 ~ 16자 영문, 숫자 조합입니다");
+            return false;
+          }
+
+          var regExp = /^@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/;
+          if (!regExp.test(directlyEmailAddr)) {
+            alert("이메일주소는 @emailaddr.net 의 형식입니다");
+            return false;
+          }
+
+          var result = confirm("회원가입 하시겠습니까?");
+          if (result && checkOrNot) {
+            $.ajax({
+              url: "http://localhost:8080/api/v1/user",
+              type: "POST",
+              contentType: "application/json", // 서버에 json타입으로 보낼 예정(요청)
+              dataType: "json", // 서버에 결과를 json으로 응답 받겠다
+              data: JSON.stringify(jsonData), // 이걸 안쓰면 jsonType이 아닌 문자로 인식
+              success: function (response) {
+                if (response > 0) {
+                  alert("회원가입이 완료 되었습니다.");
+                  location.replace("login.html");
+                }
+              },
+            });
+          }
+          if (!result) {
+            alert("회원가입이 취소 되었습니다");
+            directlyEmailAddr = "";
+            return false;
+          }
+          if (!checkOrNot) {
+            alert("ID중복확인을 해주세요");
+            return false;
+          }
         }
       }
     </script>
