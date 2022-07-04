@@ -1,0 +1,233 @@
+:root {
+  --button-shadow: 1px 1px 3px 1px #dadce0;
+  --box-inset: 1px 1px 3px 1px #dadce0 inset;
+  --main-blue: #0b1b2f;
+  --light-grey: #f6f6f6;
+  --middel-grey: #6f6669;
+  --dark-grey: #5a5256;
+}
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+.row {
+  display: flex;
+}
+.circle-01 {
+  z-index: 0;
+  position: absolute;
+  top: -40%;
+  left: 8%;
+  border: 5px solid #5ea5e8;
+  border-radius: 50%;
+  width: 450px;
+  height: 450px;
+}
+.circle-02 {
+  z-index: 0;
+  position: absolute;
+  top: -40%;
+  left: 1%;
+  border: 5px solid #24415c;
+  border-radius: 50%;
+  width: 450px;
+  height: 450px;
+}
+.circle-03 {
+  z-index: 0;
+  position: absolute;
+  top: -40%;
+  left: 3%;
+  border: 4px solid #cae5ff;
+  border-radius: 50%;
+  width: 450px;
+  height: 450px;
+}
+.top-background-color {
+  position: relative;
+  z-index: 0;
+  width: 100%;
+  height: 800px;
+  background-image: url(img/header_earth.jpg);
+  background-size: cover;
+}
+.top-background-color::before {
+  z-index: -1;
+  content: "";
+  opacity: 0.8;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  right: 0px;
+  bottom: 0px;
+  background-color: var(--main-blue);
+  background: linear-gradient(rgba(255, 255, 255, 0), var(--main-blue), black);
+}
+.bottom-background-color {
+  position: relative;
+  background: linear-gradient(#01070f, var(--main-blue));
+  z-index: 0;
+  width: 100%;
+  height: 500px;
+}
+header {
+  height: 100px;
+}
+.top {
+  padding: 30px 30px 0;
+  justify-content: right;
+  width: 100%;
+  height: 50px;
+}
+.top select {
+  width: 60px;
+  height: 22px;
+  color: var(--light-grey);
+  margin: 0 50px 0 1%;
+  border: 1px solid var(--light-grey);
+  border-radius: 5px;
+  background-color: var(--main-blue);
+}
+.top option {
+  background-color: transparent;
+  color: var(--light-grey);
+}
+.top a {
+  color: var(--light-grey);
+  text-decoration: none;
+}
+.header-category {
+  width: 100%;
+  height: 50px;
+}
+.logo img {
+  margin-left: 20%;
+  margin-top: -8px;
+  width: 90px;
+}
+.logo {
+  z-index: 1;
+  width: 100%;
+}
+.category {
+  justify-content: space-between;
+  margin-top: 16.8px;
+  width: 100%;
+  text-align: center;
+  font-weight: 800;
+}
+.category a {
+  color: white;
+  font-size: 14.5px;
+  text-decoration: none;
+}
+.category-link {
+  width: 120px;
+  font-weight: 800;
+}
+.dropdown {
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+}
+.link-button {
+  color: white;
+  font-size: 14.5px;
+  font-weight: 800;
+  border: none;
+  background-color: transparent;
+}
+.dropdown-content {
+  z-index: 1;
+  width: 130px;
+  display: none;
+  position: absolute;
+  background-color: transparent;
+  border-left: 1.2px solid var(--light-grey);
+  margin-top: 10px;
+}
+.dropdown-content a {
+  font-weight: 800;
+  display: block;
+  padding: 12px 18px;
+  text-align: center;
+  color: var(--light-grey);
+}
+.dropdown-content a:hover {
+  font-weight: 800;
+  border-radius: 5px;
+  margin-left: 5px;
+  background-color: var(--light-grey);
+  color: var(--main-blue);
+}
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+.login-link {
+  margin-right: 20%;
+}
+.service-link a:hover {
+  border-bottom: 3px solid var(--light-grey);
+  border-bottom-left-radius: 3px;
+  border-bottom-right-radius: 3px;
+  padding: 8px;
+}
+.client-link a:hover {
+  border-bottom: 3px solid var(--light-grey);
+  border-bottom-left-radius: 3px;
+  border-bottom-right-radius: 3px;
+  padding: 8px;
+}
+.login-link a:hover {
+  border-bottom: 3px solid var(--light-grey);
+  border-bottom-left-radius: 3px;
+  border-bottom-right-radius: 3px;
+  padding: 8px;
+}
+.selected-wrap {
+  position: absolute;
+  top: -85%;
+  width: 100%;
+  height: 500px;
+  margin: 0 auto;
+}
+.selected {
+  width: 100%;
+  height: 200px;
+  margin: 0 12%;
+  text-align: center;
+  font-size: 25px;
+  color: white;
+  padding-top: 1%;
+  border: 1px solid var(--light-grey);
+  border-radius: 5px;
+}
+.selected:hover {
+    transition: 0.2s;
+    background-color: #0b1b2f;
+}
+footer {
+  position: absolute;
+  display: flex;
+  justify-content: space-around;
+  bottom: 0;
+  border: none;
+  width: 100%;
+  height: 150px;
+  color: var(--light-grey);
+}
+footer img {
+  width: auto;
+  height: 100px;
+  opacity: 0.8;
+}
+footer button {
+  font-size: 15px;
+  cursor: pointer;
+  background-color: transparent;
+  border: none;
+  color: var(--light-grey);
+  width: auto;
+  height: 30px;
+}

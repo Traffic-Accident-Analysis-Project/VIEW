@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>T.A.S 회원가입 유형</title>
+    <link rel="stylesheet" href="check-admin-user.css" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="top-background-color">
+        <header>
+          <div class="circle-01"></div>
+          <div class="circle-02"></div>
+          <div class="circle-03"></div>
+          <div class="row top">
+            <a href="main.html">home</a>
+            <i
+              class="fa-solid fa-house-chimney"
+              style="color: #eaeaea; margin-left: 5px; margin-top: 3px"
+            ></i>
+            <select name="lang-selbox" id="">
+              <option value="korea">한글</option>
+              <option value="eng">English</option>
+            </select>
+          </div>
+          <div class="row header-category">
+            <div class="logo">
+              <a href="main.html">
+                <img src="img/T.A.S-logo-black.png" alt="" />
+              </a>
+            </div>
+            <div class="row category">
+              <div class="category-link dropdown">
+                <div class="link-button">통계 자료실</div>
+                <div class="dropdown-content">
+                  <a href="statisticalData/law.html">법규 위반</a>
+                  <a href="statisticalData/alcohol.html">음주 정도</a>
+                  <a href="statisticalData/road_type.html">도로 종류</a>
+                  <a href="statisticalData/accident_type.html">사고 유형</a>
+                  <a href="statisticalData/city_type.html">시도 별</a>
+                </div>
+              </div>
+              <div class="category-link service-link">
+                <a href="intro-service.html">서비스 소개</a>
+              </div>
+              <div class="category-link client-link">
+                <a href="service_center.html">고객 센터</a>
+              </div>
+              <div class="category-link login-link">
+                <a href="login.html">로그인</a>
+              </div>
+            </div>
+          </div>
+        </header>
+      </div>
+      <!-- header end -->
+      <div class="bottom-background-color">
+        <div class="row selected-wrap">
+          <div class="selected admin" id="admin">
+            <h2>관리자 회원가입</h2>
+          </div>
+          <div class="selected user" id="user">
+            <h2>일반 회원가입</h2>
+          </div>
+        </div>
+        <footer>
+          <img src="img/T.A.S-logo.png" alt="" />
+          <div class="footer-info">
+            <p>email : jyg12770@google.com</p>
+            <p>email : jyg12770@google.com</p>
+          </div>
+          <button
+            type="button"
+            style="cursor: pointer"
+            onclick="window.scrollTo({top:0, left:0, behavior:'smooth'});"
+          >
+            top
+          </button>
+        </footer>
+      </div>
+    </div>
+  </body>
+  <script
+    src="https://code.jquery.com/jquery-3.6.0.min.js"
+    integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+    crossorigin="anonymous"
+  ></script>
+  <script>
+    $("#user").on("click", function () {
+      location.href = "join-user.html";
+    });
+    $("#admin").on("click", function () {
+      var popup = window.open(
+        "check-admin-popup.html",
+        "admin-check",
+        "width=550px, height=400px, left=100, top=50"
+      );
+    });
+  </script>
+</html>
