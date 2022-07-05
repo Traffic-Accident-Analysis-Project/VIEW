@@ -126,6 +126,7 @@ header {
   text-decoration: none;
 }
 .category-link {
+  line-height: 27px;
   width: 120px;
   font-weight: 800;
 }
@@ -138,7 +139,7 @@ header {
   color: white;
   font-size: 14.5px;
   font-weight: 800;
-  border: none;
+  height: 50px;
   background-color: transparent;
 }
 .dropdown-content {
@@ -148,13 +149,14 @@ header {
   position: absolute;
   background-color: transparent;
   border-left: 1.2px solid var(--light-grey);
-  margin-top: 10px;
 }
 .dropdown-content a {
   font-weight: 800;
+  width: 200px;
+  font-size: 15px;
   display: block;
-  padding: 12px 18px;
-  text-align: center;
+  padding: 5px 18px;
+  text-align: left;
   color: var(--light-grey);
 }
 .dropdown-content a:hover {
@@ -169,6 +171,10 @@ header {
 }
 .login-link {
   margin-right: 20%;
+}
+.service-link{
+  line-height: 27px;
+  text-align: center;
 }
 .service-link a:hover {
   border-bottom: 3px solid var(--light-grey);

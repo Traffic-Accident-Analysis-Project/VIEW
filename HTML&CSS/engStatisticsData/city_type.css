@@ -1,0 +1,173 @@
+:root {
+  --button-shadow: 1px 1px 3px 1px #dadce0;
+  --box-inset: 1px 1px 3px 1px #dadce0 inset;
+  --main-blue: #0b1b2f;
+  --light-grey: #eaeaea;
+  --middel-grey: #6f6669;
+  --dark-grey: #5a5256;
+}
+.statistical-page-city {
+  position: absolute;
+  top: -50%;
+  width: 90%;
+  height: 1000px;
+  margin: 0 5%;
+  border-radius: 1px;
+  box-shadow: var(--button-shadow);
+  background-color: white;
+}
+.city-by-category-main-section {
+  padding: 3%;
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  flex-basis: 1;
+}
+.city-main-left-section-map {
+  width: 50%;
+  padding-left: 5%;
+}
+.city-main-right-section {
+  padding-left: 2%;
+  width: 50%;
+}
+/* 시도별 select box */
+.city-select-wrap {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  width: 100%;
+  margin: 10% 0 5%;
+}
+.city-select-wrap select {
+  color: black;
+  border: 2px solid var(--light-grey);
+  border-radius: 3px;
+  width: 180px;
+  height: 30px;
+  background-color: transparent;
+  margin-right: 5px;
+}
+.city-accidents-dead-injury-card-wrap {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+.city-accidents-card {
+  background-color: var(--light-grey);
+  color: var(--middel-grey);
+  width: 70%;
+  height: auto;
+  border-radius: 1px;
+  margin: 0 1% 5%;
+  box-shadow: var(--button-shadow);
+  padding: 2.5%;
+}
+.city-accidents-card:hover {
+  transition: 0.1s;
+  color: var(--main-blue);
+}
+.city-accidents-card h2 {
+  width: 100%;
+  font-size: 30px;
+  margin: 5px 0 10px;
+  text-align: center;
+}
+.circle-graph {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+.circle-graph img {
+  width: 100%;
+  margin-top: 2%;
+}
+.city-main-right-section button {
+  border: none;
+  background-color: transparent;
+  color: var(--dark-grey);
+  font-weight: 900;
+  border-radius: 5px;
+  border: 1px solid var(--light-grey);
+  box-shadow: var(--button-shadow);
+  font-size: 13px;
+  padding: 5px;
+  cursor: pointer;
+}
+.circle-graph button {
+  width: 50%;
+  margin-top: 8%;
+  margin-left: 20%;
+}
+.city-main-right-section button:hover {
+  transition: 0.1s;
+  background-color: var(--main-blue);
+  color: var(--light-grey);
+}
+.bottom-background-color {
+  height: 870px;
+}
+footer {
+  top: 700px;
+}
+.label {
+  margin-bottom: 96px;
+}
+.label * {
+  display: inline-block;
+  vertical-align: top;
+}
+.label .left {
+  text-align: center;
+  background-color: #4fcd6a;
+  color: white;
+  font-weight: 800;
+  padding-top: 5%;
+  font-size: 15px;
+  display: inline-block;
+  border-radius: 50%;
+  width: 33px;
+  height: 33px;
+  overflow: hidden;
+  vertical-align: top;
+}
+.label .center {
+  text-align: center;
+  font-weight: 800;
+  background-color: #458acb;
+  color: white;
+  display: inline-block;
+  height: 70px;
+  width: 70px;
+  border-radius: 50%;
+  font-size: 18px;
+  padding-top: 22%;
+  line-height: 24px;
+}
+.map-btn-wrap {
+  display: flex;
+  justify-content: right;
+  flex-wrap: wrap;
+  width: 100%;
+  height: 50px;
+  padding-top: 2%;
+}
+.map-btn {
+  margin-right: 3%;
+  border: none;
+  background-color: transparent;
+  color: var(--dark-grey);
+  font-weight: 900;
+  border-radius: 5px;
+  border: 1px solid var(--light-grey);
+  box-shadow: var(--button-shadow);
+  font-size: 13px;
+  padding: 3px;
+  cursor: pointer;
+  height: 30px;
+}
+.map-btn:hover {
+  transition: 0.1s;
+  background-color: var(--main-blue);
+  color: var(--light-grey);
+}
