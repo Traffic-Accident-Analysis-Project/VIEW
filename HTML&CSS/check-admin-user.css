@@ -66,7 +66,7 @@
 }
 .bottom-background-color {
   position: relative;
-  background: linear-gradient(#01070f, var(--main-blue));
+  background: linear-gradient(#05080d, var(--main-blue));
   z-index: 0;
   width: 100%;
   height: 500px;
@@ -102,9 +102,10 @@ header {
   height: 50px;
 }
 .logo img {
-  margin-left: 20%;
-  margin-top: -8px;
-  width: 90px;
+  margin-left: 28%;
+  margin-top: -20px;
+  width: 95px;
+  opacity: 0.9;
 }
 .logo {
   z-index: 1;
@@ -193,34 +194,58 @@ header {
   margin: 0 auto;
 }
 .selected {
+  cursor: pointer;
   width: 100%;
-  height: 200px;
+  height: auto;
   margin: 0 12%;
   text-align: center;
   font-size: 25px;
   color: white;
   padding-top: 1%;
   border: 1px solid var(--light-grey);
-  border-radius: 5px;
+  border-radius: 3px;
+  background-color: rgba(255, 255, 255, 0.073);
 }
 .selected:hover {
-    transition: 0.2s;
-    background-color: #0b1b2f;
+  transition: 0.2s;
+  background-color: #e2e1e1e6;
+  color: var(--main-blue);
+  transform: scale(1.02);
+  box-shadow: var(--button-shadow);
+}
+.selected h2 {
+  font-size: 52px;
+  margin-top: 10%;
 }
 footer {
   position: absolute;
   display: flex;
-  justify-content: space-around;
   bottom: 0;
   border: none;
   width: 100%;
   height: 150px;
   color: var(--light-grey);
-}
-footer img {
-  width: auto;
-  height: 100px;
   opacity: 0.8;
+}
+.footer-img{
+  width: 33.3%;
+  height: auto;
+  padding-top: 1.5%;
+}
+.footer-img img {
+  padding-left: 50%;
+  height: 90px;
+}
+.footer-info {
+  padding-top: 1%;
+  text-align: center;
+  width: 33.3%;
+  line-height: 30px;
+}
+.footer-btn {
+  width: 33.3%;
+  padding-left: 10%;
+  padding-top: 1%;
 }
 footer button {
   font-size: 15px;
