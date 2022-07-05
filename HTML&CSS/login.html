@@ -121,11 +121,12 @@
         location.href = "check-admin-user.html";
       }
     });
-
+    
     // 로그인
     $(".login-button").on("click", function () {
       var userIdVal = $("#userId").val();
       var userPasswordVal = $("#userPassword").val();
+
 
       if (userIdVal == "" || userPasswordVal == "") {
         alert("빈칸을 입력 해 주세요");
