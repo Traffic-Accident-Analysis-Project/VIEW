@@ -191,6 +191,7 @@ header {
 }
 /* 카테고리별 메인 section */
 .statistical-page-main {
+  z-index: 1;
   position: absolute;
   top: -60%;
   width: 90%;
