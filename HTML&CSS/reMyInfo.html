@@ -67,43 +67,50 @@
         <div class="re-my-info-wrap">
           <h1>내 정보 수정</h1>
           <!-- 기존 정보가 적혀있어야 함-->
-          <label for="re-name">이름</label>
-          <input id="re-name" type="text" />
-          <label for="re-pw">비밀번호</label>
-          <input id="re-pw" type="password" />
-          <label for="re-re-pw">비밀번호 재확인</label>
-          <input id="re-re-pw" type="password" />
-          <label for="re-email-id">e-mail주소</label>
+          <label for="userName">이름</label>
+          <input id="userName" type="text" />
+          <label for="password">비밀번호</label>
+          <input id="password" type="password" />
+          <label for="rePassword">비밀번호 재확인</label>
+          <input id="rePassword" type="password" />
+          <label for="email-id">e-mail주소</label>
           <div class="row re-email-wrap">
-            <input id="re-email-id" type="text" />
-            <p>@</p>
-            <select name="" id="re-email-addr">
+            <input id="email-id" type="text" />
+            <input type="hidden" id="emailAddrHidden" />
+            <select
+              name="email-addr"
+              id="email-addr"
+              onchange="emailAddrVal(this.value)"
+            >
               <option value="">이메일주소</option>
               <option value="email-user-write">직접입력</option>
-              <option value="google">google.com</option>
-              <option value="gmail">gmail.com</option>
-              <option value="naver">naver.com</option>
-              <option value="hanmail">hanmail.net</option>
-              <option value="daum">daum.net</option>
-              <option value="nate">hanmail.com</option>
-              <option value="hotmail">hotmail.com</option>
+              <option value="@gmail">@gmail.com</option>
+              <option value="@google">@google.com</option>
+              <option value="@naver">@naver.com</option>
+              <option value="@hanmail">@hanmail.net</option>
+              <option value="@daum">@daum.net</option>
+              <option value="@hotmail">@hotmail.com</option>
             </select>
           </div>
-          <label for="re-addr">주소</label>
+          <input
+            id="email-user-write-box"
+            type="text"
+            style="display: none"
+            placeholder="ex) @email.com"
+          />
+          <label for="addr">주소</label>
           <div class="re-addr-wrap">
-            <input id="re-addr" type="text" />
-            <div class="re-detail-addr">
-              <input
-                id="re-user-detail-addr"
-                type="text"
-                placeholder="  상세주소"
-              />
+            <div class="addr-btn-wrap">
+              <input id="addr" type="text" onclick="getPostCode()" />
               <button type="button" onclick="getPostCode()">도로명 주소</button>
             </div>
+            <input id="user-detail-addr" type="text" placeholder="  상세주소" />
           </div>
           <div class="re-my-info-btn">
-            <button type="button">취소</button>
-            <button type="button">저장</button>
+            <button id="btn-cancle" type="button">취소</button>
+            <button id="btn-save" type="button" onclick="saveInfo()">
+              저장
+            </button>
           </div>
         </div>
         <footer>
@@ -143,6 +150,156 @@
       integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
       crossorigin="anonymous"
     ></script>
-    <script src="index.js"></script>
+    <script src="https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+    <script>
+      $("#btn-cancle").on("click", function () {
+        var result = confirm("내 정보수정을 취소하시겠습니까?");
+        if (result) {
+          location.href = "myPage.html";
+        }
+      });
+      // 내정보수정이 실행되자마자 input에 값 들어가는 ajax
+      $.ajax({
+        url: "http://localhost:8080/api/v1/re/my/info",
+        type: "GET",
+        dataType: "json",
+        success: function (response) {
+          console.log(response);
+          $("#email-user-write-box").css("display", "block");
+          $("input[id=userName]").attr("value", response.user_name);
+          $("input[id=email-id]").attr("value", response.user_email_id);
+          $("input[id=email-user-write-box]").attr(
+            "value",
+            response.user_email_addr
+          );
+          $("input[id=addr]").attr("value", response.user_addr);
+          $("input[id=user-detail-addr]").attr(
+            "value",
+            response.user_detail_addr
+          );
+        },
+      });
+      var emailAddrVal = function (value) {
+        $("#emailAddrHidden").val(value);
+        if ($("#emailAddrHidden").val() == "email-user-write") {
+          $("#email-user-write-box").css("display", "block");
+        }
+        if ($("#emailAddrHidden").val() != "email-user-write") {
+          $("#email-user-write-box").css("display", "none");
+        }
+      };
+
+      // 도로명주소
+      function getPostCode() {
+        // daum클래스는 위에 script cdn에서 불러옴
+        new daum.Postcode({
+          // oncomplete : 내가 주소를 입력했다면 실행 해
+          oncomplete: function (data) {
+            // 도로명 주소의 노출 규칙에 따라 주소를 조합한다.
+            // 내려오는 변수가 값이 없는 경우엔 공백('')값을 가지므로, 이를 참고하여 분기 한다.
+            var fullRoadAddr = data.roadAddress; // 도로명 주소 변수
+            var extraRoadAddr = ""; // 도로명 조합형 주소 변수
+
+            // 법정동명이 있을 경우 추가한다. (법정리는 제외)
+            // 법정동의 경우 마지막 문자가 "동/로/가"로 끝난다.
+            if (data.bname !== "" && /[동|로|가]$/g.test(data.bname)) {
+              extraRoadAddr += data.bname;
+            }
+            // 건물명이 있고, 공동주택일 경우 추가한다.
+            if (data.buildingName !== "" && data.apartment === "Y") {
+              extraRoadAddr +=
+                extraRoadAddr !== ""
+                  ? ", " + data.buildingName
+                  : data.buildingName;
+            }
+            // 도로명, 지번 조합형 주소가 있을 경우, 괄호까지 추가한 최종 문자열을 만든다.
+            if (extraRoadAddr !== "") {
+              extraRoadAddr = " (" + extraRoadAddr + ")";
+            }
+            // 도로명, 지번 주소의 유무에 따라 해당 조합형 주소를 추가한다.
+            if (fullRoadAddr !== "") {
+              fullRoadAddr += extraRoadAddr;
+            }
+            addr = $("#addr").val(data.zonecode + ", " + fullRoadAddr);
+            addr = addr[0].value;
+            //data.zoncode = 우편번호
+            // 만약 우편번호까지 나오게 하고 싶으면 밑에 zonecode포함된걸 하기
+          },
+        }).open();
+      }
+
+      function saveInfo() {
+        var name = $("#userName").val();
+        var password = $("#password").val();
+        var rePassword = $("#rePassword").val();
+        var emailId = $("#email-id").val();
+        var emailAddr = $("#emailAddrHidden").val();
+        var detailAddr = $("#user-detailAddr").val();
+        // 사용자가 직접메일주소를 입력했을 경우
+        var directlyEmailAddr = $("#email-user-write-box").val();
+        if (password !== rePassword) {
+          alert("입력한 비밀번호가 다릅니다");
+          $("#rePassword").focus();
+          return false;
+        }
+
+        // API서버에 전송할 json생성 (email 선택시)
+        var jsonData = {
+          userName: name,
+          userPassword: password,
+          userEmailId: emailId,
+          userEmailAddr: directlyEmailAddr,
+          userAddr: addr.value,
+          userDetailAddr: detailAddr,
+        };
+        if (emailAddr != "") {
+          // directlyEmailAddr = "";
+          jsonData = {
+            userName: name,
+            userPassword: password,
+            userEmailId: emailId,
+            userEmailAddr: emailAddr,
+            userAddr: addr.value,
+            userDetailAddr: detailAddr,
+          };
+        }
+
+        var regExpName = /^[가-힣]{2,4}$/;
+        if (!regExpName.test(name)) {
+          alert("이름은 한글로 2~4글자 이내입니다");
+          return false;
+        }
+
+        var regExpPw = /^(?=.*\d)(?=.*[a-zA-Z])[0-9a-zA-Z]{8,16}$/;
+        if (!regExpPw.test(password)) {
+          alert("비밀번호는 8 ~ 16자 영문, 숫자 조합입니다");
+          return false;
+        }
+        var result = confirm("회원정보를 수정하시겠습니까?");
+        if (result) {
+          $.ajax({
+            url: "http://localhost:8080/api/v1/re/my/info",
+            type: "PATCH",
+            contentType: "application/json",
+            dataType: "json",
+            data: JSON.stringify(jsonData),
+            success: function (response) {
+              if (response > 0) {
+                alert("회원정보수정이 완료 되었습니다.");
+                location.replace("myPage.html");
+              }
+            },
+            error: function (request, status, error) {
+              console.log("에러 내용은 : " + error);
+            },
+          });
+        }
+        if (!result) {
+          alert("회원정보수정이 취소 되었습니다");
+          emailAddr = "";
+          return false;
+        }
+      }
+    </script>
   </body>
 </html>

@@ -78,11 +78,38 @@
           }
           if (response) {
             alert("확인완료");
-            opener.location.href='../joinAdmin.html'; 
+            opener.location.href = "../joinAdmin.html";
             self.close();
           }
         },
       });
+    });
+    $("#adminPassword").keyup(function (key) {
+      if (key.keyCode == 13) {
+        var inputVal = $("#adminPassword").val();
+        var hiddenVal = $("#hiddenAdmin").val(inputVal);
+        hiddenVal = hiddenVal.val();
+        if (hiddenVal == "") {
+          alert("관리자코드를 입력해주세요");
+          return false;
+        }
+        $.ajax({
+          url: "http://localhost:8080/api/v1/admin/check/" + hiddenVal,
+          type: "GET",
+          dataType: "json",
+          success: function (response) {
+            if (!response) {
+              alert("관리자코드를 확인 해주세요");
+              return false;
+            }
+            if (response) {
+              alert("확인완료");
+              opener.location.href = "../joinAdmin.html";
+              self.close();
+            }
+          },
+        });
+      }
     });
   </script>
 </html>

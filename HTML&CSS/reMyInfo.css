@@ -255,18 +255,18 @@ footer button {
   width: 13%;
   margin-left: 5.8%;
 }
-#re-user-detail-addr {
+.addr-btn-wrap button{
+  width: 100px
+}
+#user-detail-addr {
   margin-top: 0.5%;
 }
 .re-my-info-wrap select {
   background-color: transparent;
   width: 10%;
 }
-.re-email-wrap p {
-  margin: 0 0.3%;
-}
-.re-detail-addr button {
-  width: 100px;
+#email-addr {
+  margin-left: 15px;
 }
 button {
   border: none;
@@ -300,4 +300,7 @@ input[type="password"] {
 select {
   border: 1px solid var(--middel-grey);
   height: 30px;
+}
+#email-user-write-box {
+  margin-top: 10px;
 }

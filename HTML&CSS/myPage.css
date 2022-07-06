@@ -258,9 +258,13 @@ footer button {
   font-size: 18px;
   margin-right: 60%;
 }
-
+.my-page-btn {
+  display: flex;
+  justify-content: right;
+  width: 40%;
+}
 .my-page-btn button {
-  margin: 2% 0px 0 33.5%;
+  margin: 5% 0 0 2%;
   background-color: transparent;
   color: var(--light-grey);
   font-weight: 800;
