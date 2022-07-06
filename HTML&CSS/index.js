@@ -17,7 +17,7 @@ $(".popup-close").on("click", function () {
 $(".service-write-cencel").on("click", function () {
   var result = confirm("글쓰기를 종료하시겠습니까?");
   if (result) {
-    location.href = "service_center.html";
+    location.href = "serviceCenter.html";
   }
 });
 // 고객센터문의 글쓰기 등록 눌렀을 때 -JS
@@ -81,7 +81,7 @@ $(".service-write-registration").on("click", function () {
       if (response > 0) {
         alert("저장이 완료되었습니다.");
         // 저장 후 고객센터 페이지로 이동
-        location.href = "/HTML&CSS/service_center.html";
+        location.href = "/HTML&CSS/serviceCenter.html";
       }
       console.log(response);
     },

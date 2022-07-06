@@ -74,7 +74,7 @@ $(".service-write-registration").on("click", function () {
         if(response>0){
           alert("저장이 완료되었습니다.");
           // 저장 후 고객센터 페이지로 이동
-          location.href = "/HTML&CSS/service_center.html";
+          location.href = "/HTML&CSS/serviceCenter.html";
         }
         console.log(response);
     }
@@ -148,7 +148,7 @@ getBoardList(1,10);
 $('.manager-login-button').on('click',function(){
     // 로그인 ajax넣기
     // 로그인 성공일 경우
-    // location.replace('manager/manager-main.html');
+    // location.replace('manager/managerMain.html');
     // 비밀번호가 달라서 실패일경우 
     // alert('비밀번호를 확인해주세요');
 })

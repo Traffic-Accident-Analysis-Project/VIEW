@@ -4,8 +4,8 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>T.A.S 서비스 소개</title>
-    <link rel="stylesheet" href="intro-service.css" />
+    <title>T.A.S 회원가입 유형</title>
+    <link rel="stylesheet" href="checkAdminUser.css" />
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
@@ -44,16 +44,16 @@
                 <div class="dropdown-content">
                   <a href="statisticalData/law.html">법규 위반</a>
                   <a href="statisticalData/alcohol.html">음주 정도</a>
-                  <a href="statisticalData/road_type.html">도로 종류</a>
-                  <a href="statisticalData/accident_type.html">사고 유형</a>
-                  <a href="statisticalData/city_type.html">시도 별</a>
+                  <a href="statisticalData/roadType.html">도로 종류</a>
+                  <a href="statisticalData/accidentType.html">사고 유형</a>
+                  <a href="statisticalData/cityType.html">시도 별</a>
                 </div>
               </div>
               <div class="category-link service-link">
-                <a href="intro-service.html">서비스 소개</a>
+                <a href="introService.html">서비스 소개</a>
               </div>
               <div class="category-link client-link">
-                <a href="service_center.html">고객 센터</a>
+                <a href="serviceCenter.html">고객 센터</a>
               </div>
               <div class="category-link login-link">
                 <a href="login.html">로그인</a>
@@ -64,6 +64,22 @@
       </div>
       <!-- header end -->
       <div class="bottom-background-color">
+        <div class="row selected-wrap">
+          <div class="selected admin" id="admin">
+            <i
+              class="fa-solid fa-angles-left fa-5x"
+              style="margin-top: 20%"
+            ></i>
+            <h2>관리자 회원가입</h2>
+          </div>
+          <div class="selected user" id="user">
+            <i
+              class="fa-solid fa-angles-right fa-5x"
+              style="margin-top: 20%"
+            ></i>
+            <h2>일반 회원가입</h2>
+          </div>
+        </div>
         <footer>
           <div class="footer-img">
             <img src="img/T.A.S-logo.png" alt="" />
@@ -86,22 +102,24 @@
             <i class="fa-solid fa-angle-up"></i>
           </div>
         </footer>
-        </footer>
       </div>
     </div>
-    <script
-      type="module"
-      src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"
-    ></script>
-    <script
-      nomodule
-      src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"
-    ></script>
-    <script
-      src="https://code.jquery.com/jquery-3.6.0.min.js"
-      integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
-      crossorigin="anonymous"
-    ></script>
-    <script src="index.js"></script>
   </body>
+  <script
+    src="https://code.jquery.com/jquery-3.6.0.min.js"
+    integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+    crossorigin="anonymous"
+  ></script>
+  <script>
+    $("#user").on("click", function () {
+      location.href = "joinUser.html";
+    });
+    $("#admin").on("click", function () {
+      var popup = window.open(
+        "popup/checkAdminPopup.html",
+        "admin-check",
+        "width=550px, height=400px, left=100, top=50"
+      );
+    });
+  </script>
 </html>

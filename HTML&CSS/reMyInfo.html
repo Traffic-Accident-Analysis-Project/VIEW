@@ -4,8 +4,8 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>T.A.S 회원가입 유형</title>
-    <link rel="stylesheet" href="check-admin-user.css" />
+    <title>T.A.S 내 정보 수정</title>
+    <link rel="stylesheet" href="reMyInfo.css" />
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
@@ -44,16 +44,16 @@
                 <div class="dropdown-content">
                   <a href="statisticalData/law.html">법규 위반</a>
                   <a href="statisticalData/alcohol.html">음주 정도</a>
-                  <a href="statisticalData/road_type.html">도로 종류</a>
-                  <a href="statisticalData/accident_type.html">사고 유형</a>
-                  <a href="statisticalData/city_type.html">시도 별</a>
+                  <a href="statisticalData/roadType.html">도로 종류</a>
+                  <a href="statisticalData/accidentType.html">사고 유형</a>
+                  <a href="statisticalData/cityType.html">시도 별</a>
                 </div>
               </div>
               <div class="category-link service-link">
-                <a href="intro-service.html">서비스 소개</a>
+                <a href="introService.html">서비스 소개</a>
               </div>
               <div class="category-link client-link">
-                <a href="service_center.html">고객 센터</a>
+                <a href="serviceCenter.html">고객 센터</a>
               </div>
               <div class="category-link login-link">
                 <a href="login.html">로그인</a>
@@ -64,20 +64,46 @@
       </div>
       <!-- header end -->
       <div class="bottom-background-color">
-        <div class="row selected-wrap">
-          <div class="selected admin" id="admin">
-            <i
-              class="fa-solid fa-angles-left fa-5x"
-              style="margin-top: 20%"
-            ></i>
-            <h2>관리자 회원가입</h2>
+        <div class="re-my-info-wrap">
+          <h1>내 정보 수정</h1>
+          <!-- 기존 정보가 적혀있어야 함-->
+          <label for="re-name">이름</label>
+          <input id="re-name" type="text" />
+          <label for="re-pw">비밀번호</label>
+          <input id="re-pw" type="password" />
+          <label for="re-re-pw">비밀번호 재확인</label>
+          <input id="re-re-pw" type="password" />
+          <label for="re-email-id">e-mail주소</label>
+          <div class="row re-email-wrap">
+            <input id="re-email-id" type="text" />
+            <p>@</p>
+            <select name="" id="re-email-addr">
+              <option value="">이메일주소</option>
+              <option value="email-user-write">직접입력</option>
+              <option value="google">google.com</option>
+              <option value="gmail">gmail.com</option>
+              <option value="naver">naver.com</option>
+              <option value="hanmail">hanmail.net</option>
+              <option value="daum">daum.net</option>
+              <option value="nate">hanmail.com</option>
+              <option value="hotmail">hotmail.com</option>
+            </select>
           </div>
-          <div class="selected user" id="user">
-            <i
-              class="fa-solid fa-angles-right fa-5x"
-              style="margin-top: 20%"
-            ></i>
-            <h2>일반 회원가입</h2>
+          <label for="re-addr">주소</label>
+          <div class="re-addr-wrap">
+            <input id="re-addr" type="text" />
+            <div class="re-detail-addr">
+              <input
+                id="re-user-detail-addr"
+                type="text"
+                placeholder="  상세주소"
+              />
+              <button type="button" onclick="getPostCode()">도로명 주소</button>
+            </div>
+          </div>
+          <div class="re-my-info-btn">
+            <button type="button">취소</button>
+            <button type="button">저장</button>
           </div>
         </div>
         <footer>
@@ -104,22 +130,19 @@
         </footer>
       </div>
     </div>
+    <script
+      type="module"
+      src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"
+    ></script>
+    <script
+      nomodule
+      src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"
+    ></script>
+    <script
+      src="https://code.jquery.com/jquery-3.6.0.min.js"
+      integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+      crossorigin="anonymous"
+    ></script>
+    <script src="index.js"></script>
   </body>
-  <script
-    src="https://code.jquery.com/jquery-3.6.0.min.js"
-    integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
-    crossorigin="anonymous"
-  ></script>
-  <script>
-    $("#user").on("click", function () {
-      location.href = "join-user.html";
-    });
-    $("#admin").on("click", function () {
-      var popup = window.open(
-        "popup/check-admin-popup.html",
-        "admin-check",
-        "width=550px, height=400px, left=100, top=50"
-      );
-    });
-  </script>
 </html>
