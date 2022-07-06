@@ -52,7 +52,7 @@
         height: 40px;
       }
       .survey-popup {
-        top: 10%;
+        top: 5%;
         left: 10%;
         width: 800px;
         height: 850px;
@@ -60,6 +60,7 @@
         z-index: 5;
         cursor: move;
         border: 2px solid black;
+        border-radius: 5%;
       }
       .survey-popup button {
         position: absolute;
@@ -99,28 +100,28 @@
         <div class="personal-information-wraper">
           <div class="row gender">
             <h3>성별</h3>
-            <h5>남 <input type="checkbox" /></h5>
-            <h5>여 <input type="checkbox" /></h5>
+            <h5>남 <input id="gender1" type="checkbox" /></h5>
+            <h5>여 <input id="gender2" type="checkbox" /></h5>
           </div>
           <div class="row age">
             <h3>연령</h3>
-            <h5>만20세 이하<br /><input type="checkbox" /></h5>
-            <h5>만20세~만29세<br /><input type="checkbox" /></h5>
-            <h5>만30세~만39세<br /><input type="checkbox" /></h5>
-            <h5>만40세~만49세<br /><input type="checkbox" /></h5>
-            <h5>만50세~만59세<br /><input type="checkbox" /></h5>
-            <h5>만60세 이상<br /><input type="checkbox" /></h5>
+            <h5>만20세 이하<br /><input id="age1" type="checkbox" /></h5>
+            <h5>만20세~만29세<br /><input id="age2" type="checkbox" /></h5>
+            <h5>만30세~만39세<br /><input id="age3" type="checkbox" /></h5>
+            <h5>만40세~만49세<br /><input id="age4" type="checkbox" /></h5>
+            <h5>만50세~만59세<br /><input id="age5" type="checkbox" /></h5>
+            <h5>만60세 이상<br /><input id="age6" type="checkbox" /></h5>
           </div>
         </div>
         <div class="survey-wraper">
           <div class="question">
             <h3>1) 통계자료실의 자료는 만족스러우셨습니까?</h3>
             <div class="row stat answer">
-              <h5>&#10003매우 불만족<input type="checkbox" /></h5>
-              <h5>&#10003불만족<input type="checkbox" /></h5>
-              <h5>&#10003보통<input type="checkbox" /></h5>
-              <h5>&#10003만족<input type="checkbox" /></h5>
-              <h5>&#10003매우 만족<input type="checkbox" /></h5>
+              <h5>&#10003매우 불만족<input id="q1-1" type="checkbox" /></h5>
+              <h5>&#10003불만족<input id="q1-2" type="checkbox" /></h5>
+              <h5>&#10003보통<input id="q1-3" type="checkbox" /></h5>
+              <h5>&#10003만족<input id="q1-4" type="checkbox" /></h5>
+              <h5>&#10003매우 만족<input id="q1-5" type="checkbox" /></h5>
             </div>
           </div>
           <div class="question">
@@ -129,14 +130,15 @@
               (중복선택가능)
             </h3>
             <div class="row stat-1 answer">
-              <h5>&#10003막대그래프<br /><input type="checkbox" /></h5>
-              <h5>&#10003선형그래프<br /><input type="checkbox" /></h5>
-              <h5>&#10003파이차트<br /><input type="checkbox" /></h5>
-              <h5>&#10003사고건수확인<br /><input type="checkbox" /></h5>
-              <h5>&#10003유형선택기능<br /><input type="checkbox" /></h5>
-              <h5>&#10003년도별자료확인<br /><input type="checkbox" /></h5>
+              <h5>&#10003막대그래프<br /><input id="q1-1-1" type="checkbox" /></h5>
+              <h5>&#10003선형그래프<br /><input id="q1-1-2" type="checkbox" /></h5>
+              <h5>&#10003파이차트<br /><input id="q1-1-3" type="checkbox" /></h5>
+              <h5>&#10003사고건수확인<br /><input id="q1-1-4" type="checkbox" /></h5>
+              <h5>&#10003유형선택기능<br /><input id="q1-1-5" type="checkbox" /></h5>
+              <h5>&#10003년도별자료확인<br /><input id="q1-1-6" type="checkbox" /></h5>
               <h5>
                 &#10003기타<br /><input
+                  id="q1-1-7"
                   type="text"
                   placeholder="기타 도움이 된 사항을 입력"
                 />
@@ -146,11 +148,11 @@
           <div class="question">
             <h3>2) 고객센터의 문의기능 및 답변은 만족스러우셨습니까?</h3>
             <div class="row QnA answer">
-              <h5>&#10003매우 불만족 <input type="checkbox" /></h5>
-              <h5>&#10003불만족 <input type="checkbox" /></h5>
-              <h5>&#10003보통 <input type="checkbox" /></h5>
-              <h5>&#10003만족 <input type="checkbox" /></h5>
-              <h5>&#10003매우 만족 <input type="checkbox" /></h5>
+              <h5>&#10003매우 불만족 <input id="q2-1" type="checkbox" /></h5>
+              <h5>&#10003불만족 <input id="q2-2" type="checkbox" /></h5>
+              <h5>&#10003보통 <input id="q2-3" type="checkbox" /></h5>
+              <h5>&#10003만족 <input id="q2-4" type="checkbox" /></h5>
+              <h5>&#10003매우 만족 <input id="q2-5" type="checkbox" /></h5>
             </div>
           </div>
           <div class="question">
@@ -158,7 +160,7 @@
             <input id="suggestions" type="text" placeholder="" />
           </div>
         </div>
-        <button type="button">제출하기</button>
+        <button id="submit" type="button">제출하기</button>
         <h2>감사합니다.</h2>
       </div>
     </div>
@@ -168,4 +170,197 @@
   $(function () {
     $(".survey-popup").draggable();
   });
+  var surveyGender = "";
+  var surveyOld = "";
+  var surveyQ1 = "";
+  var surveyQ2 = "";
+  var surveyQ3 = "";
+  $('#gender1').mousedown(function(){
+    $('#gender2').prop('checked',false);
+    surveyGender = "남";
+  })
+  $('#gender2').mousedown(function(){
+    $('#gender1').prop('checked',false);
+    surveyGender = "여";
+  })
+  $('#age1').mousedown(function(){
+    $('#age2').prop('checked',false);
+    $('#age3').prop('checked',false);
+    $('#age4').prop('checked',false);
+    $('#age5').prop('checked',false);
+    $('#age6').prop('checked',false);
+    surveyOld = "만20세 이하";
+  })
+  $('#age2').mousedown(function(){
+    $('#age1').prop('checked',false);
+    $('#age3').prop('checked',false);
+    $('#age4').prop('checked',false);
+    $('#age5').prop('checked',false);
+    $('#age6').prop('checked',false);
+    surveyOld = "만20세~만29세";
+  })
+  $('#age3').mousedown(function(){
+    $('#age1').prop('checked',false);
+    $('#age2').prop('checked',false);
+    $('#age4').prop('checked',false);
+    $('#age5').prop('checked',false);
+    $('#age6').prop('checked',false);
+    surveyOld = "만30세~만39세";
+  })
+  $('#age4').mousedown(function(){
+    $('#age1').prop('checked',false);
+    $('#age2').prop('checked',false);
+    $('#age3').prop('checked',false);
+    $('#age5').prop('checked',false);
+    $('#age6').prop('checked',false);
+    surveyOld = "만40세~만49세";
+  })
+  $('#age5').mousedown(function(){
+    $('#age1').prop('checked',false);
+    $('#age2').prop('checked',false);
+    $('#age3').prop('checked',false);
+    $('#age4').prop('checked',false);
+    $('#age6').prop('checked',false);
+    surveyOld = "만50세~만59세";
+  })
+  $('#age6').mousedown(function(){
+    $('#age1').prop('checked',false);
+    $('#age2').prop('checked',false);
+    $('#age3').prop('checked',false);
+    $('#age4').prop('checked',false);
+    $('#age5').prop('checked',false);
+    surveyOld = "만60세 이상";
+  })
+  $('#q1-1').mousedown(function(){
+    $('#q1-2').prop('checked',false);
+    $('#q1-3').prop('checked',false);
+    $('#q1-4').prop('checked',false);
+    $('#q1-5').prop('checked',false);
+    surveyQ1 = "매우 불만족";
+  })
+  $('#q1-2').mousedown(function(){
+    $('#q1-1').prop('checked',false);
+    $('#q1-3').prop('checked',false);
+    $('#q1-4').prop('checked',false);
+    $('#q1-5').prop('checked',false);
+    surveyQ1 = "불만족";
+  })
+  $('#q1-3').mousedown(function(){
+    $('#q1-1').prop('checked',false);
+    $('#q1-2').prop('checked',false);
+    $('#q1-4').prop('checked',false);
+    $('#q1-5').prop('checked',false);
+    surveyQ1 = "보통";
+  })
+  $('#q1-4').mousedown(function(){
+    $('#q1-1').prop('checked',false);
+    $('#q1-2').prop('checked',false);
+    $('#q1-3').prop('checked',false);
+    $('#q1-5').prop('checked',false);
+    surveyQ1 = "만족";
+  })
+  $('#q1-5').mousedown(function(){
+    $('#q1-1').prop('checked',false);
+    $('#q1-2').prop('checked',false);
+    $('#q1-3').prop('checked',false);
+    $('#q1-4').prop('checked',false);
+    surveyQ1 = "매우 만족";
+  })
+  $('#q2-1').mousedown(function(){
+    $('#q2-2').prop('checked',false);
+    $('#q2-3').prop('checked',false);
+    $('#q2-4').prop('checked',false);
+    $('#q2-5').prop('checked',false);
+    surveyQ2 = "매우 불만족";
+  })
+  $('#q2-2').mousedown(function(){
+    $('#q2-1').prop('checked',false);
+    $('#q2-3').prop('checked',false);
+    $('#q2-4').prop('checked',false);
+    $('#q2-5').prop('checked',false);
+    surveyQ2 = "불만족";
+  })
+  $('#q2-3').mousedown(function(){
+    $('#q2-1').prop('checked',false);
+    $('#q2-2').prop('checked',false);
+    $('#q2-4').prop('checked',false);
+    $('#q2-5').prop('checked',false);
+    surveyQ2 = "보통";
+  })
+  $('#q2-4').mousedown(function(){
+    $('#q2-1').prop('checked',false);
+    $('#q2-2').prop('checked',false);
+    $('#q2-3').prop('checked',false);
+    $('#q2-5').prop('checked',false);
+    surveyQ2 = "만족";
+  })
+  $('#q2-5').mousedown(function(){
+    $('#q2-1').prop('checked',false);
+    $('#q2-2').prop('checked',false);
+    $('#q2-3').prop('checked',false);
+    $('#q2-4').prop('checked',false);
+    surveyQ2 = "매우 만족";
+  })
+  
+  $('#submit').click(function(){
+    if($('.gender input:checkbox:checked').length==0){
+      alert("성별을 선택해주세요.");
+      return false;
+    }
+    if($('.age input:checkbox:checked').length==0){
+      alert("연령을 선택해주세요.")
+      return false;
+    }
+    if($('.stat input:checkbox:checked').length==0){
+      alert("통계자료실 만족도를 선택해주세요.");
+      return false;
+    }
+    if($('.QnA input:checkbox:checked').length==0){
+      alert("고객센터의 문의기능 만족도를 선택해주세요.");
+      return false;
+    }
+
+    var surveyQ11 = "";
+    if($('#q1-1-1').is(":checked")){
+      surveyQ11 += "/막대그래프"
+    }
+    if($('#q1-1-2').is(":checked")){
+      surveyQ11 += "/선형그래프"
+    }
+    if($('#q1-1-3').is(":checked")){
+      surveyQ11 += "/파이차트"
+    }
+    if($('#q1-1-4').is(":checked")){
+      surveyQ11 += "/사고건수확인"
+    }
+    if($('#q1-1-5').is(":checked")){
+      surveyQ11 += "/유형선택기능"
+    }
+    if($('#q1-1-6').is(":checked")){
+      surveyQ11 += "/년도별자료확인"
+    }
+    surveyQ11 += "/"+$('#q1-1-7').val();
+    surveyQ3 = $('#suggestions').val();
+    var jsonData = {
+      "surveyGender" : surveyGender,
+      "surveyOld" : surveyOld,
+      "surveyQ1" : surveyQ1,
+      "surveyQ11" : surveyQ11,
+      "surveyQ2" : surveyQ2,
+      "surveyQ3" : surveyQ3
+    }
+    $.ajax({
+      url: "http://localhost:8080/api/v1/survey",
+      type: "POST",
+      contentType: "application/json", // 서버에 json type으로 보낼 예정(요청)
+      dataType: "json", // 서버 결과를 json으로 응답 받겠다.
+      data: JSON.stringify(jsonData),
+      success: function (response){
+        if(response>0){
+          alert("설문조사에 참여해주셔서 감사합니다.")
+          window.close();
+        }
+      }
+    })
+  })
 </script>
