@@ -64,6 +64,49 @@
       </div>
       <!-- header end -->
       <div class="bottom-background-color">
+        <div class="row intro-service-main-wrap">
+          <div class="intro-text-wrap">
+            <div class="intro-title">
+              <p>Introduce for</p>
+              <h1>T.A.S</h1>
+            </div>
+            <div class="intro-main-text">
+              <p>현재 대한민국에서는 하루에도 수 백 건씩 교통사고 기사들이 쏟아집니다.</p>
+              <p>지난 2019년에는 대한민국을 떠들석하게 만든 (故)김민식 어린이사고가 있었습니다.</p>
+              <p>어린이보호구역에서 일어난 이 사고는 김민식군이 동생의 손을 잡고</p>
+              <p>횡단보도를 건너던 중 속도를 줄이지 않고 오는 SUV차량에 치여 숨지는 사고였습니다.</p>
+              <p>김민식군의 부모님은 다시는 이런일이 일어나지 않도록 청와대 국민청원 게시판에 글을 올렸고</p>
+              <p>그 후 일명 '민식이 법'이라는 어린이보호구역에 대한 법도 새로 제정되었습니다.</p>
+              <br>
+              <br>
+              <p>이처럼 세상에 큰 영향을 주는 교통사고도 있지만,</p>
+              <p>대부분은 TV나 신문에 보도되지 못합니다.</p>
+              <p>이에 저희 T.A.S는 한 눈에 볼 수 있는 시각화 자료와</p>
+              <p>사용자가 원하는 데이터를 볼 수 있는 서비스를 제공,</p>
+              <p>갈수록 늘어나는 교통사고에대한 경각심을 주기위해 만들어졌습니다.</p>
+            </div>
+          </div>
+          <div class="row intro-right-wrap">
+            <div class="img-wrap">
+              <img src="img/intro_car.jpg" alt="">
+            </div>
+            <div class="right-text-wrap">
+              <div class="right-text-item">
+                <h1>제공 서비스</h1>
+                <p>사용자가 선택한 데이터의</p>
+                <p><span>막대 그래프</span></p>
+                <p><span>원형 그래프</span>제공</p>
+                <br>
+                <p>카테고리별</p>
+                <p><span>엑셀파일</span>제공</p>
+                <br>
+                <br>
+                <i class="fa-solid fa-car fa-7x"></i>
+              </div>
+            </div>
+          </div>
+        </div> 
+        <!-- mainsection end -->
         <footer>
           <div class="footer-img">
             <img src="img/T.A.S-logo.png" alt="" />
@@ -86,7 +129,6 @@
             <i class="fa-solid fa-angle-up"></i>
           </div>
         </footer>
-        </footer>
       </div>
     </div>
     <script
@@ -102,6 +144,27 @@
       integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
       crossorigin="anonymous"
     ></script>
+    <script src="https://unpkg.com/swiper@8/swiper-bundle.min.js"></script>
+    <script>
+      const swiper = new Swiper(".swiper", {
+        // Optional parameters
+        autoplay: {
+          delay: 3000,
+        },
+        loop: true,
+
+        // If we need pagination
+        pagination: {
+          el: ".swiper-pagination",
+        },
+
+        // Navigation arrows
+        navigation: {
+          nextEl: ".swiper-button-next",
+          prevEl: ".swiper-button-prev",
+        },
+      });
+    </script>
     <script src="index.js"></script>
   </body>
 </html>

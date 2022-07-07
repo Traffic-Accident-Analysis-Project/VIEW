@@ -1,7 +1,6 @@
 :root {
   --button-shadow: 1px 1px 3px 1px #dadce0;
   --box-inset: 1px 1px 3px 1px #dadce0 inset;
-  /* --main-blue: #2e7ec8; */
   --main-blue: #0b1b2f;
   --light-grey: #eaeaea;
   --middel-grey: #6f6669;
@@ -192,21 +191,20 @@ header::before {
   text-align: center;
 }
 .main-service-intro-wrap h1 {
-  font-size: 50px;
+  font-size: 40px;
   width: 100%;
-}
-.main-service-intro {
-  color: var(--light-grey);
-  z-index: 1;
-  padding-top: 2%;
-  width: 100%;
-  font-size: 15px;
+  margin-bottom: 20px;
 }
 .main-emoji-wrap {
   margin-top: 5%;
   justify-content: space-around;
   width: 100%;
   height: auto;
+}
+.main-emoji-wrap h3 {
+  text-align: center;
+  font-size: 31px;
+  margin: 27px 0;
 }
 .main-emoji-item {
   text-align: center;
@@ -217,14 +215,10 @@ header::before {
   height: auto;
   margin: 5% auto 10%;
 }
-.emoji-text-wrap h3 {
-  font-size: 28px;
-  margin: 20px 0 10px;
-}
 .emoji-text-wrap p {
   font-size: 15px;
+  line-height: 25px;
 }
-
 .swiper {
   margin-top: 10%;
   width: 80%;

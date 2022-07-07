@@ -229,3 +229,74 @@ footer button {
   height: 30px;
 }
 
+.intro-service-main-wrap {
+  position: absolute;
+  top: -50%;
+  width: 100%;
+  height: 900px;
+}
+.intro-text-wrap {
+  color: white;
+  width: 100%;
+}
+.intro-right-wrap {
+  width: 100%;
+}
+.img-wrap {
+  padding: 10% 2%;
+  width: 50%;
+  margin: 10% 20px 10% 0;
+}
+.img-wrap img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  opacity: 0.8;
+}
+.right-text-wrap {
+  color: white;
+  width: 50%;
+  border: 2px solid var(--light-grey);
+  margin: 20% 20px 20% 0;
+  padding: 8% 5%;
+}
+.intro-title {
+  font-style: italic;
+  margin: 6% 10%;
+}
+.intro-title h1 {
+  font-size: 70px;
+  border-bottom: 10px solid white;
+  padding-bottom: 10px;
+  width: 190px;
+}
+.intro-main-text {
+  margin: 6% 10%;
+}
+.intro-main-text p {
+  line-height: 25px;
+}
+.right-text-item {
+  width: 100%;
+  text-align: center;
+}
+.right-text-item h1 {
+  margin: 0 auto 20px;
+  font-size: 40px;
+  width: 230px;
+  border-bottom: 3px solid white;
+  padding-bottom: 5px;
+}
+.right-text-item p {
+  line-height: 25px;
+}
+.right-text-item span {
+  font-weight: 800;
+}
+.right-text-item h2 {
+  margin: 30px auto 20px;
+  font-size: 30px;
+  width: 260px;
+  border-bottom: 3px solid white;
+  padding-bottom: 5px;
+}
