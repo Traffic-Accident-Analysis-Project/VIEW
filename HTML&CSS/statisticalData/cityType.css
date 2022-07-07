@@ -94,12 +94,21 @@
   padding: 5px;
   cursor: pointer;
 }
-.circle-graph button {
-  width: 50%;
-  margin-top: 8%;
-  margin-left: 20%;
+.circle-graph a {
+  text-align: center;
+  border: none;
+  background-color: transparent;
+  color: var(--dark-grey);
+  border-radius: 5px;
+  border: 1px solid var(--light-grey);
+  box-shadow: var(--button-shadow);
+  font-size: 13px;
+  padding: 10px 15px;
+  cursor: pointer;
+  text-decoration: none;
+  margin : 5%;
 }
-.city-main-right-section button:hover {
+.city-main-right-section a:hover {
   transition: 0.1s;
   background-color: var(--main-blue);
   color: var(--light-grey);

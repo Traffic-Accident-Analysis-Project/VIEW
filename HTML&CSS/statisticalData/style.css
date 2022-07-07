@@ -297,10 +297,21 @@ header {
   width: 80px;
 }
 .excel-down-button {
-  margin-left: 78%;
+  display: flex;
+  justify-content: right;
 }
-.excel-down-button button {
-  width: 100%;
+.excel-down-button a {
+  border: none;
+  background-color: transparent;
+  color: var(--dark-grey);
+  border-radius: 5px;
+  border: 1px solid var(--light-grey);
+  box-shadow: var(--button-shadow);
+  font-size: 13px;
+  padding: 10px 15px;
+  cursor: pointer;
+  text-decoration: none;
+  margin-left: 85%;
 }
 .statistical-page-right-section button:hover {
   transition: 0.1s;
