@@ -82,7 +82,7 @@
           <hr style="width: 32%; margin-top: 0.5%; margin-left: 8%" />
           <div class="my-page-btn">
             <button id="re-my-info-btn" type="button">내 정보 수정</button>
-            <button id="secession-btn" type="button">회원 탈퇴</button>
+            <button id="logout-btn" type="button">로그 아웃</button>
           </div>
           <div class="my-write">
             <div class="my-write-board-header">
@@ -183,16 +183,24 @@
         location.href = "reMyInfo.html";
       });
 
-      $("#secession-btn").on("click",function(){
-        var result = confirm("탈퇴하시겠습니까?")
-        if(result) {
-          var popup = window.open(
-        "popup/secessionPopup.html",
-        "password-check",
-        "width=470px, height=200px, left=100, top=50"
-      );
+      // 로그아웃으로 수정
+      $("#logout-btn").on("click", function () {
+        var isLogout = confirm("로그아웃 하시겠습니까?");
+        if (isLogout) {
+          $.ajax({
+            url: "http://localhost:8080/api/v1/logout",
+            type: "GET",
+            success: function (response) {
+              console.log(response);
+              console.log("logout");
+            },
+            error: function (request, status, error) {
+              console.log("에러 내용은 : " + error);
+            },
+          });
         }
-      })
+        
+      });
     </script>
   </body>
 </html>

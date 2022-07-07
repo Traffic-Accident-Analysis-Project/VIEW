@@ -106,6 +106,8 @@
             </div>
             <input id="user-detail-addr" type="text" placeholder="  상세주소" />
           </div>
+          <!-- 회원탈퇴 추가 -->
+          <button id="secession-btn" type="button">회원탈퇴</button>
           <div class="re-my-info-btn">
             <button id="btn-cancle" type="button">취소</button>
             <button id="btn-save" type="button" onclick="saveInfo()">
@@ -300,6 +302,18 @@
           return false;
         }
       }
+
+      // 회원탈퇴 버튼 js 추가
+      $('#secession-btn').click(function(){
+        var result = confirm("탈퇴하시겠습니까?");
+        if (result) {
+          var popup = window.open(
+            "popup/secessionPopup.html",
+            "password-check",
+            "width=470px, height=200px, left=100, top=50"
+          );
+        }
+      })
     </script>
   </body>
 </html>
