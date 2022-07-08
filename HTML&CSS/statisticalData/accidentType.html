@@ -342,6 +342,11 @@
         type: "GET",
         dataType: "json",
         success: function (response){
+          if(response){
+            return false;
+          }
+
+
           var dataAccidents = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
           var dataDeath = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
           var dataInjured = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
