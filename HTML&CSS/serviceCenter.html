@@ -19,7 +19,7 @@
       <!-- popup for delete -->
       <div class="main-pw-confirm-popup delete">
         <div class="pw-confirm-top">
-          <button class="popup-close" type="button"></button>
+          <button class="popup-close-pw-del" type="button"></button>
         </div>
         <p>비밀번호를 입력 해 주세요</p>
         <div class="pw-confirm-wrap">
@@ -30,7 +30,7 @@
       <!-- popup for update -->
       <div class="main-pw-confirm-popup update">
         <div class="pw-confirm-top">
-          <button class="popup-close" type="button"></button>
+          <button class="popup-close-pw-upd" type="button"></button>
         </div>
         <p>비밀번호를 입력 해 주세요</p>
         <div class="pw-confirm-wrap">
@@ -91,7 +91,7 @@
               "
             />
           </div>
-          <div class="row-col input-wrap">
+          <div name="input-form" class="row-col input-wrap">
             <input id="number" type="text" value="01" readonly />
             <input id="writer" type="text" value="작성자" readonly />
             <input id="categry" type="text" value="카테고리" readonly />
@@ -176,7 +176,11 @@
             <h2>고객 센터</h2>
             <div class="row search-wrap">
               <label for="writer_search">작성자 </label>
-              <input name="wirter_search" type="text" placeholder="작성자를 입력해주세요">
+              <input
+                name="wirter_search"
+                type="text"
+                placeholder="작성자를 입력해주세요"
+              />
               <button type="button">검색</button>
             </div>
             <a href="seviceWrite.html" class="service-write-btn">글 작성</a>

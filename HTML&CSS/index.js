@@ -7,6 +7,14 @@ $(".pw-or-not-n").on("click", function () {
   $(".password-wrap").css("display", "none");
 });
 
+$(".popup-close-pw-del").on("click", function () {
+  $(".delete").css("display", "none");
+});
+
+$(".popup-close-pw-upd").on("click", function () {
+  $(".update").css("display", "none");
+});
+
 // 상세보기 닫기버튼
 $(".popup-close").on("click", function () {
   $(".main-popup").css("display", "none");
