@@ -9,6 +9,8 @@
 - CSS
 - JS
 - JAVA
+- JSP
+- chart.js
 
 ## Installation
 <!--
