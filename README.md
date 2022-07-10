@@ -52,10 +52,10 @@ providedRuntime 'org.springframework.boot:spring-boot-starter-tomcat'
 
 ## 개선사항
 <!-- 내가 나의 서비스에대해 좀 더 고민한 흔적 보여주기 -->
+- 엑셀다운시 사용자가 선택한 데이터로 다운
+- 실시간 데이터 사용
+- 관리자페이지 부실
 ---
-
-
-
 
 ### 분석 방법
 1. 그래프(Histogram, Plot, Pie Chart, Radar Chart, Polar Area)
@@ -68,8 +68,8 @@ providedRuntime 'org.springframework.boot:spring-boot-starter-tomcat'
     - 검정을 이용한 방법(음주가 교통사고에 영향을 미치는가? / 시간, 요일 등이 교통사고에 영향을 주는가?)
 
 
-- 참고 : https://kosis.kr/search/search.do
-
+- 데이터 출처 : https://kosis.kr/search/search.do
+- 참고 : https://www.chartjs.org/
 <!--
 Description
 
