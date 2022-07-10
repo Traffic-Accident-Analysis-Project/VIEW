@@ -1,0 +1,102 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+body {
+  background-image: url(img/first_img/brick_wall.png);
+  background-position: center;
+  background-size: cover;
+}
+.container {
+  position: relative;
+  height: 100vh;
+  width: 100%;
+}
+
+.js_img {
+  position: absolute;
+  width: 50%;
+  height: 100vh;
+  left: 0;
+  bottom: 0;
+}
+.js_git_addr {
+  display: none;
+  z-index: 1;
+  position: absolute;
+  cursor: pointer;
+  text-align: center;
+  width: 300px;
+  height: auto;
+  left: 20%;
+  bottom: 40%;
+}
+.js_img a {
+  z-index: 1;
+  text-decoration: none;
+}
+.js_img img {
+  position: absolute;
+  width: 130%;
+  bottom: 0;
+  left: 0;
+  background-size: cover;
+  background-position: center;
+}
+.js_neon {
+  display: none;
+}
+
+.stopu_img {
+  position: absolute;
+  width: 50%;
+  height: 100vh;
+  right: 0;
+  top: 0;
+}
+.stopu_git_addr {
+  display: none;
+  z-index: 1;
+  position: absolute;
+  cursor: pointer;
+  text-align: center;
+  width: 300px;
+  height: auto;
+  top: 5%;
+  right: 55%;
+}
+.stopu_img a {
+  z-index: 1;
+  text-decoration: none;
+}
+.stopu_img img {
+  position: absolute;
+  width: 130%;
+  background-size: cover;
+  background-position: center;
+  right: 0;
+  top: 0;
+}
+.stopu_neon {
+  display: none;
+}
+
+.tas_img {
+  z-index: 1;
+  position: absolute;
+  width: 20%;
+  height: 20%;
+  left: 40%;
+  top: 40%;
+}
+.tas_img img {
+  position: absolute;
+  width: 100%;
+  background-size: cover;
+  background-position: center;
+}
+.tas_neon {
+  display: none;
+  transition: 0.2s;
+}
