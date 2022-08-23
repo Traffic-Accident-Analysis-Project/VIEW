@@ -31,7 +31,7 @@
     - Windows(Local 개발)
     - Linux Ubuntu(운영)
 
-2. 사용 언어
+2. 사용 언어  
     - Java, HTML, CSS, Javascript(JQuery, D3.JS)
 3. 프레임워크
     - SpringBoot
